@@ -1,0 +1,59 @@
+<div class="grid-container">
+  <h1 class="mat-h1">주문의 흔적</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            정보 입력
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <form [formGroup]="formGroup" class="upgrade-form">
+            <mat-form-field>
+              <input formControlName="upgradeLimit" matInput placeholder="업그레이드 횟수 (황망 제외)">
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="upgradePercentage" matInput placeholder="주문의 흔적 확률 (0~1)">
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="innocentPercentage" matInput placeholder="이노센트 주문서 확률 (0~1)">
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="whitePercentage" matInput placeholder="순백의 주문서 확률 (0~1)">
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="innocentLimit" matInput placeholder="이노센트 한도 (입력한 숫자 이상 성공시 스톱)">
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            이노센트 주문서
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="innocentMean">평균: {{ innocentMean | number }}</div>
+          <div class="chart" echarts [options]="innocentChart"></div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            순백의 주문서
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <span *ngIf="whiteMean">평균: {{ whiteMean | number }}</span>
+          <div class="chart" echarts [options]="whiteChart"></div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
