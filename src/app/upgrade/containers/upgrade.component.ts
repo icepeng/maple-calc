@@ -19,9 +19,7 @@ export class UpgradeComponent implements OnInit {
 
   innocentMean: number;
   innocentChart = {
-    color: [
-        '#FF4081',
-    ],
+    color: ['#FF4081'],
     grid: {
       left: 50,
       top: 10,
@@ -39,9 +37,7 @@ export class UpgradeComponent implements OnInit {
 
   whiteMean: number;
   whiteChart = {
-    color: [
-        '#FF4081',
-    ],
+    color: ['#FF4081'],
     grid: {
       left: 50,
       top: 10,
@@ -59,27 +55,22 @@ export class UpgradeComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    this.formGroup.valueChanges
-      .pipe(startWith(this.formGroup.value))
-      .subscribe(value => {
-        if (this.formGroup.invalid) {
-          return;
-        }
-        const data = {
-          ...this.init({
-            upgradeLimit: +value.upgradeLimit,
-            upgradePercentage: +value.upgradePercentage,
-          }),
-          innocentPercentage: +value.innocentPercentage,
-          whitePercentage: +value.whitePercentage,
-          innocentLimit: +value.innocentLimit,
-        };
-        this.innocentMean = this.getInnocentMean(data);
-        this.whiteMean = this.getWhiteMean(data);
-        this.updateInnocentChart(data);
-        this.updateWhiteChart(data);
-      });
+  ngOnInit() {}
+
+  calculate() {
+    const data = {
+      ...this.init({
+        upgradeLimit: +this.formGroup.value.upgradeLimit,
+        upgradePercentage: +this.formGroup.value.upgradePercentage,
+      }),
+      innocentPercentage: +this.formGroup.value.innocentPercentage,
+      whitePercentage: +this.formGroup.value.whitePercentage,
+      innocentLimit: +this.formGroup.value.innocentLimit,
+    };
+    this.innocentMean = this.getInnocentMean(data);
+    this.whiteMean = this.getWhiteMean(data);
+    this.updateInnocentChart(data);
+    this.updateWhiteChart(data);
   }
 
   updateInnocentChart(data) {
@@ -92,9 +83,7 @@ export class UpgradeComponent implements OnInit {
       sum += series[i];
     }
     this.innocentChart = {
-      color: [
-          '#FF4081',
-      ],
+      color: ['#FF4081'],
       grid: {
         left: 50,
         top: 10,
@@ -121,9 +110,7 @@ export class UpgradeComponent implements OnInit {
       sum += series[i];
     }
     this.whiteChart = {
-      color: [
-          '#FF4081',
-      ],
+      color: ['#FF4081'],
       grid: {
         left: 50,
         top: 10,
