@@ -14,6 +14,7 @@ export class UpgradeComponent implements OnInit {
     upgradeLimit: new FormControl(8, Validators.required),
     innocentPercentage: new FormControl(0.45, Validators.required),
     whitePercentage: new FormControl(0.1, Validators.required),
+    hammerPercentage: new FormControl(0.5, Validators.required),
     innocentLimit: new FormControl(4, Validators.required),
   });
 
@@ -22,7 +23,7 @@ export class UpgradeComponent implements OnInit {
     color: ['#FF4081'],
     grid: {
       left: 50,
-      top: 10,
+      top: 20,
       right: 0,
       bottom: 60,
     },
@@ -31,7 +32,7 @@ export class UpgradeComponent implements OnInit {
       data: [],
     },
     yAxis: { type: 'value' },
-    series: [{ name: 'bar', type: 'bar', data: [] }],
+    series: [{ name: 'bar', type: 'bar', data: [], markLine: {} }],
     tooltip: {},
   };
 
@@ -40,7 +41,7 @@ export class UpgradeComponent implements OnInit {
     color: ['#FF4081'],
     grid: {
       left: 50,
-      top: 10,
+      top: 20,
       right: 0,
       bottom: 30,
     },
@@ -49,7 +50,7 @@ export class UpgradeComponent implements OnInit {
       data: [],
     },
     yAxis: { type: 'value' },
-    series: [{ name: 'bar', type: 'bar', data: [] }],
+    series: [{ name: 'bar', type: 'bar', data: [], markLine: {} }],
     tooltip: {},
   };
 
@@ -66,6 +67,7 @@ export class UpgradeComponent implements OnInit {
       innocentPercentage: +this.formGroup.value.innocentPercentage,
       whitePercentage: +this.formGroup.value.whitePercentage,
       innocentLimit: +this.formGroup.value.innocentLimit,
+      hammerPercentage: +this.formGroup.value.hammerPercentage,
     };
     this.innocentMean = this.getInnocentMean(data);
     this.whiteMean = this.getWhiteMean(data);
@@ -77,16 +79,24 @@ export class UpgradeComponent implements OnInit {
     let sum = 0;
     const xAxis = [];
     const series = [];
+    let innocent90 = 0;
+    let innocent95 = 0;
     for (let i = 0; sum < 0.999; i++) {
       xAxis[i] = i;
       series[i] = this.getInnocentProb(i, data);
       sum += series[i];
+      if (!innocent90 && sum >= 0.9) {
+        innocent90 = i;
+      }
+      if (!innocent95 && sum >= 0.95) {
+        innocent95 = i;
+      }
     }
     this.innocentChart = {
       color: ['#FF4081'],
       grid: {
         left: 50,
-        top: 10,
+        top: 20,
         right: 0,
         bottom: 60,
       },
@@ -95,7 +105,38 @@ export class UpgradeComponent implements OnInit {
         data: xAxis,
       },
       yAxis: { type: 'value' },
-      series: [{ name: 'bar', type: 'bar', data: series }],
+      series: [
+        {
+          name: 'Innocent',
+          type: 'bar',
+          data: series,
+          markLine: {
+            lineStyle: {
+              color: '#3f51b5',
+            },
+            data: [
+              {
+                label: {
+                  formatter: 'Avg',
+                },
+                xAxis: this.innocentMean,
+              },
+              {
+                label: {
+                  formatter: '90%',
+                },
+                xAxis: innocent90,
+              },
+              {
+                label: {
+                  formatter: '95%',
+                },
+                xAxis: innocent95,
+              },
+            ],
+          },
+        },
+      ],
       tooltip: {},
     };
   }
@@ -104,16 +145,24 @@ export class UpgradeComponent implements OnInit {
     let sum = 0;
     const xAxis = [];
     const series = [];
+    let white90 = 0;
+    let white95 = 0;
     for (let i = 0; sum < 0.999; i++) {
       xAxis[i] = i;
       series[i] = this.getWhiteProb(i, data);
       sum += series[i];
+      if (!white90 && sum >= 0.9) {
+        white90 = i;
+      }
+      if (!white95 && sum >= 0.95) {
+        white95 = i;
+      }
     }
     this.whiteChart = {
       color: ['#FF4081'],
       grid: {
         left: 50,
-        top: 10,
+        top: 20,
         right: 0,
         bottom: 60,
       },
@@ -122,7 +171,38 @@ export class UpgradeComponent implements OnInit {
         data: xAxis,
       },
       yAxis: { type: 'value' },
-      series: [{ name: 'bar', type: 'bar', data: series }],
+      series: [
+        {
+          name: 'White',
+          type: 'bar',
+          data: series,
+          markLine: {
+            lineStyle: {
+              color: '#3f51b5',
+            },
+            data: [
+              {
+                label: {
+                  formatter: 'Avg',
+                },
+                xAxis: this.whiteMean,
+              },
+              {
+                label: {
+                  formatter: '90%',
+                },
+                xAxis: white90,
+              },
+              {
+                label: {
+                  formatter: '95%',
+                },
+                xAxis: white95,
+              },
+            ],
+          },
+        },
+      ],
       tooltip: {},
     };
   }
@@ -176,11 +256,12 @@ export class UpgradeComponent implements OnInit {
       upgradeLimit,
       innocentLimit,
       whitePercentage,
+      hammerPercentage,
     },
   ) {
-    const p = upgradePercentage;
+    const p = upgradePercentage * hammerPercentage;
     const q = 1 - p;
-    const rate = p * whitePercentage;
+    const rate = upgradePercentage * whitePercentage;
     if (i === 0) {
       return (upgradeBinom[upgradeLimit] / upgradeBinomCum[innocentLimit]) * p;
     }
@@ -215,17 +296,16 @@ export class UpgradeComponent implements OnInit {
     upgradeLimit,
     innocentLimit,
     whitePercentage,
+    hammerPercentage,
   }) {
-    const p = upgradePercentage;
-    const q = 1 - p;
-    const rate = p * whitePercentage;
     let sum = 0;
-    for (let j = innocentLimit; j <= upgradeLimit; j++) {
-      const prob = upgradeBinom[j] / upgradeBinomCum[innocentLimit];
-      const k = upgradeLimit + 1 - j;
-      sum += (q * prob * k) / rate;
-      sum += (p * prob * (k - 1)) / rate;
+    for (let j = 1; j <= upgradeLimit - innocentLimit + 1; j++) {
+      sum +=
+        (upgradeBinom[upgradeLimit - j + 1] / upgradeBinomCum[innocentLimit]) *
+        j;
     }
+    sum /= upgradePercentage * whitePercentage;
+    sum -= hammerPercentage / whitePercentage;
     return sum;
   }
 }
