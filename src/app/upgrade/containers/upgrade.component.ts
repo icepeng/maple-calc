@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as math from 'mathjs';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
   selector: 'app-upgrade',
   templateUrl: './upgrade.component.html',
   styleUrls: ['./upgrade.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpgradeComponent implements OnInit {
   formGroup = new FormGroup({
