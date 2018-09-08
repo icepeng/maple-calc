@@ -79,12 +79,16 @@ export class UpgradeComponent implements OnInit {
     let sum = 0;
     const xAxis = [];
     const series = [];
+    let innocent50 = 0;
     let innocent90 = 0;
     let innocent95 = 0;
     for (let i = 0; sum < 0.999; i++) {
       xAxis[i] = i;
       series[i] = this.getInnocentProb(i, data);
       sum += series[i];
+      if (!innocent50 && sum >= 0.5) {
+        innocent50 = i;
+      }
       if (!innocent90 && sum >= 0.9) {
         innocent90 = i;
       }
@@ -123,6 +127,12 @@ export class UpgradeComponent implements OnInit {
               },
               {
                 label: {
+                  formatter: '50%',
+                },
+                xAxis: innocent50,
+              },
+              {
+                label: {
                   formatter: '90%',
                 },
                 xAxis: innocent90,
@@ -145,12 +155,16 @@ export class UpgradeComponent implements OnInit {
     let sum = 0;
     const xAxis = [];
     const series = [];
+    let white50 = 0;
     let white90 = 0;
     let white95 = 0;
     for (let i = 0; sum < 0.999; i++) {
       xAxis[i] = i;
       series[i] = this.getWhiteProb(i, data);
       sum += series[i];
+      if (!white50 && sum >= 0.5) {
+        white50 = i;
+      }
       if (!white90 && sum >= 0.9) {
         white90 = i;
       }
@@ -186,6 +200,12 @@ export class UpgradeComponent implements OnInit {
                   formatter: 'Avg',
                 },
                 xAxis: this.whiteMean,
+              },
+              {
+                label: {
+                  formatter: '50%',
+                },
+                xAxis: white50,
               },
               {
                 label: {
