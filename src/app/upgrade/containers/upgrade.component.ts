@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { startWith } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as math from 'mathjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-upgrade',
   templateUrl: './upgrade.component.html',
   styleUrls: ['./upgrade.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpgradeComponent implements OnInit {
   formGroup = new FormGroup({
@@ -54,7 +57,11 @@ export class UpgradeComponent implements OnInit {
     tooltip: {},
   };
 
-  constructor() {}
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(result => result.matches));
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {}
 
