@@ -1,7 +1,7 @@
 <div class="grid-container">
   <h1 class="mat-h1">주문의 흔적</h1>
   <mat-grid-list [cols]="(isHandset$ | async) ? 1 : 2" [rowHeight]="(isHandset$ | async) ? '480px' : '350px'">
-    <mat-grid-tile [colspan]="1" [rowspan]="(isHandset$ | async) ? 1 : 2">
+    <mat-grid-tile [colspan]="1" [rowspan]="3">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -28,7 +28,9 @@
             <mat-form-field>
               <input formControlName="innocentLimit" matInput placeholder="이노센트 한도 (입력한 숫자 이상 성공시 스톱)">
             </mat-form-field>
+            <mat-checkbox formControlName="isBeforeHammer">1작 모자랄시 황금 망치 사용</mat-checkbox>
           </form>
+          <br>
           <button (click)="calculate()" mat-raised-button color="primary">계산</button>
         </mat-card-content>
       </mat-card>
@@ -56,6 +58,19 @@
         <mat-card-content class="dashboard-card-content">
           <span *ngIf="whiteMean">평균: {{ whiteMean | number }}</span>
           <div class="chart" echarts [options]="whiteChart"></div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            황금 망치
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <span *ngIf="hammerMean">평균: {{ hammerMean | number }}</span>
+          <div class="chart" echarts [options]="hammerChart"></div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

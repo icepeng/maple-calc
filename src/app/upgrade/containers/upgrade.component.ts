@@ -19,6 +19,7 @@ export class UpgradeComponent implements OnInit {
     whitePercentage: new FormControl(0.1, Validators.required),
     hammerPercentage: new FormControl(0.5, Validators.required),
     innocentLimit: new FormControl(4, Validators.required),
+    isBeforeHammer: new FormControl(true, Validators.required),
   });
 
   innocentMean: number;
@@ -57,6 +58,24 @@ export class UpgradeComponent implements OnInit {
     tooltip: {},
   };
 
+  hammerMean: number;
+  hammerChart = {
+    color: ['#FF4081'],
+    grid: {
+      left: 50,
+      top: 20,
+      right: 0,
+      bottom: 30,
+    },
+    xAxis: {
+      type: 'category',
+      data: [],
+    },
+    yAxis: { type: 'value' },
+    series: [{ name: 'bar', type: 'bar', data: [] }],
+    tooltip: {},
+  };
+
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
@@ -75,11 +94,14 @@ export class UpgradeComponent implements OnInit {
       whitePercentage: +this.formGroup.value.whitePercentage,
       innocentLimit: +this.formGroup.value.innocentLimit,
       hammerPercentage: +this.formGroup.value.hammerPercentage,
+      isBeforeHammer: this.formGroup.value.isBeforeHammer,
     };
     this.innocentMean = this.getInnocentMean(data);
     this.whiteMean = this.getWhiteMean(data);
+    this.hammerMean = this.getHammerMean(data);
     this.updateInnocentChart(data);
     this.updateWhiteChart(data);
+    this.updateHammerChart(data);
   }
 
   updateInnocentChart(data) {
@@ -234,6 +256,39 @@ export class UpgradeComponent implements OnInit {
     };
   }
 
+  updateHammerChart(data) {
+    let sum = 0;
+    const xAxis = [];
+    const series = [];
+    for (let i = 1; sum < 0.999; i++) {
+      xAxis[i - 1] = i;
+      series[i - 1] = this.getHammerProb(i, data);
+      sum += series[i - 1];
+    }
+    this.hammerChart = {
+      color: ['#FF4081'],
+      grid: {
+        left: 50,
+        top: 20,
+        right: 0,
+        bottom: 60,
+      },
+      xAxis: {
+        type: 'category',
+        data: xAxis,
+      },
+      yAxis: { type: 'value' },
+      series: [
+        {
+          name: 'hammer',
+          type: 'bar',
+          data: series,
+        },
+      ],
+      tooltip: {},
+    };
+  }
+
   init({ upgradeLimit, upgradePercentage }) {
     const upgradeBinom = [];
     const upgradeBinomCum = [];
@@ -257,8 +312,23 @@ export class UpgradeComponent implements OnInit {
     };
   }
 
-  getInnocentProb(i, { upgradeBinomCum, innocentLimit, innocentPercentage }) {
-    const p = upgradeBinomCum[innocentLimit];
+  getInnocentProb(
+    i,
+    {
+      upgradeBinom,
+      upgradeBinomCum,
+      innocentLimit,
+      innocentPercentage,
+      upgradePercentage,
+      hammerPercentage,
+      isBeforeHammer,
+    },
+  ) {
+    const p =
+      upgradeBinomCum[innocentLimit] +
+      (isBeforeHammer
+        ? upgradeBinom[innocentLimit - 1] * hammerPercentage * upgradePercentage
+        : 0);
     if (i === 0) {
       return p;
     }
@@ -267,8 +337,20 @@ export class UpgradeComponent implements OnInit {
     return p * q * k * math.pow(1 - p * k, i - 1);
   }
 
-  getInnocentMean({ upgradeBinomCum, innocentLimit, innocentPercentage }) {
-    const p = upgradeBinomCum[innocentLimit];
+  getInnocentMean({
+    upgradeBinom,
+    upgradeBinomCum,
+    innocentLimit,
+    innocentPercentage,
+    upgradePercentage,
+    hammerPercentage,
+    isBeforeHammer,
+  }) {
+    const p =
+      upgradeBinomCum[innocentLimit] +
+      (isBeforeHammer
+        ? upgradeBinom[innocentLimit - 1] * hammerPercentage * upgradePercentage
+        : 0);
     const q = 1 - p;
     const k = innocentPercentage;
     return q / (p * k);
@@ -284,18 +366,22 @@ export class UpgradeComponent implements OnInit {
       innocentLimit,
       whitePercentage,
       hammerPercentage,
+      isBeforeHammer,
     },
   ) {
+    const total = isBeforeHammer
+      ? upgradeBinomCum[innocentLimit] +
+        upgradeBinom[innocentLimit - 1] * hammerPercentage * upgradePercentage
+      : upgradeBinomCum[innocentLimit];
     const p = upgradePercentage * hammerPercentage;
     const q = 1 - p;
     const rate = upgradePercentage * whitePercentage;
     if (i === 0) {
-      return (upgradeBinom[upgradeLimit] / upgradeBinomCum[innocentLimit]) * p;
+      return (upgradeBinom[upgradeLimit] / total) * p;
     }
     let sum = 0;
     for (let j = 1; j <= upgradeLimit - innocentLimit + 1; j++) {
-      const prob =
-        upgradeBinom[upgradeLimit - j + 1] / upgradeBinomCum[innocentLimit];
+      const prob = upgradeBinom[upgradeLimit - j + 1] / total;
       if (i >= j) {
         sum +=
           q *
@@ -313,6 +399,16 @@ export class UpgradeComponent implements OnInit {
           math.pow(1 - rate, i - j + 1);
       }
     }
+    if (i >= upgradeLimit - innocentLimit + 1 && isBeforeHammer) {
+      sum +=
+        ((upgradeBinom[innocentLimit - 1] *
+          hammerPercentage *
+          upgradePercentage) /
+          total) *
+        math.combinations(i - 1, upgradeLimit - innocentLimit) *
+        math.pow(rate, upgradeLimit - innocentLimit + 1) *
+        math.pow(1 - rate, i - upgradeLimit + innocentLimit - 1);
+    }
     return sum;
   }
 
@@ -324,7 +420,12 @@ export class UpgradeComponent implements OnInit {
     innocentLimit,
     whitePercentage,
     hammerPercentage,
+    isBeforeHammer,
   }) {
+    const hammerLeft = upgradeBinomCum[innocentLimit];
+    const hammerUsed =
+      upgradeBinom[innocentLimit - 1] * hammerPercentage * upgradePercentage;
+
     let sum = 0;
     for (let j = 1; j <= upgradeLimit - innocentLimit + 1; j++) {
       sum +=
@@ -333,6 +434,53 @@ export class UpgradeComponent implements OnInit {
     }
     sum /= upgradePercentage * whitePercentage;
     sum -= hammerPercentage / whitePercentage;
-    return sum;
+    return isBeforeHammer
+      ? (sum * hammerLeft +
+          (hammerUsed * (upgradeLimit - innocentLimit + 1)) /
+            (upgradePercentage * whitePercentage)) /
+          (hammerLeft + hammerUsed)
+      : sum;
+  }
+
+  getHammerProb(
+    i,
+    {
+      upgradeBinom,
+      upgradeBinomCum,
+      innocentLimit,
+      upgradePercentage,
+      hammerPercentage,
+      isBeforeHammer,
+    },
+  ) {
+    if (!isBeforeHammer) {
+      return i === 1 ? 1 : 0;
+    }
+    const p =
+      upgradeBinomCum[innocentLimit] +
+      (isBeforeHammer
+        ? upgradeBinom[innocentLimit - 1] * hammerPercentage * upgradePercentage
+        : 0);
+    return (
+      (p / upgradeBinomCum[innocentLimit - 1]) *
+      math.pow(1 - p / upgradeBinomCum[innocentLimit - 1], i - 1)
+    );
+  }
+
+  getHammerMean({
+    upgradeBinom,
+    upgradeBinomCum,
+    innocentLimit,
+    upgradePercentage,
+    hammerPercentage,
+    isBeforeHammer,
+  }) {
+    if (!isBeforeHammer) {
+      return 1;
+    }
+    const p =
+      upgradeBinomCum[innocentLimit] +
+      upgradeBinom[innocentLimit - 1] * hammerPercentage * upgradePercentage;
+    return upgradeBinomCum[innocentLimit - 1] / p;
   }
 }
