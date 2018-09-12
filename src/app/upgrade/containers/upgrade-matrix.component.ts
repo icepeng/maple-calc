@@ -66,7 +66,7 @@ export class UpgradeMatrixComponent implements OnInit {
     upgradePrice: new FormControl(337.5, Validators.required),
     innocentPrice: new FormControl(1250, Validators.required),
     whitePrice: new FormControl(500, Validators.required),
-    hammerPrice: new FormControl(600, Validators.required),
+    hammerPrice: new FormControl(300, Validators.required),
   });
 
   isHandset$: Observable<boolean> = this.breakpointObserver
