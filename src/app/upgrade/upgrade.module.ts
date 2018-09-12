@@ -5,6 +5,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { MaterialModule } from '../material/material.module';
 import { UpgradeComponent } from './containers/upgrade.component';
 import { UpgradeRoutingModule } from './upgrade-routing.module';
+import { UpgradeMatrixComponent } from './containers/upgrade-matrix.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { UpgradeRoutingModule } from './upgrade-routing.module';
     ReactiveFormsModule,
     NgxEchartsModule,
   ],
-  declarations: [UpgradeComponent],
+  declarations: [UpgradeComponent, UpgradeMatrixComponent],
 })
 export class UpgradeModule {}

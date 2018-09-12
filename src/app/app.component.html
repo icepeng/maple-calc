@@ -3,9 +3,14 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
+      <h3 mat-subheader>주문의 흔적</h3>
       <a mat-list-item routerLink="upgrade">
-        <mat-icon mat-list-icon>plus_one</mat-icon>
-        <span mat-line>주문의 흔적</span>
+        <mat-icon mat-list-icon>bar_chart</mat-icon>
+        <span mat-line>그래프</span>
+      </a>
+      <a mat-list-item routerLink="upgrade-matrix">
+        <mat-icon mat-list-icon>format_list_numbered</mat-icon>
+        <span mat-line>최적화</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
