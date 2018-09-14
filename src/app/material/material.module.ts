@@ -12,6 +12,9 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatCheckboxModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
 } from '@angular/material';
 
 @NgModule({
@@ -28,6 +31,9 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
   ],
   exports: [
     LayoutModule,
@@ -42,6 +48,9 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
   ],
   declarations: [],
 })
