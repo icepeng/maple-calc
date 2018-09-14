@@ -1,20 +1,66 @@
 <div class="grid-container">
   <h1 class="mat-h1">Randombox</h1>
-  <div class="mat-elevation-z8">
-    <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+  <mat-tab-group [dynamicHeight]="true">
+    <mat-tab label="골드애플">
+      <div class="table-container mat-elevation-z8">
+        <table mat-table #apple=matSort [dataSource]="appleDataSource" matSort aria-label="Elements">
 
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-        <td mat-cell *matCellDef="let row">{{row.name}}</td>
-      </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>아이템명</th>
+            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+          </ng-container>
 
-      <ng-container matColumnDef="percentage">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Percentage</th>
-        <td mat-cell *matCellDef="let row">{{row.percentage}}%</td>
-      </ng-container>
+          <ng-container matColumnDef="percentage">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>확률</th>
+            <td mat-cell *matCellDef="let row">{{row.percentage}}%</td>
+          </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>가격</th>
+            <td mat-cell *matCellDef="let row">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="가격" [ngModel]="applePrice[row.id]" (ngModelChange)="setApplePrice(row.id, $event)">
+              </mat-form-field>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+      <div class="calc-container mat-elevation-z8">기대값: {{ appleExpect | number }}</div>
+    </mat-tab>
+
+    <mat-tab label="로얄 스타일">
+      <div class="table-container mat-elevation-z8">
+        <table mat-table #royal=matSort [dataSource]="royalDataSource" matSort aria-label="Elements">
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>아이템명</th>
+            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="percentage">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>확률</th>
+            <td mat-cell *matCellDef="let row">{{row.percentage}}%</td>
+          </ng-container>
+
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>가격</th>
+            <td mat-cell *matCellDef="let row">
+              <mat-form-field floatLabel="never">
+                <input matInput placeholder="가격" [ngModel]="royalPrice[row.id]" (ngModelChange)="setRoyalPrice(row.id, $event)">
+              </mat-form-field>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+      <div class="calc-container mat-elevation-z8">기대값: {{ royalExpect | number }}</div>
+    </mat-tab>
+  </mat-tab-group>
 </div>

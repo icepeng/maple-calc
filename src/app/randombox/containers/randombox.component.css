@@ -2,6 +2,23 @@
   margin: 20px;
 }
 
+.table-container {
+  margin: 10px;
+  height: 60vh;
+  overflow: auto;
+}
+
+.calc-container {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: 60px;
+  background-color: #fff;
+  padding: 12px;
+}
+
 table {
   width: 100%;
 }

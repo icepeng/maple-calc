@@ -8,6 +8,7 @@ import { MatSort } from '@angular/material';
 import { RandomboxTableDataSource } from './randombox-table-datasource';
 import { RandomboxService } from '../services/randombox.service';
 import { take } from 'rxjs/operators';
+import { summaryFileName } from '../../../../node_modules/@angular/compiler/src/aot/util';
 
 @Component({
   selector: 'app-randombox',
@@ -16,20 +17,59 @@ import { take } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RandomboxComponent implements OnInit {
-  @ViewChild(MatSort)
-  sort: MatSort;
-  dataSource: RandomboxTableDataSource;
+  @ViewChild('apple')
+  appleSort: MatSort;
+  @ViewChild('royal')
+  royalSort: MatSort;
+  appleDataSource: RandomboxTableDataSource;
+  royalDataSource: RandomboxTableDataSource;
 
-  displayedColumns = ['name', 'percentage'];
+  displayedColumns = ['name', 'percentage', 'price'];
+
+  appleExpect = 0;
+  royalExpect = 0;
+
+  applePrice: { [id: number]: string } = {};
+  royalPrice: { [id: number]: string } = {};
 
   constructor(private randomboxService: RandomboxService) {}
 
   async ngOnInit() {
-    this.dataSource = new RandomboxTableDataSource(this.sort);
+    this.appleDataSource = new RandomboxTableDataSource(this.appleSort);
+    this.royalDataSource = new RandomboxTableDataSource(this.royalSort);
 
     const data = await this.randomboxService.getAll().toPromise();
     const appleData = data.lists.find(x => x.type === 'NORMAL').items;
+    const royalData = data.lists.find(x => x.type === 'DECORATION').items;
 
-    this.dataSource.setData(appleData);
+    this.applePrice = appleData.reduce(
+      (obj, x) => ({ ...obj, [x.id]: '' }),
+      {},
+    );
+    this.royalPrice = royalData.reduce(
+      (obj, x) => ({ ...obj, [x.id]: '' }),
+      {},
+    );
+
+    this.appleDataSource.setData(appleData);
+    this.royalDataSource.setData(royalData);
+  }
+
+  setApplePrice(id: number, price: string) {
+    this.applePrice[id] = price;
+    this.appleExpect = this.appleDataSource.data$
+      .getValue()
+      .reduce((sum, x) => {
+        return sum + +this.applePrice[x.id] * +x.percentage;
+      }, 0);
+  }
+
+  setRoyalPrice(id: number, price: string) {
+    this.royalPrice[id] = price;
+    this.royalExpect = this.royalDataSource.data$
+      .getValue()
+      .reduce((sum, x) => {
+        return sum + +this.royalPrice[x.id] * +x.percentage;
+      }, 0);
   }
 }
