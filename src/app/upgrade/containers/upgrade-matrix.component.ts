@@ -6,7 +6,7 @@ import {
   FormGroup,
   FormControl,
   Validators,
-} from '../../../../node_modules/@angular/forms';
+} from '@angular/forms';
 
 @Component({
   selector: 'app-upgrade-matrix',

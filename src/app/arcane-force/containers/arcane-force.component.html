@@ -1,0 +1,116 @@
+<div class="grid-container">
+  <h1 class="mat-h1">아케인포스</h1>
+  {{ formGroup.invalid }}
+  <div class="mat-elevation-z2">
+    <mat-horizontal-stepper (selectionChange)="onStepChange($event)" linear #stepper>
+      <mat-step [stepControl]="formGroup">
+        <form [formGroup]="formGroup">
+          <ng-template matStepLabel>심볼별 레벨, 성장치 입력</ng-template>
+          <div class="symbol-grid">
+            <div class="symbol-grid-row">
+              <div formGroupName="vanishing" class="symbol-grid-cell">
+                <p class="mat-subheading-1">소멸의 여로</p>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="level">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="성장치" formControlName="growth">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="일일 획득량" formControlName="daily">
+                </mat-form-field>
+              </div>
+              <div formGroupName="chewchew" class="symbol-grid-cell">
+                <p class="mat-subheading-1">츄츄 아일랜드</p>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="level">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="성장치" formControlName="growth">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="일일 획득량" formControlName="daily">
+                </mat-form-field>
+              </div>
+              <div formGroupName="lacheln" class="symbol-grid-cell">
+                <p class="mat-subheading-1">레헬른</p>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="level">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="성장치" formControlName="growth">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="일일 획득량" formControlName="daily">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="symbol-grid-row">
+              <div formGroupName="arcana" class="symbol-grid-cell">
+                <p class="mat-subheading-1">아르카나</p>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="level">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="성장치" formControlName="growth">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="일일 획득량" formControlName="daily">
+                </mat-form-field>
+              </div>
+              <div formGroupName="morass" class="symbol-grid-cell">
+                <p class="mat-subheading-1">모라스</p>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="level">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="성장치" formControlName="growth">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="일일 획득량" formControlName="daily">
+                </mat-form-field>
+              </div>
+              <div formGroupName="esfera" class="symbol-grid-cell">
+                <p class="mat-subheading-1">에스페라</p>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="level">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="성장치" formControlName="growth">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput placeholder="일일 획득량" formControlName="daily">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button mat-button matStepperNext>다음</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>심볼 레벨 추이</ng-template>
+        <p>남은 일수 : {{ left }}</p>
+        <div class="chart" echarts [options]="symbolChart"></div>
+        <mat-divider></mat-divider>
+        <mat-form-field>
+          <input type="number" matInput placeholder="아케인 심볼 교환권" [(ngModel)]="selectable">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>이전</button>
+          <button mat-button matStepperNext>다음</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>총합 포스 추이</ng-template>
+        <p>남은 최소 일수 : {{ leftShorten }}
+          <br>* {{ shortest }}에 모든 아케인 심볼 교환권 사용</p>
+        <div class="chart" echarts [options]="totalChart"></div>
+        <div>
+          <button mat-button matStepperPrevious>이전</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

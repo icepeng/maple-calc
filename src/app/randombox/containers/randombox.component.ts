@@ -5,10 +5,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { MatSort } from '@angular/material';
-import { RandomboxTableDataSource } from './randombox-table-datasource';
 import { RandomboxService } from '../services/randombox.service';
-import { take } from 'rxjs/operators';
-import { summaryFileName } from '../../../../node_modules/@angular/compiler/src/aot/util';
+import { RandomboxTableDataSource } from './randombox-table-datasource';
 
 @Component({
   selector: 'app-randombox',

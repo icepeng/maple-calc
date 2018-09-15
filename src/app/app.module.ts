@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { UpgradeModule } from './upgrade/upgrade.module';
 import { RandomboxModule } from './randombox/randombox.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ArcaneForceModule } from './arcane-force/arcane-force.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     UpgradeModule,
     RandomboxModule,
+    ArcaneForceModule,
     AppRoutingModule,
   ],
   providers: [],

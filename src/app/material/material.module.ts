@@ -1,21 +1,22 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgModule } from '@angular/core';
 import {
-  MatIconModule,
-  MatSidenavModule,
-  MatToolbarModule,
-  MatListModule,
-  MatGridListModule,
-  MatCardModule,
-  MatMenuModule,
   MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule,
+  MatCardModule,
   MatCheckboxModule,
-  MatTableModule,
-  MatSortModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
   MatPaginatorModule,
+  MatSidenavModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
   MatTabsModule,
+  MatToolbarModule,
 } from '@angular/material';
 
 @NgModule({
@@ -36,6 +37,7 @@ import {
     MatSortModule,
     MatPaginatorModule,
     MatTabsModule,
+    MatStepperModule,
   ],
   exports: [
     LayoutModule,
@@ -54,6 +56,7 @@ import {
     MatSortModule,
     MatPaginatorModule,
     MatTabsModule,
+    MatStepperModule,
   ],
   declarations: [],
 })

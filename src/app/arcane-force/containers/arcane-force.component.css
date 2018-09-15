@@ -1,0 +1,30 @@
+.grid-container {
+  margin: 20px;
+}
+
+.symbol-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.symbol-grid-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.symbol-grid-cell {
+  width: 100%;
+  margin: 8px;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+}
+
+.symbol-grid-cell mat-form-field {
+  width: 100%;
+}
+
+.chart {
+  width: 100%;
+  height: 480px;
+}
