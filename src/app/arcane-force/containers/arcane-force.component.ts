@@ -104,38 +104,38 @@ export class ArcaneForceComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.formGroup.setValue({
-      vanishing: {
-        level: 13,
-        growth: 164,
-        daily: 8,
-      },
-      chewchew: {
-        level: 15,
-        growth: 194,
-        daily: 15,
-      },
-      lacheln: {
-        level: 11,
-        growth: 130,
-        daily: 8,
-      },
-      arcana: {
-        level: 9,
-        growth: 50,
-        daily: 10,
-      },
-      morass: {
-        level: 9,
-        growth: 20,
-        daily: 8,
-      },
-      esfera: {
-        level: 5,
-        growth: 9,
-        daily: 8,
-      },
-    });
+    // this.formGroup.setValue({
+    //   vanishing: {
+    //     level: 13,
+    //     growth: 164,
+    //     daily: 8,
+    //   },
+    //   chewchew: {
+    //     level: 15,
+    //     growth: 194,
+    //     daily: 15,
+    //   },
+    //   lacheln: {
+    //     level: 11,
+    //     growth: 130,
+    //     daily: 8,
+    //   },
+    //   arcana: {
+    //     level: 9,
+    //     growth: 50,
+    //     daily: 10,
+    //   },
+    //   morass: {
+    //     level: 9,
+    //     growth: 20,
+    //     daily: 8,
+    //   },
+    //   esfera: {
+    //     level: 5,
+    //     growth: 9,
+    //     daily: 8,
+    //   },
+    // });
   }
 
   getSymbolPlot(
