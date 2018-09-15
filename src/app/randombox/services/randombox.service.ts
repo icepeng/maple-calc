@@ -17,6 +17,6 @@ export class RandomboxService {
           percentage: string;
         }[];
       }[];
-    }>(`http://api.icepeng.com:3003`);
+    }>(`https://api.icepeng.com:3003`);
   }
 }
