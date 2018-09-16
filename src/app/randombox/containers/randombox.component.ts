@@ -58,7 +58,7 @@ export class RandomboxComponent implements OnInit {
     this.appleExpect = this.appleDataSource.data$
       .getValue()
       .reduce((sum, x) => {
-        return sum + +this.applePrice[x.id] * +x.percentage;
+        return sum + +this.applePrice[x.id] * +x.percentage / 100;
       }, 0);
   }
 
@@ -67,7 +67,7 @@ export class RandomboxComponent implements OnInit {
     this.royalExpect = this.royalDataSource.data$
       .getValue()
       .reduce((sum, x) => {
-        return sum + +this.royalPrice[x.id] * +x.percentage;
+        return sum + +this.royalPrice[x.id] * +x.percentage / 100;
       }, 0);
   }
 }
