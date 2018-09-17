@@ -9,6 +9,7 @@ import { UpgradeModule } from './upgrade/upgrade.module';
 import { RandomboxModule } from './randombox/randombox.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ArcaneForceModule } from './arcane-force/arcane-force.module';
+import { DealModule } from './deal/deal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { ArcaneForceModule } from './arcane-force/arcane-force.module';
     RandomboxModule,
     ArcaneForceModule,
     AppRoutingModule,
+    DealModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
