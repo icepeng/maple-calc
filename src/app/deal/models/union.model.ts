@@ -1,6 +1,8 @@
-export interface UnionMember {
-  type: string;
-  amount: number;
+import { JOB } from './charcacter.model';
+
+export interface UnionCard {
+  job: JOB;
+  rank: 'SSS' | 'SS' | 'S' | 'A' | 'B';
 }
 
 export interface UnionControl {

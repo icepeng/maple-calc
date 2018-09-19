@@ -1,4 +1,6 @@
 export interface Item {
+  itemName: string;
+  description: string;
   category:
     | 'CAP'
     | 'CLOTHES'
@@ -38,7 +40,7 @@ export interface Item {
   magicAttack: number;
   allStat: number;
   maxUpgrade: number;
-  upgrade: number;
+  upgrades: number[];
   hammerApplied: boolean;
   starForce: number;
   potential: Potential[];
@@ -52,8 +54,6 @@ export interface Weapon extends Item {
   damage: number;
   soul: Soul;
 }
-
-export interface Armor extends Item {}
 
 export interface Soul {
   prefix: string;

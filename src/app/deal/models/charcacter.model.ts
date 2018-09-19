@@ -1,4 +1,4 @@
-import { UnionMember, UnionControl } from './union.model';
+import { UnionControl, UnionCard } from './union.model';
 import { Weapon, Item } from './item.model';
 
 export interface Stat {
@@ -6,10 +6,25 @@ export interface Stat {
   DEX: number;
   INT: number;
   LUK: number;
+  STRPercent: number;
+  DEXPercent: number;
+  INTPercent: number;
+  LUKPercent: number;
+  STRFinal: number;
+  DEXFinal: number;
+  INTFinal: number;
+  LUKFinal: number;
   maxHP: number;
+  maxHPPercent: number;
+  maxHPFinal: number;
   maxMP: number;
+  maxMPPercent: number;
+
   weaponAttack: number;
   magicAttack: number;
+  weaponAttackPercent: number;
+  magicAttackPercent: number;
+
   mastery: number;
   damage: number;
   bossDamage: number;
@@ -17,8 +32,30 @@ export interface Stat {
   finalDamage: number;
   criticalRate: number;
   criticalDamage: number;
+
   defense: number;
   stance: number;
+
+  cooldownReduce: number;
+  cooldownReducePercent: number;
+
+  summonPersist: number;
+  buffPersist: number;
+
+  dropRate: number;
+  mesoGain: number;
+  expGain: number;
+
+  ccImmune: number;
+  elementImmune: number;
+}
+
+export interface LevelStat {
+  STR: number;
+  DEX: number;
+  INT: number;
+  LUK: number;
+  maxHP: number;
 }
 
 export interface HyperStat {
@@ -38,7 +75,7 @@ export interface HyperStat {
 }
 
 export interface Ability {
-  type: string;
+  type: keyof Stat;
   amount: number;
 }
 
@@ -99,7 +136,7 @@ export interface Character {
   stat: Stat;
   hyperStat: HyperStat;
   abilities: Ability[];
-  unionMembers: UnionMember[];
+  unionCards: UnionCard[];
   unionControl: UnionControl;
   items: {
     weapon: Weapon;
