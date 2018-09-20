@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Stat, HyperStat, LevelStat } from '../models/charcacter.model';
+import { UnionCard } from '../models/union.model';
 
 @Injectable({
   providedIn: 'root',

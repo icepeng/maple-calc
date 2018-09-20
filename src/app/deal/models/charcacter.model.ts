@@ -1,5 +1,5 @@
 import { UnionControl, UnionCard } from './union.model';
-import { Weapon, Item } from './item.model';
+import { Item } from './item.model';
 
 export interface Stat {
   STR: number;
@@ -146,7 +146,7 @@ export interface Character {
   unionCards: UnionCard[];
   unionControl: UnionControl;
   items: {
-    weapon: Weapon;
+    weapon: Item;
     subweapon: Item;
     emblem: Item;
     cap: Item;
