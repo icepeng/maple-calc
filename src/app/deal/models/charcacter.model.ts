@@ -10,13 +10,13 @@ export interface Stat {
   DEXPercent: number;
   INTPercent: number;
   LUKPercent: number;
-  STRFinal: number;
-  DEXFinal: number;
-  INTFinal: number;
-  LUKFinal: number;
+  STRFixed: number;
+  DEXFixed: number;
+  INTFixed: number;
+  LUKFixed: number;
   maxHP: number;
   maxHPPercent: number;
-  maxHPFinal: number;
+  maxHPFixed: number;
   maxMP: number;
   maxMPPercent: number;
 
@@ -48,6 +48,9 @@ export interface Stat {
 
   ccImmune: number;
   elementImmune: number;
+
+  moveSpeed: number;
+  jumpPower: number;
 }
 
 export interface LevelStat {
@@ -72,10 +75,14 @@ export interface HyperStat {
   damage: number;
   bossDamage: number;
   stance: number;
+  moveSpeed: number;
+  jumpPower: number;
+  ccImmune: number;
+  elementImmune: number;
 }
 
 export interface Ability {
-  type: keyof Stat;
+  type: string;
   amount: number;
 }
 
