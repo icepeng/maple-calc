@@ -4,8 +4,10 @@ import {
   HyperStat,
   LevelStat,
   Character,
+  MainStat,
 } from '../models/charcacter.model';
 import { UnionCard } from '../models/union.model';
+import { jobEntities } from '../models/job';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +15,68 @@ import { UnionCard } from '../models/union.model';
 export class StatService {
   constructor() {}
 
-  getStatDamage(charcacter: Character): number {
-    return 0;
+  getBaseStat(): Stat {
+    return {
+      STR: 4,
+      DEX: 4,
+      INT: 4,
+      LUK: 4,
+      STRPercent: 0,
+      DEXPercent: 0,
+      INTPercent: 0,
+      LUKPercent: 0,
+      STRFixed: 0,
+      DEXFixed: 0,
+      INTFixed: 0,
+      LUKFixed: 0,
+      maxHP: 50,
+      maxHPPercent: 0,
+      maxHPFixed: 0,
+      maxMP: 50,
+      maxMPPercent: 0,
+
+      weaponAttack: 0,
+      magicAttack: 0,
+      weaponAttackPercent: 0,
+      magicAttackPercent: 0,
+
+      mastery: 0,
+      damage: 0,
+      bossDamage: 0,
+      ignoreDefense: 0,
+      finalDamage: 1,
+      criticalRate: 0,
+      criticalDamage: 0,
+
+      defense: 0,
+      stance: 0,
+
+      cooldownReduce: 0,
+      cooldownReducePercent: 0,
+
+      summonPersist: 0,
+      buffPersist: 0,
+
+      dropRate: 0,
+      mesoGain: 0,
+      expGain: 0,
+
+      ccImmune: 0,
+      elementImmune: 0,
+
+      moveSpeed: 100,
+      jumpPower: 100,
+    };
+  }
+
+  getStat(charcacter: Character): Stat {
+    const baseStat = this.getBaseStat();
+    const job = jobEntities[charcacter.job];
+    const jobStat: Stat = {
+      ...baseStat,
+      mastery: job.mastery,
+    };
+    return baseStat;
   }
 
   addStats(base: Stat, stats: Partial<Stat>[]): Stat {
@@ -22,13 +84,14 @@ export class StatService {
     return stats.reduce((sum, stat) => {}, base);
   }
 
-  convertLevelStat(levelStat: LevelStat): Partial<Stat> {
+  getLevelStat(mainStat: MainStat, level: number): Partial<Stat> {
+    if (mainStat === 'maxHP') {
+      return {
+        maxHP: (level - 1) * 75,
+      };
+    }
     return {
-      STR: levelStat.STR,
-      DEX: levelStat.DEX,
-      INT: levelStat.INT,
-      LUK: levelStat.LUK,
-      maxHP: levelStat.maxHP * 15,
+      [mainStat]: (level - 1) * 5,
     };
   }
 

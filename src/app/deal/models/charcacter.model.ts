@@ -54,14 +54,6 @@ export interface Stat {
   jumpPower: number;
 }
 
-export interface LevelStat {
-  STR: number;
-  DEX: number;
-  INT: number;
-  LUK: number;
-  maxHP: number;
-}
-
 export interface HyperStat {
   STR: number;
   DEX: number;
@@ -143,7 +135,6 @@ export type JOB_CATEGORY = 'WARRIOR' | 'MAGE' | 'ARCHER' | 'ROGUE' | 'PIRATE';
 export interface Character {
   job: JOB_CODE;
   level: number;
-  stat: Stat;
   hyperStat: HyperStat;
   abilities: Ability[];
   unionCards: UnionCard[];
@@ -175,12 +166,16 @@ export interface Character {
     belt: Item;
     heart: Item;
   };
+  skills: string[];
 }
+
+export type MainStat = 'STR' | 'DEX' | 'INT' | 'LUK' | 'maxHP';
 
 export interface Job {
   code: JOB_CODE;
   category: JOB_CATEGORY;
   name: string;
-  mainStat: keyof LevelStat;
-  skills: Skill[];
+  mainStat: MainStat;
+  mastery: number;
+  skills: string[];
 }

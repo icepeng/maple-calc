@@ -6,13 +6,15 @@ export const jobEntities: { [code in JOB_CODE]?: Job } = {
     category: 'WARRIOR',
     mainStat: 'maxHP',
     name: '데몬어벤져',
+    mastery: 0.2,
     skills: [],
   },
   MECHANIC: {
     code: 'MECHANIC',
-    category: 'WARRIOR',
-    mainStat: 'maxHP',
-    name: '데몬어벤져',
+    category: 'PIRATE',
+    mainStat: 'DEX',
+    name: '메카닉',
+    mastery: 0.15,
     skills: [],
   },
 };
