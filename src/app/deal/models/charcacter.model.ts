@@ -1,5 +1,6 @@
-import { UnionControl, UnionCard } from './union.model';
-import { Weapon, Item } from './item.model';
+import { Item, Weapon } from './item.model';
+import { UnionCard, UnionControl } from './union.model';
+import { Skill } from './skill.model';
 
 export interface Stat {
   STR: number;
@@ -136,10 +137,12 @@ export type PIRATE =
   | 'ARK'
   | 'XENON';
 
-export type JOB = WARRIOR | MAGE | ARCHER | ROGUE | PIRATE;
+export type JOB_CODE = WARRIOR | MAGE | ARCHER | ROGUE | PIRATE;
+export type JOB_CATEGORY = 'WARRIOR' | 'MAGE' | 'ARCHER' | 'ROGUE' | 'PIRATE';
 
 export interface Character {
-  job: JOB;
+  job: JOB_CODE;
+  level: number;
   stat: Stat;
   hyperStat: HyperStat;
   abilities: Ability[];
@@ -172,4 +175,12 @@ export interface Character {
     belt: Item;
     heart: Item;
   };
+}
+
+export interface Job {
+  code: JOB_CODE;
+  category: JOB_CATEGORY;
+  name: string;
+  mainStat: keyof LevelStat;
+  skills: Skill[];
 }

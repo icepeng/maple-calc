@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Stat, HyperStat, LevelStat } from '../models/charcacter.model';
+import {
+  Stat,
+  HyperStat,
+  LevelStat,
+  Character,
+} from '../models/charcacter.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StatService {
   constructor() {}
+
+  getStatDamage(charcacter: Character): number {
+    return 0;
+  }
 
   addStats(base: Stat, stats: Partial<Stat>[]): Stat {
     const keys = Object.keys(base) as (keyof Stat)[];
@@ -45,7 +54,5 @@ export class StatService {
     };
   }
 
-  convertUnionCard(unionCard: UnionCard) {
-    
-  }
+  convertUnionCard(unionCard: UnionCard) {}
 }

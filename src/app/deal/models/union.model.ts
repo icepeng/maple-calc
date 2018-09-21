@@ -1,7 +1,7 @@
-import { JOB } from './charcacter.model';
+import { JOB_CODE } from './charcacter.model';
 
 export interface UnionCard {
-  job: JOB;
+  job: JOB_CODE;
   rank: 'SSS' | 'SS' | 'S' | 'A' | 'B';
 }
 

@@ -1,33 +1,41 @@
+export type ARMOR_CATEGORY =
+  | 'CAP'
+  | 'CLOTHES'
+  | 'PANTS'
+  | 'OVERALL'
+  | 'SHOES'
+  | 'GLOVES'
+  | 'CAPE';
+export type ACC_CATEGORY =
+  | 'RING'
+  | 'FOREHEAD'
+  | 'EYEACC'
+  | 'SHOULDER'
+  | 'EARACC'
+  | 'POKET'
+  | 'PENDANT'
+  | 'BELT'
+  | 'BADGE';
+export type WEAPON_CATEGORY =
+  | 'SHININGROD'
+  | 'SOULSHOOTER'
+  | 'DESPERADO'
+  | 'ENERGYSWORD'
+  | 'ONE-HANDED-SWORD'
+  | 'GUN';
+
+export type ITEM_CATEGORY =
+  | ARMOR_CATEGORY
+  | ACC_CATEGORY
+  | WEAPON_CATEGORY
+  | 'MEDAL'
+  | 'EMBLEM'
+  | 'SUBWEAPON'
+  | 'HEART';
+
 export interface BaseItem {
   id: number;
-  category:
-    | 'CAP'
-    | 'CLOTHES'
-    | 'PANTS'
-    | 'OVERALL'
-    | 'SHOES'
-    | 'GLOVES'
-    | 'CAPE'
-    | 'RING'
-    | 'FOREHEAD'
-    | 'EYEACC'
-    | 'SHOULDER'
-    | 'EARACC'
-    | 'POKET'
-    | 'BADGE'
-    | 'MEDAL'
-    | 'PENDANT'
-    | 'BELT'
-    | 'EMBLEM'
-    | 'WEAPON'
-    | 'SUBWEAPON'
-    | 'HEART'
-    | 'SHININGROD'
-    | 'SOULSHOOTER'
-    | 'DESPERADO'
-    | 'ENERGYSWORD'
-    | 'ONE-HANDED-SWORD'
-    | string;
+  category: ITEM_CATEGORY;
   STR: number;
   DEX: number;
   INT: number;
