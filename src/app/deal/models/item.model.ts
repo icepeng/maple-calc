@@ -52,7 +52,11 @@ export interface BaseItem {
   bossDamage: number;
   ignoreDefense: number;
   maxUpgrade: number;
+
+  attackSpeed?: number;
+  soul?: Soul;
 }
+
 
 export interface AdditionalStat {
   STR: number;
@@ -100,11 +104,6 @@ export interface Item {
   starForce: number;
   potential: Potential[];
   additionalPotential: Potential[];
-}
-
-export interface Weapon extends Item {
-  attackSpeed: number;
-  soul: Soul;
 }
 
 export interface Soul {

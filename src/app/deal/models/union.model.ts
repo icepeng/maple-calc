@@ -18,6 +18,6 @@ export interface UnionControl {
   criticalDamage: number;
   bossDamage: number;
   ignoreDefense: number;
-  buffDuration: number;
+  buffPersist: number;
   stance: number;
 }

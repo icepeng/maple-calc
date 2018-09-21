@@ -5,6 +5,7 @@ import {
   LevelStat,
   Character,
 } from '../models/charcacter.model';
+import { UnionCard } from '../models/union.model';
 
 @Injectable({
   providedIn: 'root',
