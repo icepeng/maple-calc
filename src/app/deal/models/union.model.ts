@@ -1,8 +1,20 @@
-import { JOB_CODE } from './charcacter.model';
+import { Stat } from './stat.model';
+import { JOB_CODE } from './job.model';
 
 export interface UnionCard {
-  job: JOB_CODE;
+  job: JOB_CODE | 'M';
   rank: 'SSS' | 'SS' | 'S' | 'A' | 'B';
+}
+
+export interface UnionCardEffect {
+  job: JOB_CODE | 'M';
+  stat: [
+    Partial<Stat>,
+    Partial<Stat>,
+    Partial<Stat>,
+    Partial<Stat>,
+    Partial<Stat>
+  ];
 }
 
 export interface UnionControl {
@@ -20,4 +32,6 @@ export interface UnionControl {
   ignoreDefense: number;
   buffPersist: number;
   stance: number;
+  ccImmune: number;
+  expGain: number;
 }

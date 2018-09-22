@@ -1,58 +1,6 @@
-import { Item } from './item.model';
-import { Skill } from './skill.model';
+import { JOB_CODE } from './job.model';
 import { UnionCard, UnionControl } from './union.model';
-
-export interface Stat {
-  STR: number;
-  DEX: number;
-  INT: number;
-  LUK: number;
-  STRPercent: number;
-  DEXPercent: number;
-  INTPercent: number;
-  LUKPercent: number;
-  STRFixed: number;
-  DEXFixed: number;
-  INTFixed: number;
-  LUKFixed: number;
-  maxHP: number;
-  maxHPPercent: number;
-  maxHPFixed: number;
-  maxMP: number;
-  maxMPPercent: number;
-
-  weaponAttack: number;
-  magicAttack: number;
-  weaponAttackPercent: number;
-  magicAttackPercent: number;
-
-  mastery: number;
-  damage: number;
-  bossDamage: number;
-  ignoreDefense: number;
-  finalDamage: number;
-  criticalRate: number;
-  criticalDamage: number;
-
-  defense: number;
-  stance: number;
-
-  cooldownReduce: number;
-  cooldownReducePercent: number;
-
-  summonPersist: number;
-  buffPersist: number;
-
-  dropRate: number;
-  mesoGain: number;
-  expGain: number;
-
-  ccImmune: number;
-  elementImmune: number;
-
-  moveSpeed: number;
-  jumpPower: number;
-}
+import { Stat } from './stat.model';
 
 export interface HyperStat {
   STR: number;
@@ -65,7 +13,7 @@ export interface HyperStat {
   criticalRate: number;
   criticalDamage: number;
   ignoreDefense: number;
-  damage: number;
+  totalDamage: number;
   bossDamage: number;
   stance: number;
   moveSpeed: number;
@@ -75,62 +23,54 @@ export interface HyperStat {
 }
 
 export interface Ability {
-  type: string;
-  amount: number;
+  stat?: Partial<Stat>;
 }
 
-export type WARRIOR =
-  | 'HERO'
-  | 'PALADIN'
-  | 'DARK_KNIGHT'
-  | 'SOULMASTER'
-  | 'MIHILE'
-  | 'ARAN'
-  | 'BLASTER'
-  | 'DEMONSLAYER'
-  | 'DEMONAVENGER'
-  | 'KAISER'
-  | 'ZERO';
+export interface Disposition {
+  charisma: number; // 카리스마
+  sensivity: number; // 감성
+  dexterity: number; // 손재주
+  will: number; // 의지
+  insight: number; // 통찰력
+  charm: number; // 매력
+}
 
-export type MAGE =
-  | 'ARCHMAGE_FIRE_POISON'
-  | 'ARCHMAGE_ICE_LIGHTNING'
-  | 'BISHOP'
-  | 'FLAMEWIZARD'
-  | 'EVEN'
-  | 'LUMINOUS'
-  | 'BATTLEMAGE'
-  | 'KINESIS'
-  | 'ILLIUM';
+export interface CharacterItems {
+  weapon: number;
+  subweapon: number;
+  emblem: number;
+  cap: number;
+  clothes: number;
+  pants: number;
+  overall: number;
+  shoes: number;
+  gloves: number;
+  cape: number;
+  ring1: number;
+  ring2: number;
+  ring3: number;
+  ring4: number;
+  pendant1: number;
+  pendant2: number;
+  forehead: number;
+  eyeacc: number;
+  shoulder: number;
+  earacc: number;
+  poket: number;
+  badge: number;
+  medal: number;
+  belt: number;
+  heart: number;
+}
 
-export type ARCHER =
-  | 'BOWMASTER'
-  | 'MARKSMAN'
-  | 'WINDBREAKER'
-  | 'MERCEDES'
-  | 'WILDHUNTER';
-
-export type ROGUE =
-  | 'NIGHTLORD'
-  | 'SHADOWER'
-  | 'NIGHTWALKER'
-  | 'PHANTOM'
-  | 'CADENA'
-  | 'XENON';
-
-export type PIRATE =
-  | 'VIPER'
-  | 'CAPTAIN'
-  | 'CANNONSHOOTER'
-  | 'STRIKER'
-  | 'EUNWOL'
-  | 'MECHANIC'
-  | 'ANGELICBUSTER'
-  | 'ARK'
-  | 'XENON';
-
-export type JOB_CODE = WARRIOR | MAGE | ARCHER | ROGUE | PIRATE;
-export type JOB_CATEGORY = 'WARRIOR' | 'MAGE' | 'ARCHER' | 'ROGUE' | 'PIRATE';
+export interface ArcaneSymbols {
+  vanishing: number;
+  chewchew: number;
+  lacheln: number;
+  arcana: number;
+  morass: number;
+  esfera: number;
+}
 
 export interface Character {
   job: JOB_CODE;
@@ -139,43 +79,11 @@ export interface Character {
   abilities: Ability[];
   unionCards: UnionCard[];
   unionControl: UnionControl;
-  items: {
-    weapon: Item;
-    subweapon: Item;
-    emblem: Item;
-    cap: Item;
-    clothes: Item;
-    pants: Item;
-    overall: Item;
-    shoes: Item;
-    gloves: Item;
-    cape: Item;
-    ring1: Item;
-    ring2: Item;
-    ring3: Item;
-    ring4: Item;
-    pendant1: Item;
-    pendant2: Item;
-    forehead: Item;
-    eyeacc: Item;
-    shoulder: Item;
-    earacc: Item;
-    poket: Item;
-    badge: Item;
-    medal: Item;
-    belt: Item;
-    heart: Item;
+  disposition: Disposition;
+  items: CharacterItems;
+  arcaneSymbols: ArcaneSymbols;
+  skillLevels: {
+    [code: string]: number;
   };
-  skills: string[];
-}
-
-export type MainStat = 'STR' | 'DEX' | 'INT' | 'LUK' | 'maxHP';
-
-export interface Job {
-  code: JOB_CODE;
-  category: JOB_CATEGORY;
-  name: string;
-  mainStat: MainStat;
-  mastery: number;
-  skills: string[];
+  buffs: string[];
 }

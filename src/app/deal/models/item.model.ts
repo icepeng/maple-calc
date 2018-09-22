@@ -1,3 +1,5 @@
+import { Stat } from './stat.model';
+
 export type ARMOR_CATEGORY =
   | 'CAP'
   | 'CLOTHES'
@@ -21,7 +23,7 @@ export type WEAPON_CATEGORY =
   | 'SOULSHOOTER'
   | 'DESPERADO'
   | 'ENERGYSWORD'
-  | 'ONE-HANDED-SWORD'
+  | 'ONE_HANDED_SWORD'
   | 'GUN';
 
 export type ITEM_CATEGORY =
@@ -34,76 +36,27 @@ export type ITEM_CATEGORY =
   | 'HEART';
 
 export interface BaseItem {
-  id: number;
+  code: string;
+  name: string;
   category: ITEM_CATEGORY;
-  STR: number;
-  DEX: number;
-  INT: number;
-  LUK: number;
-  maxHP: number;
-  maxMP: number;
-  maxHPPercent: number;
-  maxMPPercent: number;
-  defense: number;
-  weaponAttack: number;
-  magicAttack: number;
-  damage: number;
-  allStat: number;
-  bossDamage: number;
-  ignoreDefense: number;
+  requiredLevel: number;
+  stat: Partial<Stat>;
   maxUpgrade: number;
-
   attackSpeed?: number;
-  soul?: Soul;
-}
-
-
-export interface AdditionalStat {
-  STR: number;
-  DEX: number;
-  INT: number;
-  LUK: number;
-  maxHP: number;
-  maxMP: number;
-  defense: number;
-  weaponAttack: number;
-  magicAttack: number;
-  damage: number;
-  allStat: number;
-  bossDamage: number;
-}
-
-export interface AdditionalStatPreset extends AdditionalStat {
-  id: number;
-}
-
-export interface UpgradeStat {
-  STR: number;
-  DEX: number;
-  INT: number;
-  LUK: number;
-  maxHP: number;
-  maxMP: number;
-  defense: number;
-  weaponAttack: number;
-  magicAttack: number;
-}
-
-export interface UpgradeStatPreset extends UpgradeStat {
-  id: number;
 }
 
 export interface Item {
   id: number;
-  baseItemId: number;
+  baseItem: string;
   description: string;
-  additionalStat: AdditionalStat;
-  upgradeStat: UpgradeStat;
+  additionalStat: Partial<Stat>;
+  upgradeStat: Partial<Stat>;
   upgrade: number;
   hammerApplied: boolean;
   starForce: number;
-  potential: Potential[];
-  additionalPotential: Potential[];
+  potential?: Potential[];
+  additionalPotential?: Potential[];
+  soul?: Soul;
 }
 
 export interface Soul {
@@ -114,6 +67,5 @@ export interface Soul {
 }
 
 export interface Potential {
-  type: string;
-  amount: number;
+  stat?: Partial<Stat>;
 }
