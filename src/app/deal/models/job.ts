@@ -42,6 +42,6 @@ export const jobEntities: { [code in JOB_CODE]?: Job } = {
     mainStat: 'DEX',
     name: '메카닉',
     mastery: 0.15,
-    skills: [...Mechanic.skillCodes, ...Common.skillCodes, ...Link.skillCodes],
+    skills: [...Mechanic.skillCodes],
   },
 };

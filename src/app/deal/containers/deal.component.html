@@ -1,81 +1,34 @@
 <div class="grid-container">
-  <mat-grid-list [cols]="3" rowHeight="600px">
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <mat-card class="dashboard-card">
-        <mat-card-title>기본 정보</mat-card-title>
-        <mat-card-content>
-          <div class="form-fields">
-            <mat-form-field>
-              <mat-select placeholder="직업">
-                <mat-option *ngFor="let job of availableJobs" [value]="job.code">{{ job.name }}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput [formControl]="level" placeholder="레벨" type="number">
-            </mat-form-field>
-          </div>
-          <mat-divider></mat-divider>
-          <mat-list>
-              <mat-list-item>STR: </mat-list-item>
-              <mat-list-item>DEX: </mat-list-item>
-              <mat-list-item>INT: </mat-list-item>
-              <mat-list-item>LUK: </mat-list-item>
-              <mat-list-item>maxHP: </mat-list-item>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <mat-card class="dashboard-card">
-        <mat-card-title>하이퍼 스탯</mat-card-title>
-        <mat-card-subtitle>남은 포인트: {{ hyperStatLeft$ | async }}</mat-card-subtitle>
-        <mat-card-content>
-          <form class="form-fields" [formGroup]="hyperStatForm">
-            <mat-form-field>
-              <input matInput formControlName="STR" placeholder="STR" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="DEX" placeholder="DEX" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="INT" placeholder="INT" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="LUK" placeholder="LUK" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="moveSpeed" placeholder="이동속도" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="jumpPower" placeholder="점프력" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="criticalRate" placeholder="크리티컬 발동" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="criticalDamage" placeholder="크리 데미지" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="ignoreDefense" placeholder="방어율 무시" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="totalDamage" placeholder="데미지" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="bossDamage" placeholder="보스데미지" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="elementImmune" placeholder="모든속성내성" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="ccImmune" placeholder="상태이상내성" type="number">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput formControlName="stance" placeholder="스탠스" type="number">
-            </mat-form-field>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <h1 class="mat-h1">캐릭터 스펙</h1>
+  <mat-form-field>
+    <mat-select [formControl]="job" placeholder="직업">
+      <mat-option *ngFor="let item of availableJobs" [value]="item.code">{{ item.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [formControl]="level" placeholder="레벨" type="number">
+  </mat-form-field>
+  <div class="layout">
+    <mat-tab-group [dynamicHeight]="true">
+      <mat-tab label="레벨 스탯">
+        <app-level-stat [level]="level.value" [job]="job.value"></app-level-stat>
+      </mat-tab>
+      <mat-tab label="하이퍼 스탯">
+        <app-hyper-stat [level]="level.value"></app-hyper-stat>
+      </mat-tab>
+      <mat-tab label="아이템"></mat-tab>
+      <mat-tab label="스킬">
+        <app-skill-stat [job]="job.value"></app-skill-stat>
+      </mat-tab>
+      <mat-tab label="아케인 심볼">
+        <app-arcane-symbol-stat [job]="job.value"></app-arcane-symbol-stat>
+      </mat-tab>
+      <mat-tab label="어빌리티"></mat-tab>
+      <mat-tab label="유니온"></mat-tab>
+      <mat-tab label="성향"></mat-tab>
+    </mat-tab-group>
+    <mat-card>
+      <mat-card-title></mat-card-title>
+    </mat-card>
+  </div>
 </div>

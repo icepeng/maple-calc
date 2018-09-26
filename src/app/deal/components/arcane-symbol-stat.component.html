@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <mat-card>
+    <mat-card-title>수치 입력</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="formGroup">
+        <div class="symbol-grid">
+          <div class="symbol-grid-row">
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">소멸의 여로</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="vanishing">
+              </mat-form-field>
+            </div>
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">츄츄 아일랜드</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="chewchew">
+              </mat-form-field>
+            </div>
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">레헬른</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="lacheln">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="symbol-grid-row">
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">아르카나</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="arcana">
+              </mat-form-field>
+            </div>
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">모라스</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="morass">
+              </mat-form-field>
+            </div>
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">에스페라</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨 (미획득시 0)" formControlName="esfera">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>환산 스탯</mat-card-title>
+    <mat-card-content>
+      <table class="vertical-table">
+        <tbody>
+          <tr>
+            <th>STR(고정)</th>
+            <td>{{ stat?.STRFixed }}</td>
+          </tr>
+          <tr>
+            <th>DEX(고정)</th>
+            <td>{{ stat?.DEXFixed }}</td>
+          </tr>
+          <tr>
+            <th>INT(고정)</th>
+            <td>{{ stat?.INTFixed }}</td>
+          </tr>
+          <tr>
+            <th>LUK(고정)</th>
+            <td>{{ stat?.LUKFixed }}</td>
+          </tr>
+          <tr>
+            <th>아케인포스</th>
+            <td>{{ stat?.arcaneForce }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

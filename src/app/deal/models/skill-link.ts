@@ -123,3 +123,4 @@ export const skillEntities: { [code: string]: Skill } = {
 // TODO: 은월, 아란, 에반, 카데나 빠짐. 제로에 뎀감 빠짐.
 
 export const skillCodes = Object.keys(skillEntities);
+export const linkSkills = skillCodes.map(code => skillEntities[code]);

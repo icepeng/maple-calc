@@ -1,4 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+table.vertical-table {
+  border-collapse: separate;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  border-spacing: 0;
+}
+
+table.vertical-table th {
+  border-right: 1px solid #ccc;
+  background-color: #fafafa;
+  border-top: 1px solid #ccc;
+  padding: 12px;
+}
+
+table.vertical-table td {
+  min-width: 200px;
+  padding: 12px;
+  border-top: 1px solid #ccc;
+}
+
+table.vertical-table tr:first-child > th,
+table.vertical-table tr:first-child > td {
+  border-top: 0;
+}

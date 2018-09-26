@@ -7,6 +7,7 @@ import {
 import { MatSort } from '@angular/material';
 import { RandomboxService } from '../services/randombox.service';
 import { RandomboxTableDataSource } from './randombox-table-datasource';
+import { linkSkills } from '../../deal/models/skill-link';
 
 @Component({
   selector: 'app-randombox',
@@ -23,6 +24,7 @@ export class RandomboxComponent implements OnInit {
   royalDataSource: RandomboxTableDataSource;
 
   displayedColumns = ['name', 'percentage', 'price'];
+  skills = linkSkills;
 
   appleExpect = 0;
   royalExpect = 0;

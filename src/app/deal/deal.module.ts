@@ -4,6 +4,12 @@ import { DealComponent } from './containers/deal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { DealRoutingModule } from './deal-routing.module';
+import { HyperStatComponent } from './components/hyper-stat.component';
+import { LevelStatComponent } from './components/level-stat.component';
+import { ArcaneSymbolStatComponent } from './components/arcane-symbol-stat.component';
+import { AbilityStatComponent } from './components/ability-stat.component';
+import { UnionStatComponent } from './components/union-stat.component';
+import { SkillStatComponent } from './components/skill-stat.component';
 
 @NgModule({
   imports: [
@@ -13,6 +19,14 @@ import { DealRoutingModule } from './deal-routing.module';
     MaterialModule,
     DealRoutingModule,
   ],
-  declarations: [DealComponent],
+  declarations: [
+    DealComponent,
+    HyperStatComponent,
+    LevelStatComponent,
+    ArcaneSymbolStatComponent,
+    AbilityStatComponent,
+    UnionStatComponent,
+    SkillStatComponent,
+  ],
 })
 export class DealModule {}

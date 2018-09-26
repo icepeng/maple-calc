@@ -1,0 +1,151 @@
+<div class="wrapper">
+  <mat-card>
+    <mat-card-title>수치 입력</mat-card-title>
+    <mat-card-subtitle>남은 포인트: {{ total - used }}</mat-card-subtitle>
+    <mat-card-content>
+      <form class="form-fields" [formGroup]="hyperStatForm">
+        <mat-form-field>
+          <input matInput formControlName="STR" placeholder="STR" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="DEX" placeholder="DEX" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="INT" placeholder="INT" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="LUK" placeholder="LUK" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="maxHP" placeholder="HP" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="maxMP" placeholder="MP" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="moveSpeed" placeholder="이동속도" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="jumpPower" placeholder="점프력" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="criticalRate" placeholder="크리티컬 발동" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="criticalDamage" placeholder="크리 데미지" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="ignoreDefense" placeholder="방어율 무시" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="totalDamage" placeholder="데미지" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="bossDamage" placeholder="보스데미지" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="elementImmune" placeholder="모든속성내성" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="ccImmune" placeholder="상태이상내성" type="number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="stance" placeholder="스탠스" type="number">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>환산 스탯</mat-card-title>
+    <mat-card-content>
+      <table class="vertical-table">
+        <tbody>
+          <tr>
+            <th>
+              STR(고정)
+            </th>
+            <td>{{ stat.STRFixed }}</td>
+          </tr>
+          <tr>
+            <th>
+              DEX(고정)
+            </th>
+            <td>{{ stat.DEXFixed }}</td>
+          </tr>
+          <tr>
+            <th>
+              INT(고정)
+            </th>
+            <td>{{ stat.INTFixed }}</td>
+          </tr>
+          <tr>
+            <th>
+              LUK(고정)
+            </th>
+            <td>{{ stat.INTFixed }}</td>
+          </tr>
+          <tr>
+            <th>
+              MaxHP
+            </th>
+            <td>{{ stat.maxHPPercent }}%</td>
+          </tr>
+          <tr>
+            <th>
+              MaxMP
+            </th>
+            <td>{{ stat.maxMPPercent }}%</td>
+          </tr>
+          <tr>
+            <th>
+              크확
+            </th>
+            <td>{{ stat.criticalRate }}%</td>
+          </tr>
+          <tr>
+            <th>
+              크뎀
+            </th>
+            <td>{{ stat.criticalDamage }}%</td>
+          </tr>
+          <tr>
+            <th>
+              보공
+            </th>
+            <td>{{ stat.bossDamage }}%</td>
+          </tr>
+          <tr>
+            <th>
+              이동속도
+            </th>
+            <td>{{ stat.moveSpeed }}</td>
+          </tr>
+          <tr>
+            <th>
+              점프력
+            </th>
+            <td>{{ stat.jumpPower }}</td>
+          </tr>
+          <tr>
+            <th>
+              모든 속성 내성
+            </th>
+            <td>{{ stat.elementImmune }}%</td>
+          </tr>
+          <tr>
+            <th>
+              상태이상 내성
+            </th>
+            <td>{{ stat.ccImmune }}</td>
+          </tr>
+          <tr>
+            <th>
+              스탠스
+            </th>
+            <td>{{ stat.stance }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

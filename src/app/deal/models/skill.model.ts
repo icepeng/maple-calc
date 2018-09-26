@@ -12,6 +12,7 @@ export type PassiveSkill = (
   level: number,
   options?: { stack?: number },
 ) => { stat: Partial<Stat> };
+
 export type BuffSkill = (
   level: number,
   options?: { stack?: number },

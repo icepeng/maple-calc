@@ -15,21 +15,28 @@ import { Stat } from '../models/stat.model';
         margin: 20px;
       }
 
-      .dashboard-card {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        right: 15px;
-        bottom: 15px;
-      }
-
-      .form-fields {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .form-fields mat-form-field {
+      mat-form-field {
         margin-right: 12px;
+      }
+
+      mat-tab-group {
+        margin-right: 24px;
+        flex: 1;
+      }
+
+      mat-tab {
+        padding: 12px;
+      }
+
+      mat-card {
+        width: 480px;
+        height: 640px;
+        flex: 1;
+      }
+
+      .layout {
+        display: flex;
+        justity-content: space-between;
       }
     `,
   ],
@@ -40,38 +47,9 @@ export class DealComponent implements OnInit {
 
   job = new FormControl(null);
   level = new FormControl(200);
-  hyperStatForm = new FormGroup({
-    STR: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    DEX: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    INT: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    LUK: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    maxHP: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    maxMP: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    DFTF: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    criticalRate: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    criticalDamage: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    ignoreDefense: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    totalDamage: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    bossDamage: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    stance: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    moveSpeed: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    jumpPower: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    ccImmune: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-    elementImmune: new FormControl(0, [Validators.min(0), Validators.max(10)]),
-  });
-  hyperStatLeft$: Observable<number>;
   levelStat$: Observable<Partial<Stat>>;
 
   constructor(private statService: StatService) {}
 
-  ngOnInit() {
-    this.hyperStatLeft$ = this.level.valueChanges.pipe(
-      startWith(200),
-      combineLatest(this.hyperStatForm.valueChanges),
-      map(([level, hyperStat]) =>
-        this.statService.getHyperStatLeft(level, hyperStat),
-      ),
-    );
-    this.levelStat$ = this.statService.getLevelStat()
-  }
+  ngOnInit() {}
 }

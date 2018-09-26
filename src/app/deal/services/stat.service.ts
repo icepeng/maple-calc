@@ -9,7 +9,7 @@ import {
 } from '../models/charcacter.model';
 import { baseItemEntities, itemEntities } from '../models/item';
 import { jobEntities } from '../models/job';
-import { MainStat } from '../models/job.model';
+import { MainStat, JOB_CODE } from '../models/job.model';
 import { skillEntities } from '../models/skill-mechanic';
 import { Stat } from '../models/stat.model';
 import { unionCardEffectEntities } from '../models/union';
@@ -92,7 +92,7 @@ export class StatService {
           .attackSpeed,
     };
     const levelStat = this.getLevelStat(
-      job.mainStat,
+      character.job,
       character.level,
       !!character.buffs['MAPLE_HERO'],
     );
@@ -103,7 +103,7 @@ export class StatService {
     const dispositionStat = this.convertDisposition(character.disposition);
     const abilityStat = this.convertAbility(character.abilities);
     const arcaneSymbolStat = this.convertArcaneSymbols(
-      job.mainStat,
+      character.job,
       character.arcaneSymbols,
     );
     const passiveSkillStat = this.convertPassiveSkills(character.skillLevels);
@@ -149,10 +149,15 @@ export class StatService {
   }
 
   getLevelStat(
-    mainStat: MainStat,
+    jobCode: JOB_CODE,
     level: number,
     isMapleHero: boolean,
   ): Partial<Stat> {
+    if (!jobCode || !level) {
+      return {};
+    }
+
+    const mainStat = jobEntities[jobCode].mainStat;
     if (mainStat === 'maxHP') {
       return {
         maxHP: (level - 1) * 90,
@@ -252,36 +257,41 @@ export class StatService {
   }
 
   convertArcaneSymbols(
-    mainStat: MainStat,
+    jobCode: JOB_CODE,
     arcaneSymbols: ArcaneSymbols,
   ): Partial<Stat> {
+    if (!jobCode) {
+      return {};
+    }
+
+    const mainStat = jobEntities[jobCode].mainStat;
     return this.addStats(
       ...Object.values(arcaneSymbols).map(level => {
         switch (mainStat) {
           case 'maxHP':
             return {
-              maxHPFixed: level * 1400,
-              arcaneForce: level * 10,
+              maxHPFixed: level ? (level + 2) * 1400 : 0,
+              arcaneForce: level ? (level + 2) * 10 : 0,
             };
           case 'STR':
             return {
-              STRFixed: level * 100,
-              arcaneForce: level * 10,
+              STRFixed: level ? (level + 2) * 100 : 0,
+              arcaneForce: level ? (level + 2) * 10 : 0,
             };
           case 'DEX':
             return {
-              DEXFixed: level * 100,
-              arcaneForce: level * 10,
+              DEXFixed: level ? (level + 2) * 100 : 0,
+              arcaneForce: level ? (level + 2) * 10 : 0,
             };
           case 'INT':
             return {
-              INTFixed: level * 100,
-              arcaneForce: level * 10,
+              INTFixed: level ? (level + 2) * 100 : 0,
+              arcaneForce: level ? (level + 2) * 10 : 0,
             };
           case 'LUK':
             return {
-              LUKFixed: level * 100,
-              arcaneForce: level * 10,
+              LUKFixed: level ? (level + 2) * 100 : 0,
+              arcaneForce: level ? (level + 2) * 10 : 0,
             };
         }
       }),
@@ -317,23 +327,5 @@ export class StatService {
       })
       .filter(x => !!x);
     return this.addStats(...stats);
-  }
-
-  getHyperStatLeft(level: number, hyperStat: HyperStat) {
-    if (level < 140) {
-      return 0;
-    }
-    let total = 0;
-    for (let i = 140; i <= level; i++) {
-      total += Math.floor((i - 140) / 10) + 3;
-    }
-
-    const POINT_TABLE = [0, 1, 3, 7, 15, 25, 40, 60, 85, 115, 150];
-    const used = Object.values(hyperStat).reduce(
-      (sum, x) => sum + POINT_TABLE[x],
-      0,
-    );
-
-    return total - used;
   }
 }
