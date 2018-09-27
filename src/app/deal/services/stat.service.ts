@@ -94,7 +94,7 @@ export class StatService {
     const levelStat = this.getLevelStat(
       character.job,
       character.level,
-      !!character.buffs['MAPLE_HERO'],
+      !!character.buffs.includes('MAPLE_HERO'),
     );
     const hyperStat = this.convertHyperStat(character.hyperStat);
     const unionControlStat = this.convertUnionControl(character.unionControl);
