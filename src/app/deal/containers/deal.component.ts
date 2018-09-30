@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { jobEntities } from '../models/job';
+import { jobEntities } from '../entities/job';
 import { Observable } from 'rxjs';
 import { startWith, map, combineLatest } from 'rxjs/operators';
 import { StatService } from '../services/stat.service';
@@ -20,23 +20,14 @@ import { Stat } from '../models/stat.model';
       }
 
       mat-tab-group {
-        margin-right: 24px;
-        flex: 1;
+        width: 100%;
       }
 
       mat-tab {
         padding: 12px;
       }
 
-      mat-card {
-        width: 480px;
-        height: 640px;
-        flex: 1;
-      }
-
       .layout {
-        display: flex;
-        justity-content: space-between;
       }
     `,
   ],

@@ -61,4 +61,5 @@ export interface Job {
   mainStat: MainStat;
   mastery: number;
   skills: string[];
+  skillCores: string[];
 }

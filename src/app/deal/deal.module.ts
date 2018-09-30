@@ -10,6 +10,9 @@ import { ArcaneSymbolStatComponent } from './components/arcane-symbol-stat.compo
 import { AbilityStatComponent } from './components/ability-stat.component';
 import { UnionStatComponent } from './components/union-stat.component';
 import { SkillStatComponent } from './components/skill-stat.component';
+import { DispositionStatComponent } from './components/disposition-stat.component';
+import { VMatrixStatComponent } from './components/v-matrix-stat.component';
+import { BuffStatComponent } from './components/buff-stat.component';
 
 @NgModule({
   imports: [
@@ -27,6 +30,9 @@ import { SkillStatComponent } from './components/skill-stat.component';
     AbilityStatComponent,
     UnionStatComponent,
     SkillStatComponent,
+    DispositionStatComponent,
+    VMatrixStatComponent,
+    BuffStatComponent,
   ],
 })
 export class DealModule {}

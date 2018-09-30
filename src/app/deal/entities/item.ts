@@ -1,4 +1,4 @@
-import { BaseItem, Item } from './item.model';
+import { BaseItem, Item } from '../models/item.model';
 
 export const baseItemEntities: { [code: string]: BaseItem } = {
   HIGHNESS_WONDERERHAT: {

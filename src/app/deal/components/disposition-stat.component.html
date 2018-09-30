@@ -1,0 +1,88 @@
+<div class="wrapper">
+  <mat-card>
+    <mat-card-title>수치 입력</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="formGroup">
+        <div class="symbol-grid">
+          <div class="symbol-grid-row">
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">카리스마</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨" formControlName="charisma">
+              </mat-form-field>
+            </div>
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">감성</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨" formControlName="sensivity">
+              </mat-form-field>
+            </div>
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">손재주</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨" formControlName="dexterity">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="symbol-grid-row">
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">의지</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨" formControlName="will">
+              </mat-form-field>
+            </div>
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">통찰력</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨" formControlName="insight">
+              </mat-form-field>
+            </div>
+            <div class="symbol-grid-cell">
+              <p class="mat-subheading-1">매력</p>
+              <mat-form-field>
+                <input type="number" matInput placeholder="레벨" formControlName="charm">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>환산 스탯</mat-card-title>
+    <mat-card-content>
+      <table class="vertical-table">
+        <tbody>
+          <tr>
+            <th>방어력 무시</th>
+            <td>{{ stat?.ignoreDefense }}%</td>
+          </tr>
+          <tr>
+            <th>버프 지속시간</th>
+            <td>{{ stat?.buffPersist }}%</td>
+          </tr>
+          <tr>
+            <th>MaxHP</th>
+            <td>{{ stat?.maxHP }}</td>
+          </tr>
+          <tr>
+            <th>MaxMP</th>
+            <td>{{ stat?.maxMP }}</td>
+          </tr>
+          <tr>
+            <th>방어력</th>
+            <td>{{ stat?.defense }}</td>
+          </tr>
+          <tr>
+            <th>상태이상 저항</th>
+            <td>{{ stat?.ccImmune }}</td>
+          </tr>
+          <tr>
+            <th>속성 리셋</th>
+            <td>{{ stat?.elementReset }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
