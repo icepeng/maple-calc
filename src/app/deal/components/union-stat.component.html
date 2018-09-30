@@ -1,3 +1,53 @@
-<p>
-  union-stat works!
-</p>
+<div class="wrapper">
+  <mat-card>
+    <mat-card-title>유니온 레벨, 공격대원</mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <input [formControl]="unionLevel" matInput placeholder="유니온 레벨" type="number">
+      </mat-form-field>
+      <table [dataSource]="dataSource" mat-table>
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>선택</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row.name) : null"
+              [checked]="selection.isSelected(row.name)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>직업</th>
+          <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef>랭크</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-form-field style="max-width: 80px;" [floatLabel]="'never'">
+              <mat-select [formControl]="ranks.get(row.code)" placeholder="랭크">
+                <mat-option>없음</mat-option>
+                <mat-option value="B">B</mat-option>
+                <mat-option value="A">A</mat-option>
+                <mat-option value="S">S</mat-option>
+                <mat-option value="SS">SS</mat-option>
+                <mat-option value="SSS">SSS</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>유니온 배치</mat-card-title>
+    <mat-card-subtitle>남은 칸: </mat-card-subtitle>
+    <mat-card-content></mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>환산 스탯</mat-card-title>
+    <mat-card-content>{{ ranks.value | json }}</mat-card-content>
+  </mat-card>
+</div>

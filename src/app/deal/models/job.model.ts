@@ -16,7 +16,7 @@ export type MAGE =
   | 'ARCHMAGE_ICE_LIGHTNING'
   | 'BISHOP'
   | 'FLAMEWIZARD'
-  | 'EVEN'
+  | 'EVAN'
   | 'LUMINOUS'
   | 'BATTLEMAGE'
   | 'KINESIS'

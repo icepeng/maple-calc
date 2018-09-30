@@ -1,7 +1,5 @@
-import { JOB_CODE, Job } from './job.model';
+import { Job, JOB_CODE } from './job.model';
 import * as Mechanic from './skill-mechanic';
-import * as Common from './skill-common';
-import * as Link from './skill-link';
 
 export const jobEntities: { [code in JOB_CODE]?: Job } = {
   ARCHMAGE_ICE_LIGHTNING: {
@@ -44,4 +42,48 @@ export const jobEntities: { [code in JOB_CODE]?: Job } = {
     mastery: 0.15,
     skills: [...Mechanic.skillCodes],
   },
+};
+
+export const jobNames: { [code in JOB_CODE | 'M']: string } = {
+  HERO: '히어로',
+  PALADIN: '팔라딘',
+  DARK_KNIGHT: '다크나이트',
+  ARCHMAGE_FIRE_POISON: '아크메이지 (불, 독)',
+  ARCHMAGE_ICE_LIGHTNING: '아크메이지 (썬, 콜)',
+  BISHOP: '비숍',
+  BOWMASTER: '보우마스터',
+  MARKSMAN: '신궁',
+  NIGHTLORD: '나이트로드',
+  SHADOWER: '섀도어',
+  DUALBLADE: '듀얼블레이드',
+  VIPER: '바이퍼',
+  CAPTAIN: '캡틴',
+  CANNONSHOOTER: '캐논슈터',
+  SOULMASTER: '소울마스터',
+  MIHILE: '미하일',
+  FLAMEWIZARD: '플레임위자드',
+  WINDBREAKER: '윈드브레이커',
+  NIGHTWALKER: '나이트워커',
+  STRIKER: '스트라이커',
+  ARAN: '아란',
+  EVAN: '에반',
+  LUMINOUS: '루미너스',
+  MERCEDES: '메르세데스',
+  PHANTOM: '팬텀',
+  EUNWOL: '은월',
+  BLASTER: '블래스터',
+  DEMONSLAYER: '데몬슬레이어',
+  DEMONAVENGER: '데몬어벤져',
+  BATTLEMAGE: '배틀메이지',
+  WILDHUNTER: '와일드헌터',
+  MECHANIC: '메카닉',
+  XENON: '제논',
+  KAISER: '카이저',
+  CADENA: '카데나',
+  ANGELICBUSTER: '엔젤릭버스터',
+  ZERO: '제로',
+  KINESIS: '키네시스',
+  ILLIUM: '일리움',
+  ARK: '아크',
+  M: '메이플M',
 };
