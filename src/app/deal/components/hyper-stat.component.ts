@@ -29,6 +29,10 @@ import { startWith } from 'rxjs/operators';
       .wrapper {
         display: flex;
       }
+
+      mat-card {
+        max-width: 520px;
+      }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,

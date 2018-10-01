@@ -7,12 +7,12 @@ import {
   Disposition,
   HyperStat,
 } from '../models/charcacter.model';
-import { baseItemEntities, itemEntities } from '../models/item';
-import { jobEntities } from '../models/job';
+import { baseItemEntities, itemEntities } from '../entities/item';
+import { jobEntities } from '../entities/job';
 import { MainStat, JOB_CODE } from '../models/job.model';
-import { skillEntities } from '../models/skill-mechanic';
+import { skillEntities } from '../entities/skill';
 import { Stat } from '../models/stat.model';
-import { unionCardEffectEntities } from '../models/union';
+import { unionCardEffectEntities } from '../entities/union';
 import { UnionCard, UnionControl } from '../models/union.model';
 
 @Injectable({
@@ -36,7 +36,7 @@ export class StatService {
       DEXFixed: 0,
       INTFixed: 0,
       LUKFixed: 0,
-      maxHP: 50,
+      maxHP: 50, // 데벤 3차전직때 체력 50 늘어남. 나머지는 확인 필요.
       maxHPPercent: 0,
       maxHPFixed: 0,
       maxMP: 50,

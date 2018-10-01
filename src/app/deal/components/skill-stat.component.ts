@@ -6,10 +6,10 @@ import {
   OnChanges,
   OnInit,
 } from '@angular/core';
-import { jobEntities } from '../models/job';
+import { jobEntities } from '../entities/job';
 import { JOB_CODE } from '../models/job.model';
-import { skillEntities } from '../models/skill';
-import { linkSkills } from '../models/skill-link';
+import { skillEntities } from '../entities/skill';
+import { linkSkills } from '../entities/skill/skill-link';
 import { Skill } from '../models/skill.model';
 
 @Component({

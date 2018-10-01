@@ -1,5 +1,5 @@
-import { JOB_CODE } from './job.model';
-import { UnionCardEffect } from './union.model';
+import { JOB_CODE } from '../models/job.model';
+import { UnionCardEffect } from '../models/union.model';
 
 export const unionCardEffectEntities: {
   [job in JOB_CODE | 'M']?: UnionCardEffect

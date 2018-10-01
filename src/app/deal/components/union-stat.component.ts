@@ -1,9 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
-import { unionCardEffectEntities } from '../models/union';
 import { SelectionModel } from '@angular/cdk/collections';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { jobNames } from '../entities/job';
+import { unionCardEffectEntities } from '../entities/union';
 import { JOB_CODE } from '../models/job.model';
-import { jobNames } from '../models/job';
 
 @Component({
   selector: 'app-union-stat',

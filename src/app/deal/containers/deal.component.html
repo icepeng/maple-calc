@@ -17,6 +17,9 @@
         <app-hyper-stat [level]="level.value"></app-hyper-stat>
       </mat-tab>
       <mat-tab label="아이템"></mat-tab>
+      <mat-tab label="V 매트릭스">
+        <app-v-matrix-stat [job]="job.value"></app-v-matrix-stat>
+      </mat-tab>
       <mat-tab label="스킬">
         <app-skill-stat [job]="job.value"></app-skill-stat>
       </mat-tab>
@@ -27,10 +30,10 @@
       <mat-tab label="유니온">
         <app-union-stat></app-union-stat>
       </mat-tab>
-      <mat-tab label="성향"></mat-tab>
+      <!-- <mat-tab label="어빌리티"></mat-tab> -->
+      <mat-tab label="성향">
+        <app-disposition-stat></app-disposition-stat>
+      </mat-tab>
     </mat-tab-group>
-    <mat-card>
-      <mat-card-title></mat-card-title>
-    </mat-card>
   </div>
 </div>

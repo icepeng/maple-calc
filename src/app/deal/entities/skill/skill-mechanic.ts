@@ -1,4 +1,4 @@
-import { Skill } from './skill.model';
+import { Skill } from '../../models/skill.model';
 
 export const skillEntities: { [code: string]: Skill } = {
   HIDDEN_PIECE: {

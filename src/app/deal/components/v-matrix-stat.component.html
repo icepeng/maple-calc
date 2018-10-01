@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <mat-card *ngIf="skillLevels$ | async as skillLevels">
+    <mat-card-title>스킬코어</mat-card-title>
+    <mat-card-content>
+      <table mat-table [dataSource]="skillCores">
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>스킬명</th>
+          <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="level">
+          <th mat-header-cell *matHeaderCellDef>스킬레벨</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-form-field [floatLabel]="'never'">
+              <input matInput type="number" [ngModel]="skillLevels[row.code]" (ngModelChange)="changeSkillLevel(row, $event)">
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>
+      환산 스탯 (패시브)
+    </mat-card-title>
+    <mat-card-content>
+      <table *ngIf="stat$ | async as stat" class="vertical-table">
+        <tbody>
+          <tr>
+            <th>STR</th>
+            <td>{{ stat?.STR }}</td>
+          </tr>
+          <tr>
+            <th>DEX</th>
+            <td>{{ stat?.DEX }}</td>
+          </tr>
+          <tr>
+            <th>INT</th>
+            <td>{{ stat?.INT }}</td>
+          </tr>
+          <tr>
+            <th>LUK</th>
+            <td>{{ stat?.LUK }}</td>
+          </tr>
+          <tr>
+            <th>공격력</th>
+            <td>{{ stat?.weaponAttack }}</td>
+          </tr>
+          <tr>
+            <th>상태이상 내성</th>
+            <td>{{ stat?.ccImmune }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

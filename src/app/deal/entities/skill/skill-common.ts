@@ -1,4 +1,4 @@
-import { Skill } from './skill.model';
+import { Skill } from '../../models/skill.model';
 
 export const skillEntities: { [code: string]: Skill } = {
   BLESS_OF_SOUL: {
@@ -46,18 +46,6 @@ export const skillEntities: { [code: string]: Skill } = {
         totalDamage: 10,
       },
     }),
-  },
-  LOADED_DICE: {
-    code: 'LOADED_DICE',
-    name: '로디드 다이스',
-    maxLevel: 30,
-    passive: level => ({ stat: { weaponAttack: level + 10 } }),
-  },
-  DECENT_COMBAT_ORDERS: {
-    code: 'DECENT_COMBAT_ORDERS',
-    name: '쓸만한 컴뱃 오더스',
-    maxLevel: 30,
-    passive: level => ({ stat: { ccImmune: Math.ceil(level * 0.2) } }),
   },
 };
 

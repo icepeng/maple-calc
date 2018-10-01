@@ -7,7 +7,7 @@ import {
 import { MatSort } from '@angular/material';
 import { RandomboxService } from '../services/randombox.service';
 import { RandomboxTableDataSource } from './randombox-table-datasource';
-import { linkSkills } from '../../deal/models/skill-link';
+import { linkSkills } from '../../deal/entities/skill/skill-link';
 
 @Component({
   selector: 'app-randombox',
