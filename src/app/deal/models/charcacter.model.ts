@@ -1,6 +1,7 @@
+import { Core } from './core.model';
 import { JOB_CODE } from './job.model';
-import { UnionCard, UnionControl } from './union.model';
 import { Stat } from './stat.model';
+import { UnionCard, UnionControl } from './union.model';
 
 export interface HyperStat {
   STR: number;
@@ -85,5 +86,9 @@ export interface Character {
   skillLevels: {
     [code: string]: number;
   };
+  stacks: {
+    [code: string]: number;
+  };
+  cores: Core[];
   buffs: string[];
 }
