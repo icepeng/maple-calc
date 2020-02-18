@@ -82,7 +82,7 @@ export class StatService {
     };
   }
 
-  getStat(character: Character): Stat {
+  getStat(character: any/* Character */): Stat {
     const baseStat = this.getBaseStat();
     const job = jobEntities[character.job];
     const basicStat: Partial<Stat> = {

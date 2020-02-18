@@ -34,7 +34,7 @@ export class ArcaneForceComponent implements OnInit {
         Validators.max(20),
       ]),
       growth: new FormControl(0, Validators.required),
-      daily: new FormControl(8, Validators.required),
+      daily: new FormControl(14, Validators.required),
     }),
     chewchew: new FormGroup({
       level: new FormControl(0, [
@@ -43,7 +43,7 @@ export class ArcaneForceComponent implements OnInit {
         Validators.max(20),
       ]),
       growth: new FormControl(0, Validators.required),
-      daily: new FormControl(15, Validators.required),
+      daily: new FormControl(19, Validators.required),
     }),
     lacheln: new FormGroup({
       level: new FormControl(0, [
@@ -52,7 +52,7 @@ export class ArcaneForceComponent implements OnInit {
         Validators.max(20),
       ]),
       growth: new FormControl(0, Validators.required),
-      daily: new FormControl(8, Validators.required),
+      daily: new FormControl(0, Validators.required),
     }),
     arcana: new FormGroup({
       level: new FormControl(0, [
@@ -61,7 +61,7 @@ export class ArcaneForceComponent implements OnInit {
         Validators.max(20),
       ]),
       growth: new FormControl(0, Validators.required),
-      daily: new FormControl(10, Validators.required),
+      daily: new FormControl(18, Validators.required),
     }),
     morass: new FormGroup({
       level: new FormControl(0, [
@@ -104,38 +104,6 @@ export class ArcaneForceComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    // this.formGroup.setValue({
-    //   vanishing: {
-    //     level: 13,
-    //     growth: 164,
-    //     daily: 8,
-    //   },
-    //   chewchew: {
-    //     level: 15,
-    //     growth: 194,
-    //     daily: 15,
-    //   },
-    //   lacheln: {
-    //     level: 11,
-    //     growth: 130,
-    //     daily: 8,
-    //   },
-    //   arcana: {
-    //     level: 9,
-    //     growth: 50,
-    //     daily: 10,
-    //   },
-    //   morass: {
-    //     level: 9,
-    //     growth: 20,
-    //     daily: 8,
-    //   },
-    //   esfera: {
-    //     level: 5,
-    //     growth: 9,
-    //     daily: 8,
-    //   },
-    // });
   }
 
   getSymbolPlot(

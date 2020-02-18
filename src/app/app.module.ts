@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { UpgradeModule } from './upgrade/upgrade.module';
-import { RandomboxModule } from './randombox/randombox.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ArcaneForceModule } from './arcane-force/arcane-force.module';
 import { DealModule } from './deal/deal.module';
@@ -19,7 +18,6 @@ import { DealModule } from './deal/deal.module';
     HttpClientModule,
     MaterialModule,
     UpgradeModule,
-    RandomboxModule,
     ArcaneForceModule,
     DealModule,
     AppRoutingModule,

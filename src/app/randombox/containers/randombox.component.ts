@@ -4,7 +4,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { MatSort } from '@angular/material';
+import { MatSort } from '@angular/material/sort';
 import { RandomboxService } from '../services/randombox.service';
 import { RandomboxTableDataSource } from './randombox-table-datasource';
 import { linkSkills } from '../../deal/entities/skill/skill-link';
@@ -16,9 +16,9 @@ import { linkSkills } from '../../deal/entities/skill/skill-link';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RandomboxComponent implements OnInit {
-  @ViewChild('apple')
+  @ViewChild('apple', { static: true })
   appleSort: MatSort;
-  @ViewChild('royal')
+  @ViewChild('royal', { static: true })
   royalSort: MatSort;
   appleDataSource: RandomboxTableDataSource;
   royalDataSource: RandomboxTableDataSource;

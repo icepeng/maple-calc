@@ -12,26 +12,27 @@
         "@schematics/angular:component": {
           "changeDetection": "OnPush",
           "inlineStyle": true,
-          "spec": false,
-          "styleext": "scss"
+          "skipTests": true,
+          "style": "scss"
         },
         "@schematics/angular:directive": {
-          "spec": false
+          "skipTests": true
         },
         "@schematics/angular:service": {
-          "spec": false
+          "skipTests": true
         },
         "@schematics/angular:pipe": {
-          "spec": false
+          "skipTests": true
         },
         "@schematics/angular:module": {
-          "spec": false
+          "skipTests": true
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/maple-calc",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -48,6 +49,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
