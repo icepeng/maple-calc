@@ -1,6 +1,15 @@
 <div class="grid-container">
   <h1 class="mat-h1">사냥터</h1>
   <mat-form-field appearance="fill">
+    <mat-label>플레이어 레벨</mat-label>
+    <input
+      matInput
+      type="number"
+      [ngModel]="playerLevel"
+      (ngModelChange)="setPlayerLevel($event)"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
     <mat-label>경험치 배율</mat-label>
     <input
       matInput
@@ -63,6 +72,7 @@
           <mat-form-field>
             <input
               matInput
+              (blur)="onBlur()"
               [ngModel]="row.burning"
               (ngModelChange)="setBurning(row, $event)"
             />
