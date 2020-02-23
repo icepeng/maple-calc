@@ -547,6 +547,12 @@ export const maps: Map[] = [
   },
   {
     group: '모라스',
+    name: '형님들 구역 2',
+    count: 30,
+    mobs: [{ exp: 454564, level: 238 }],
+  },
+  {
+    group: '모라스',
     name: '그림자가 춤추는 곳 4',
     count: 33,
     mobs: [{ exp: 470825, level: 240 }],
