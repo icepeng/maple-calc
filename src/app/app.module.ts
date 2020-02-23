@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Angulartics2Module } from 'angulartics2';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArcaneForceModule } from './arcane-force/arcane-force.module';
@@ -20,6 +21,7 @@ import { UpgradeModule } from './upgrade/upgrade.module';
     ArcaneForceModule,
     // DealModule,
     GrindingModule,
+    Angulartics2Module.forRoot(),
     AppRoutingModule,
   ],
   providers: [],
