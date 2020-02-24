@@ -668,7 +668,7 @@ export const maps: Map[] = [
   {
     group: '문브릿지',
     name: '미지의 안개 2',
-    count: 35,
+    count: 24,
     mobs: [{ exp: 612643, level: 253 }],
   },
   {
