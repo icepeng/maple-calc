@@ -1,25 +1,30 @@
 <div class="grid-container">
   <h1 class="mat-h1">사냥터</h1>
-  <mat-form-field appearance="fill">
-    <mat-label>플레이어 레벨</mat-label>
-    <input
-      matInput
-      type="number"
-      [ngModel]="playerLevel"
-      (ngModelChange)="setPlayerLevel($event)"
-    />
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>경험치 배율</mat-label>
-    <input
-      matInput
-      type="number"
-      [ngModel]="expBuff"
-      (ngModelChange)="setExpBuff($event)"
-    />
-    <span matSuffix>%</span>
-  </mat-form-field>
-  <div class="mat-elevation-z8">
+  <form [formGroup]="formGroup">
+    <mat-form-field appearance="fill">
+      <mat-label>플레이어 레벨</mat-label>
+      <input matInput type="number" formControlName="playerLevel" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>경험치 배율</mat-label>
+      <input matInput type="number" formControlName="expBuff" />
+      <span matSuffix>%</span>
+    </mat-form-field>
+    <div formGroupName="filter">
+      <mat-checkbox formControlName="여로">여로</mat-checkbox>
+      <mat-checkbox formControlName="리버스">리버스</mat-checkbox>
+      <mat-checkbox formControlName="츄츄">츄츄</mat-checkbox>
+      <mat-checkbox formControlName="얌얌">얌얌</mat-checkbox>
+      <mat-checkbox formControlName="레헬른">레헬른</mat-checkbox>
+      <mat-checkbox formControlName="아르카나">아르카나</mat-checkbox>
+      <mat-checkbox formControlName="모라스">모라스</mat-checkbox>
+      <mat-checkbox formControlName="에스페라">에스페라</mat-checkbox>
+      <mat-checkbox formControlName="문브릿지">문브릿지</mat-checkbox>
+      <mat-checkbox formControlName="미궁">미궁</mat-checkbox>
+      <mat-checkbox formControlName="리멘">리멘</mat-checkbox>
+    </div>
+  </form>
+  <div class="margin-top mat-elevation-z8">
     <table
       mat-table
       #sort="matSort"
@@ -68,7 +73,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           버닝
         </th>
-        <td mat-cell *matCellDef="let row; let i = index">
+        <td mat-cell *matCellDef="let row">
           <mat-form-field>
             <input
               matInput
