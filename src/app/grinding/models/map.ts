@@ -404,7 +404,7 @@ export const maps: Map[] = [
   {
     group: '레헬른',
     name: '무법자들의 거리 2',
-    count: 27,
+    count: 29,
     mobs: [
       { exp: 309470, level: 220 },
       { exp: 316316, level: 221 },
@@ -418,9 +418,33 @@ export const maps: Map[] = [
   },
   {
     group: '레헬른',
+    name: '닭이 뛰노는 곳 1',
+    count: 26,
+    mobs: [{ exp: 316316, level: 221 }],
+  },
+  {
+    group: '레헬른',
     name: '닭이 뛰노는 곳 2',
     count: 22,
     mobs: [{ exp: 322473, level: 222 }],
+  },
+  {
+    group: '레헬른',
+    name: '닭이 뛰노는 곳 3',
+    count: 38,
+    mobs: [{ exp: 316316, level: 221 }, { exp: 322473, level: 222 }],
+  },
+  {
+    group: '레헬른',
+    name: '우승 접시의 거리 1',
+    count: 23,
+    mobs: [{ exp: 322473, level: 222 }],
+  },
+  {
+    group: '레헬른',
+    name: '우승 접시의 거리 2',
+    count: 22,
+    mobs: [{ exp: 329417, level: 223 }],
   },
   {
     group: '레헬른',
@@ -452,7 +476,7 @@ export const maps: Map[] = [
   {
     group: '레헬른',
     name: '춤추는 구두 점령지 2',
-    count: 21,
+    count: 22,
     mobs: [{ exp: 342720, level: 225 }],
   },
   {
@@ -463,12 +487,96 @@ export const maps: Map[] = [
   },
   {
     group: '레헬른',
+    name: '악몽의 시계탑 2층',
+    count: 28,
+    mobs: [{ exp: 349836, level: 226 }],
+  },
+  {
+    group: '레헬른',
     name: '악몽의 시계탑 5층',
     count: 27,
     mobs: [
       { exp: 356216, level: 227 },
       { exp: 363430, level: 228 },
     ],
+  },
+  {
+    group: '아르카나',
+    name: '물의 숲',
+    count: 28,
+    mobs: [{ exp: 393361, level: 230 }],
+  },
+  {
+    group: '아르카나',
+    name: '햇살의 숲',
+    count: 27,
+    mobs: [{ exp: 401055, level: 231 }],
+  },
+  {
+    group: '아르카나',
+    name: '물과 햇살의 숲',
+    count: 33,
+    mobs: [{ exp: 393361, level: 230 }, { exp: 401055, level: 231 }],
+  },
+  {
+    group: '아르카나',
+    name: '흙의 숲',
+    count: 28,
+    mobs: [{ exp: 408788, level: 232 }],
+  },
+  {
+    group: '아르카나',
+    name: '햇살과 흙의 숲',
+    count: 25,
+    mobs: [{ exp: 401055, level: 231 }, { exp: 408788, level: 232 }],
+  },
+  {
+    group: '아르카나',
+    name: '서리 구름의 숲',
+    count: 22,
+    mobs: [{ exp: 415702, level: 233 }],
+  },
+  {
+    group: '아르카나',
+    name: '번개 구름의 숲',
+    count: 25,
+    mobs: [{ exp: 423542, level: 234 }],
+  },
+  {
+    group: '아르카나',
+    name: '서리와 번개의 숲 1',
+    count: 22,
+    mobs: [{ exp: 415702, level: 233 }, { exp: 423542, level: 234 }],
+  },
+  {
+    group: '아르카나',
+    name: '서리와 번개의 숲 2',
+    count: 20,
+    mobs: [{ exp: 415702, level: 233 }, { exp: 423542, level: 234 }],
+  },
+  {
+    group: '아르카나',
+    name: '맹독의 숲',
+    count: 27,
+    mobs: [{ exp: 431459, level: 235 }],
+  },
+  {
+    group: '아르카나',
+    name: '폭발의 숲',
+    count: 27,
+    mobs: [{ exp: 439452, level: 236 }],
+  },
+  {
+    group: '아르카나',
+    name: '맹독과 폭발의 숲 1',
+    count: 29,
+    mobs: [{ exp: 431459, level: 235 }, { exp: 439452, level: 236 }],
+  },
+  {
+    group: '아르카나',
+    name: '맹독과 폭발의 숲 2',
+    count: 31,
+    mobs: [{ exp: 431459, level: 235 }, { exp: 439452, level: 236 }],
   },
   {
     group: '아르카나',
@@ -546,10 +654,30 @@ export const maps: Map[] = [
     ],
   },
   {
+    group: '아르카나',
+    name: '정령의 나무 밑 동굴',
+    count: 24,
+    mobs: [
+      { exp: 470825, level: 240 },
+    ],
+  },
+  {
     group: '모라스',
     name: '형님들 구역 2',
-    count: 30,
+    count: 32,
     mobs: [{ exp: 454564, level: 238 }],
+  },
+  {
+    group: '모라스',
+    name: '그림자가 춤추는 곳 2',
+    count: 32,
+    mobs: [{ exp: 470825, level: 239 }],
+  },
+  {
+    group: '모라스',
+    name: '그림자가 춤추는 곳 3',
+    count: 37,
+    mobs: [{ exp: 470825, level: 239 }, { exp: 470825, level: 240 }],
   },
   {
     group: '모라스',
@@ -561,6 +689,18 @@ export const maps: Map[] = [
     group: '모라스',
     name: '폐쇄 구역',
     count: 31,
+    mobs: [{ exp: 485624, level: 241 }],
+  },
+  {
+    group: '모라스',
+    name: '폐쇄 구역 2',
+    count: 37,
+    mobs: [{ exp: 485624, level: 241 }],
+  },
+  {
+    group: '모라스',
+    name: '폐쇄 구역 3',
+    count: 37,
     mobs: [{ exp: 485624, level: 241 }],
   },
   {
@@ -599,7 +739,7 @@ export const maps: Map[] = [
   {
     group: '에스페라',
     name: '거울빛에 물든 바다 3',
-    count: 21,
+    count: 23,
     mobs: [
       { exp: 509964, level: 244 },
       { exp: 518511, level: 245 },
@@ -608,19 +748,19 @@ export const maps: Map[] = [
   {
     group: '에스페라',
     name: '거울빛에 물든 바다 4',
-    count: 23,
+    count: 26,
     mobs: [{ exp: 518511, level: 245 }],
   },
   {
     group: '에스페라',
     name: '거울빛에 물든 바다 5',
-    count: 23,
+    count: 28,
     mobs: [{ exp: 527106, level: 246 }],
   },
   {
     group: '에스페라',
     name: '거울빛에 물든 바다 6',
-    count: 24,
+    count: 28,
     mobs: [
       { exp: 527106, level: 246 },
       { exp: 535749, level: 247 },
@@ -629,7 +769,7 @@ export const maps: Map[] = [
   {
     group: '에스페라',
     name: '거울빛에 물든 바다 7',
-    count: 26,
+    count: 31,
     mobs: [{ exp: 535749, level: 247 }],
   },
   {
@@ -655,9 +795,27 @@ export const maps: Map[] = [
   },
   {
     group: '문브릿지',
+    name: '사상의 경계 1',
+    count: 38,
+    mobs: [{ exp: 584807, level: 250 }],
+  },
+  {
+    group: '문브릿지',
     name: '사상의 경계 2',
     count: 26,
     mobs: [{ exp: 594040, level: 251 }],
+  },
+  {
+    group: '문브릿지',
+    name: '사상의 경계 3',
+    count: 34,
+    mobs: [{ exp: 584807, level: 250 }, { exp: 594040, level: 251 }],
+  },
+  {
+    group: '문브릿지',
+    name: '사상의 경계 4',
+    count: 34,
+    mobs: [{ exp: 584807, level: 250 }],
   },
   {
     group: '문브릿지',
@@ -667,9 +825,45 @@ export const maps: Map[] = [
   },
   {
     group: '문브릿지',
+    name: '사상의 경계 6',
+    count: 33,
+    mobs: [{ exp: 584807, level: 250 }, { exp: 594040, level: 251 }],
+  },
+  {
+    group: '문브릿지',
+    name: '미지의 안개 1',
+    count: 30,
+    mobs: [{ exp: 603318, level: 252 }],
+  },
+  {
+    group: '문브릿지',
     name: '미지의 안개 2',
-    count: 24,
+    count: 29,
     mobs: [{ exp: 612643, level: 253 }],
+  },
+  {
+    group: '문브릿지',
+    name: '미지의 안개 4',
+    count: 33,
+    mobs: [{ exp: 603318, level: 252 }],
+  },
+  {
+    group: '문브릿지',
+    name: '미지의 안개 5',
+    count: 35,
+    mobs: [{ exp: 612643, level: 253 }],
+  },
+  {
+    group: '문브릿지',
+    name: '미지의 안개 6',
+    count: 31,
+    mobs: [{ exp: 603318, level: 252 }, { exp: 612643, level: 253 }],
+  },
+  {
+    group: '문브릿지',
+    name: '공허의 파도 1',
+    count: 30,
+    mobs: [{ exp: 622041, level: 254 }],
   },
   {
     group: '문브릿지',
@@ -692,13 +886,13 @@ export const maps: Map[] = [
   {
     group: '문브릿지',
     name: '공허의 파도 6',
-    count: 30,
+    count: 29,
     mobs: [{ exp: 622041, level: 254 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 내부 1',
-    count: 27,
+    count: 29,
     mobs: [{ exp: 631458, level: 255 }],
   },
   {
@@ -710,43 +904,43 @@ export const maps: Map[] = [
   {
     group: '미궁',
     name: '고통의 미궁 내부 3',
-    count: 29,
+    count: 33,
     mobs: [{ exp: 631458, level: 255 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 내부 4',
-    count: 23,
+    count: 26,
     mobs: [{ exp: 640971, level: 256 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 내부 5',
-    count: 28,
+    count: 29,
     mobs: [{ exp: 640971, level: 256 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 내부 6',
-    count: 27,
+    count: 28,
     mobs: [{ exp: 640971, level: 256 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 중심부 1',
-    count: 27,
+    count: 32,
     mobs: [{ exp: 650504, level: 257 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 중심부 2',
-    count: 29,
+    count: 28,
     mobs: [{ exp: 650504, level: 257 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 중심부 3',
-    count: 33,
+    count: 35,
     mobs: [{ exp: 650504, level: 257 }],
   },
   {
@@ -758,19 +952,19 @@ export const maps: Map[] = [
   {
     group: '미궁',
     name: '고통의 미궁 중심부 5',
-    count: 31,
+    count: 29,
     mobs: [{ exp: 661261, level: 258 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 중심부 6',
-    count: 32,
+    count: 35,
     mobs: [{ exp: 661261, level: 258 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 중심부 7',
-    count: 30,
+    count: 24,
     mobs: [{ exp: 661261, level: 258 }],
   },
   {
@@ -782,7 +976,7 @@ export const maps: Map[] = [
   {
     group: '미궁',
     name: '고통의 미궁 최심부 2',
-    count: 29,
+    count: 30,
     mobs: [{ exp: 670293, level: 259 }],
   },
   {
@@ -794,25 +988,25 @@ export const maps: Map[] = [
   {
     group: '미궁',
     name: '고통의 미궁 최심부 4',
-    count: 30,
+    count: 31,
     mobs: [{ exp: 670940, level: 259 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 최심부 5',
-    count: 26,
+    count: 33,
     mobs: [{ exp: 670940, level: 259 }],
   },
   {
     group: '미궁',
     name: '고통의 미궁 최심부 6',
-    count: 28,
+    count: 29,
     mobs: [{ exp: 670940, level: 259 }],
   },
   {
     group: '리멘',
     name: '세계의 눈물 하단 1',
-    count: 23,
+    count: 30,
     mobs: [{ exp: 680638, level: 260 }],
   },
   {
@@ -839,7 +1033,7 @@ export const maps: Map[] = [
   {
     group: '리멘',
     name: '세계의 눈물 중단 2',
-    count: 24,
+    count: 29,
     mobs: [
       { exp: 690432, level: 261 },
       { exp: 700242, level: 262 },
@@ -860,7 +1054,7 @@ export const maps: Map[] = [
   {
     group: '리멘',
     name: '세계가 끝나는 곳 1-5',
-    count: 22,
+    count: 24,
     mobs: [{ exp: 705182, level: 263 }],
   },
   {
@@ -872,7 +1066,7 @@ export const maps: Map[] = [
   {
     group: '리멘',
     name: '세계가 끝나는 곳 2-3',
-    count: 19,
+    count: 30,
     mobs: [{ exp: 710121, level: 263 }],
   },
   {
@@ -884,7 +1078,7 @@ export const maps: Map[] = [
   {
     group: '리멘',
     name: '세계가 끝나는 곳 2-5',
-    count: 21,
+    count: 22,
     mobs: [{ exp: 721247, level: 263 }],
   },
 ];
