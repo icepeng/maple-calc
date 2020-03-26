@@ -3,12 +3,14 @@ import {
   Component,
   OnInit,
   ViewChild,
+  OnDestroy,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { backgroundColors, maps, MapView } from '../models/map';
 import { GrindingService } from '../services/grinding.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-grinding',
@@ -34,7 +36,7 @@ import { GrindingService } from '../services/grinding.service';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GrindingComponent implements OnInit {
+export class GrindingComponent implements OnInit, OnDestroy {
   @ViewChild('sort', { static: true })
   sort: MatSort;
 
@@ -67,6 +69,8 @@ export class GrindingComponent implements OnInit {
     }),
   });
 
+  subscription: Subscription;
+
   constructor(private grindingService: GrindingService) {}
 
   ngOnInit(): void {
@@ -94,7 +98,7 @@ export class GrindingComponent implements OnInit {
     this.list = new MatTableDataSource(mapViews);
     this.list.sort = this.sort;
 
-    this.formGroup.valueChanges.subscribe(value => {
+    this.subscription = this.formGroup.valueChanges.subscribe(value => {
       this.list.data = mapViews
         .filter(x => value.filter[x.group])
         .map(x => ({
@@ -127,5 +131,9 @@ export class GrindingComponent implements OnInit {
 
   onBlur() {
     this.list.data = this.list.data.slice();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
