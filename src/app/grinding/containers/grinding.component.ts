@@ -8,7 +8,7 @@ import {
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { backgroundColors, maps, MapView } from '../models/map';
+import { backgroundColors, maps, MapView, fieldAvailableLevels } from '../models/map';
 import { GrindingService } from '../services/grinding.service';
 import { Subscription } from 'rxjs';
 
@@ -67,6 +67,7 @@ export class GrindingComponent implements OnInit, OnDestroy {
       미궁: new FormControl(true),
       리멘: new FormControl(true),
     }),
+    filterModel: new FormControl(null),
   });
 
   subscription: Subscription;
@@ -84,6 +85,7 @@ export class GrindingComponent implements OnInit, OnDestroy {
           map.mobs.length) *
         7.5;
       const backgroundColor = backgroundColors[map.group];
+      const fieldAvailableLevel = fieldAvailableLevels[map.group];
 
       return {
         ...map,
@@ -92,6 +94,7 @@ export class GrindingComponent implements OnInit, OnDestroy {
         mesoPerHour,
         backgroundColor,
         burning: 0,
+        fieldAvailableLevel,
       };
     });
 
@@ -113,7 +116,18 @@ export class GrindingComponent implements OnInit, OnDestroy {
             value.playerLevel,
           ),
         }));
+      this.list.filter = value.filterModel;
     });
+
+    
+    this.list.filterPredicate = (data: MapView, filterModel: string) => {
+      const playerLevel = this.formGroup.value.playerLevel;
+      if(filterModel === 'showAvailableFieldsOnly'){
+        return playerLevel ? playerLevel >= data.fieldAvailableLevel : true;
+      } else {
+        return true;
+      }
+    }
   }
 
   trackByName(index: number, data: MapView) {
@@ -127,6 +141,10 @@ export class GrindingComponent implements OnInit, OnDestroy {
       this.formGroup.value.expBuff,
       this.formGroup.value.playerLevel,
     );
+  }
+
+  applyFilter(data:MapView, filterModel: string) {
+    this.list.filter = filterModel ? filterModel.trim() : null;
   }
 
   onBlur() {

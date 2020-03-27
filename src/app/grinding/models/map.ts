@@ -18,6 +18,7 @@ export interface MapView {
   mesoPerHour: number;
   burning: number;
   backgroundColor: string;
+  fieldAvailableLevel: number;
 }
 
 export const backgroundColors: Record<string, string> = {
@@ -1082,3 +1083,17 @@ export const maps: Map[] = [
     mobs: [{ exp: 721247, level: 263 }],
   },
 ];
+
+export const fieldAvailableLevels: Record<string, number> = {
+  여로: 200,
+  리버스: 205,
+  츄츄: 210,
+  얌얌: 215,
+  레헬른: 220,
+  아르카나: 225,
+  모라스: 230,
+  에스페라: 235,
+  문브릿지: 245,
+  미궁: 250,
+  리멘: 255,
+}
