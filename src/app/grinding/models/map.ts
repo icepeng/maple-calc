@@ -190,6 +190,30 @@ export const maps: Map[] = [
   },
   {
     group: '츄츄',
+    name: '동산 입구',
+    count: 31,
+    mobs: [{ exp: 248003, level: 210 }],
+  },
+  {
+    group: '츄츄',
+    name: '알록달록 숲지대 1',
+    count: 31,
+    mobs: [{ exp: 253673, level: 211 }],
+  },
+  {
+    group: '츄츄',
+    name: '알록달록 숲지대 2',
+    count: 33,
+    mobs: [{ exp: 248003, level: 210 }],
+  },
+  {
+    group: '츄츄',
+    name: '오색동산 깊은곳',
+    count: 30,
+    mobs: [{ exp: 253673, level: 211 }],
+  },
+  {
+    group: '츄츄',
     name: '몽땅 동굴숲 1',
     count: 22,
     mobs: [{ exp: 260047, level: 212 }],
@@ -670,7 +694,7 @@ export const maps: Map[] = [
   {
     group: '모라스',
     name: '그림자가 춤추는 곳 2',
-    count: 32,
+    count: 37,
     mobs: [{ exp: 470825, level: 239 }],
   },
   {
@@ -952,7 +976,7 @@ export const maps: Map[] = [
   {
     group: '미궁',
     name: '고통의 미궁 중심부 5',
-    count: 29,
+    count: 33,
     mobs: [{ exp: 661261, level: 258 }],
   },
   {
@@ -964,7 +988,7 @@ export const maps: Map[] = [
   {
     group: '미궁',
     name: '고통의 미궁 중심부 7',
-    count: 24,
+    count: 29,
     mobs: [{ exp: 661261, level: 258 }],
   },
   {
