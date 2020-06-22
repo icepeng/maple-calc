@@ -11,6 +11,7 @@ import {
 @Component({
   selector: 'app-upgrade-matrix',
   templateUrl: './upgrade-matrix.component.html',
+  styleUrls: ['./upgrade.component.css'],
   styles: [
     `
       .grid-container {
