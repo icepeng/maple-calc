@@ -77,15 +77,15 @@ export class UpgradeComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private coreService: CoreService,
-  ) {
-    const storedForm = coreService.getLocalStorage(localStorageAccessKey);
+  ) {}
+
+  ngOnInit() {
+    const storedForm = this.coreService.getLocalStorage(localStorageAccessKey);
 
     if (storedForm) {
-      coreService.setFormGroup(this.formGroup, storedForm);
+      this.formGroup.patchValue(storedForm);
     }
   }
-
-  ngOnInit() {}
 
   initializeUpgradeForm() {
     this.formGroup = this.getInitializedUpgradeForm();
@@ -511,10 +511,7 @@ export class UpgradeComponent implements OnInit {
   }
 
   saveForm() {
-    const data = { ...this.getData() };
-
-    delete data.upgradeBinom;
-    delete data.upgradeBinomCum;
+    const { upgradeBinom, upgradeBinomCum, ...data } = this.getData();
 
     this.coreService.setLocalStorage(localStorageAccessKey, data);
   }

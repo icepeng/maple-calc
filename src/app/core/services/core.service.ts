@@ -18,14 +18,4 @@ export class CoreService {
   removeLocalStorage(key: string) {
     localStorage.removeItem(key);
   }
-
-  setFormGroup(form: FormGroup, target: object) {
-    for (const [key, value] of Object.entries(target)) {
-      form.patchValue({
-        [key]: value
-      });
-    }
-
-    return form;
-  }
 }

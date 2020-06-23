@@ -54,16 +54,9 @@ table.vertical-table tr:first-child > td {
   align-items: center;
 }
 
-.horizontal-center {
-  justify-content: center;
-}
-
-.flex-d-column {
-  flex-direction: column;
-}
-
 .horizontal-split {
   justify-content: space-between;
 }
 
-.mt-5 { margin-top: 5px !important; } .mr-5 { margin-right: 5px !important; } .mb-5 { margin-bottom: 5px !important; } .ml-5 { margin-left: 5px !important; }
+.mr-5 { margin-right: 5px !important; }
+.mb-5 { margin-bottom: 5px !important; }

@@ -48,15 +48,14 @@ export class ArcaneForceComponent implements OnInit {
   leftShorten = 0;
   shortest = '';
 
-  constructor(private coreService: CoreService) {
-    const storedForm = coreService.getLocalStorage(localStorageAccessKey);
-
-    if (storedForm) {
-      coreService.setFormGroup(this.formGroup, storedForm);
-    }
-  }
+  constructor(private coreService: CoreService) {}
 
   ngOnInit() {
+    const storedForm = this.coreService.getLocalStorage(localStorageAccessKey);
+
+    if (storedForm) {
+      this.formGroup.patchValue(storedForm);
+    }
   }
 
   initializeArcaneForceForm() {
