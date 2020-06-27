@@ -1,5 +1,11 @@
 <div class="grid-container">
-  <h1 class="mat-h1">아케인포스</h1>
+  <div class="flexible-box vertical-center horizontal-split w-100 mb-5">
+    <h1 class="mat-h1">아케인포스</h1>
+    <div>
+      <button (click)="initializeArcaneForceForm()" mat-raised-button color="primary" class="mr-5">초기화</button>
+      <button (click)="saveForm()" mat-raised-button color="primary">저장</button>
+    </div>
+  </div>
   <div class="mat-elevation-z2">
     <mat-horizontal-stepper (selectionChange)="onStepChange($event)" linear #stepper>
       <mat-step [stepControl]="formGroup">

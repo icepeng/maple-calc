@@ -2,11 +2,17 @@
   <h1 class="mat-h1">주문의 흔적 그래프</h1>
   <mat-grid-list [cols]="(isHandset$ | async) ? 1 : 2" [rowHeight]="'350px'">
     <mat-grid-tile [colspan]="1" [rowspan]="3">
-      <mat-card class="dashboard-card">
+      <mat-card class="dashboard-card elegant-card">
         <mat-card-header>
-          <mat-card-title>
-            정보 입력
-          </mat-card-title>
+          <div class="flexible-box horizontal-split vertical-center w-100">
+            <mat-card-title>
+              정보 입력
+            </mat-card-title>
+            <div>
+              <button (click)="initializeUpgradeForm()" mat-raised-button color="primary" class="mr-5">초기화</button>
+              <button (click)="saveForm()" mat-raised-button color="primary">저장</button>
+            </div>
+          </div>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <form [formGroup]="formGroup" class="upgrade-form">

@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
+import { CoreService } from 'src/app/core/services/core.service';
 
+const localStorageAccessKey = 'arcaneForceForm';
 @Component({
   selector: 'app-arcane-force',
   templateUrl: './arcane-force.component.html',
@@ -26,62 +28,7 @@ export class ArcaneForceComponent implements OnInit {
     esfera: 'rgb(187, 136, 255)',
   };
 
-  formGroup = new FormGroup({
-    vanishing: new FormGroup({
-      level: new FormControl(0, [
-        Validators.required,
-        Validators.min(0),
-        Validators.max(20),
-      ]),
-      growth: new FormControl(0, Validators.required),
-      daily: new FormControl(14, Validators.required),
-    }),
-    chewchew: new FormGroup({
-      level: new FormControl(0, [
-        Validators.required,
-        Validators.min(0),
-        Validators.max(20),
-      ]),
-      growth: new FormControl(0, Validators.required),
-      daily: new FormControl(19, Validators.required),
-    }),
-    lacheln: new FormGroup({
-      level: new FormControl(0, [
-        Validators.required,
-        Validators.min(0),
-        Validators.max(20),
-      ]),
-      growth: new FormControl(0, Validators.required),
-      daily: new FormControl(0, Validators.required),
-    }),
-    arcana: new FormGroup({
-      level: new FormControl(0, [
-        Validators.required,
-        Validators.min(0),
-        Validators.max(20),
-      ]),
-      growth: new FormControl(0, Validators.required),
-      daily: new FormControl(18, Validators.required),
-    }),
-    morass: new FormGroup({
-      level: new FormControl(0, [
-        Validators.required,
-        Validators.min(0),
-        Validators.max(20),
-      ]),
-      growth: new FormControl(0, Validators.required),
-      daily: new FormControl(8, Validators.required),
-    }),
-    esfera: new FormGroup({
-      level: new FormControl(0, [
-        Validators.required,
-        Validators.min(0),
-        Validators.max(20),
-      ]),
-      growth: new FormControl(0, Validators.required),
-      daily: new FormControl(8, Validators.required),
-    }),
-  });
+  formGroup = this.getInitializedArcaneForceForm();
 
   selectable = 0;
 
@@ -101,9 +48,79 @@ export class ArcaneForceComponent implements OnInit {
   leftShorten = 0;
   shortest = '';
 
-  constructor() {}
+  constructor(private coreService: CoreService) {}
 
   ngOnInit() {
+    const storedForm = this.coreService.getLocalStorage(localStorageAccessKey);
+
+    if (storedForm) {
+      this.formGroup.patchValue(storedForm);
+    }
+  }
+
+  initializeArcaneForceForm() {
+    this.formGroup = this.getInitializedArcaneForceForm();
+
+    this.coreService.removeLocalStorage(localStorageAccessKey);
+  }
+
+  getInitializedArcaneForceForm() {
+    return new FormGroup({
+      vanishing: new FormGroup({
+        level: new FormControl(0, [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(20),
+        ]),
+        growth: new FormControl(0, Validators.required),
+        daily: new FormControl(14, Validators.required),
+      }),
+      chewchew: new FormGroup({
+        level: new FormControl(0, [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(20),
+        ]),
+        growth: new FormControl(0, Validators.required),
+        daily: new FormControl(19, Validators.required),
+      }),
+      lacheln: new FormGroup({
+        level: new FormControl(0, [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(20),
+        ]),
+        growth: new FormControl(0, Validators.required),
+        daily: new FormControl(0, Validators.required),
+      }),
+      arcana: new FormGroup({
+        level: new FormControl(0, [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(20),
+        ]),
+        growth: new FormControl(0, Validators.required),
+        daily: new FormControl(18, Validators.required),
+      }),
+      morass: new FormGroup({
+        level: new FormControl(0, [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(20),
+        ]),
+        growth: new FormControl(0, Validators.required),
+        daily: new FormControl(8, Validators.required),
+      }),
+      esfera: new FormGroup({
+        level: new FormControl(0, [
+          Validators.required,
+          Validators.min(0),
+          Validators.max(20),
+        ]),
+        growth: new FormControl(0, Validators.required),
+        daily: new FormControl(8, Validators.required),
+      }),
+    });
   }
 
   getSymbolPlot(
@@ -337,5 +354,11 @@ export class ArcaneForceComponent implements OnInit {
     if (event.selectedIndex === 2) {
       this.calculateTotal();
     }
+  }
+
+  saveForm() {
+    const data = { ...this.formGroup.value };
+
+    this.coreService.setLocalStorage(localStorageAccessKey, data);
   }
 }

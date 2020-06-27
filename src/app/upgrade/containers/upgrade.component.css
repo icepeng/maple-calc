@@ -18,3 +18,7 @@
   height: 240px;
   width: 100%;
 }
+
+:host /deep/ .elegant-card .mat-card-header-text {
+  margin: 0;
+}

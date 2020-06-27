@@ -1,10 +1,12 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CoreService } from '../../core/services/core.service';
 import * as math from 'mathjs';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+const localStorageAccessKey = 'upgradeForm';
 @Component({
   selector: 'app-upgrade',
   templateUrl: './upgrade.component.html',
@@ -12,15 +14,7 @@ import { map } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpgradeComponent implements OnInit {
-  formGroup = new FormGroup({
-    upgradePercentage: new FormControl(0.39, Validators.required),
-    upgradeLimit: new FormControl(8, Validators.required),
-    innocentPercentage: new FormControl(0.45, Validators.required),
-    whitePercentage: new FormControl(0.1, Validators.required),
-    hammerPercentage: new FormControl(0.5, Validators.required),
-    innocentLimit: new FormControl(4, Validators.required),
-    isBeforeHammer: new FormControl(true, Validators.required),
-  });
+  formGroup = this.getInitializedUpgradeForm();
 
   innocentMean: number;
   innocentChart = {
@@ -80,12 +74,39 @@ export class UpgradeComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private coreService: CoreService,
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const storedForm = this.coreService.getLocalStorage(localStorageAccessKey);
 
-  calculate() {
-    const data = {
+    if (storedForm) {
+      this.formGroup.patchValue(storedForm);
+    }
+  }
+
+  initializeUpgradeForm() {
+    this.formGroup = this.getInitializedUpgradeForm();
+
+    this.coreService.removeLocalStorage(localStorageAccessKey);
+  }
+
+  getInitializedUpgradeForm() {
+    return new FormGroup({
+      upgradePercentage: new FormControl(0.39, Validators.required),
+      upgradeLimit: new FormControl(8, Validators.required),
+      innocentPercentage: new FormControl(0.45, Validators.required),
+      whitePercentage: new FormControl(0.1, Validators.required),
+      hammerPercentage: new FormControl(0.5, Validators.required),
+      innocentLimit: new FormControl(4, Validators.required),
+      isBeforeHammer: new FormControl(true, Validators.required),
+    });
+  }
+
+  getData() {
+    return {
       ...this.init({
         upgradeLimit: +this.formGroup.value.upgradeLimit,
         upgradePercentage: +this.formGroup.value.upgradePercentage,
@@ -96,6 +117,11 @@ export class UpgradeComponent implements OnInit {
       hammerPercentage: +this.formGroup.value.hammerPercentage,
       isBeforeHammer: this.formGroup.value.isBeforeHammer,
     };
+  }
+
+  calculate() {
+    const data = this.getData();
+
     this.innocentMean = this.getInnocentMean(data);
     this.whiteMean = this.getWhiteMean(data);
     this.hammerMean = this.getHammerMean(data);
@@ -482,5 +508,11 @@ export class UpgradeComponent implements OnInit {
       upgradeBinomCum[innocentLimit] +
       upgradeBinom[innocentLimit - 1] * hammerPercentage * upgradePercentage;
     return upgradeBinomCum[innocentLimit - 1] / p;
+  }
+
+  saveForm() {
+    const { upgradeBinom, upgradeBinomCum, ...data } = this.getData();
+
+    this.coreService.setLocalStorage(localStorageAccessKey, data);
   }
 }

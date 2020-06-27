@@ -11,48 +11,9 @@ import {
 @Component({
   selector: 'app-upgrade-matrix',
   templateUrl: './upgrade-matrix.component.html',
-  styles: [
-    `
-      .grid-container {
-        margin: 20px;
-      }
-
-      .dashboard-card {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        right: 15px;
-        bottom: 15px;
-      }
-
-      .upgrade-form mat-form-field {
-        width: 100%;
-      }
-
-      .U {
-        background-color: #fff9c4;
-      }
-
-      .I {
-        background-color: #d1c4e9;
-      }
-
-      .H {
-        background-color: #f9a825;
-      }
-
-      .W {
-        background-color: #e0f7fa;
-      }
-
-      .F {
-        background-color: #f3e5e5;
-      }
-
-      .X {
-        background-color: #616161;
-      }
-    `,
+  styleUrls: [
+    './upgrade.component.css',
+    './upgrade-matrix.component.css'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
