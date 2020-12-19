@@ -44,7 +44,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                "inject": true
               },
               "src/styles.css"
             ],
@@ -69,7 +70,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -104,7 +104,8 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                "inject": true
               },
               "src/styles.css"
             ],
