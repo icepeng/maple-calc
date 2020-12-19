@@ -54,6 +54,12 @@ export class GrindingService {
     if (diff >= 5) {
       return 1.05;
     }
+    if (diff >= 2) {
+      return 1.1;
+    }
+    if (diff >= -1) {
+      return 1.2;
+    }
     if (diff >= -4) {
       return 1.1;
     }
