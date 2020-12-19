@@ -1284,7 +1284,7 @@ export const maps: Map[] = [
   },
   {
     group: '세르니움(전)',
-    name: '왕립 도서관 제4구역',
+    name: '왕립 도서관 제5구역',
     count: 32,
     mobs: [{ exp: 1828409, level: 264 }],
   },
