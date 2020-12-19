@@ -63,9 +63,11 @@ export class GrindingComponent implements OnInit, OnDestroy {
       아르카나: new FormControl(true),
       모라스: new FormControl(true),
       에스페라: new FormControl(true),
+      셀라스: new FormControl(true),
       문브릿지: new FormControl(true),
       미궁: new FormControl(true),
       리멘: new FormControl(true),
+      '세르니움(전)': new FormControl(true),
     }),
   });
 
