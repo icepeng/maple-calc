@@ -131,7 +131,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "https://icepeng.github.io/maple-calc/"
+            "baseHref": "/maple-calc/"
           }
         }
       }
