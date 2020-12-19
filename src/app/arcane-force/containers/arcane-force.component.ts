@@ -73,7 +73,7 @@ export class ArcaneForceComponent implements OnInit {
           Validators.max(20),
         ]),
         growth: new FormControl(0, Validators.required),
-        daily: new FormControl(14, Validators.required),
+        daily: new FormControl(22, Validators.required),
       }),
       chewchew: new FormGroup({
         level: new FormControl(0, [
@@ -82,7 +82,7 @@ export class ArcaneForceComponent implements OnInit {
           Validators.max(20),
         ]),
         growth: new FormControl(0, Validators.required),
-        daily: new FormControl(19, Validators.required),
+        daily: new FormControl(23, Validators.required),
       }),
       lacheln: new FormGroup({
         level: new FormControl(0, [
