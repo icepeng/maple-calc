@@ -11,13 +11,6 @@
       <input matInput type="number" formControlName="expBuff" />
       <span matSuffix>%</span>
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>필터</mat-label>
-      <mat-select formControlName="filterModel">
-        <mat-option>-- None --</mat-option>
-        <mat-option value="showAvailableFieldsOnly">적합한 레벨만 보기</mat-option>
-      </mat-select>
-    </mat-form-field>
     <div formGroupName="filter">
       <mat-checkbox formControlName="여로">여로</mat-checkbox>
       <mat-checkbox formControlName="리버스">리버스</mat-checkbox>

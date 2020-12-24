@@ -1,16 +1,22 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  OnDestroy,
   OnInit,
   ViewChild,
-  OnDestroy,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { backgroundColors, maps, MapView, fieldAvailableLevels } from '../models/map';
+import { Subject } from 'rxjs';
+import { filter, map, takeUntil } from 'rxjs/operators';
+import {
+  backgroundColors,
+  fieldAvailableLevels,
+  maps,
+  MapView,
+} from '../models/map';
 import { GrindingService } from '../services/grinding.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-grinding',
@@ -69,67 +75,71 @@ export class GrindingComponent implements OnInit, OnDestroy {
       리멘: new FormControl(true),
       '세르니움(전)': new FormControl(true),
     }),
-    filterModel: new FormControl(null),
   });
 
-  subscription: Subscription;
+  subscription$ = new Subject();
 
   constructor(private grindingService: GrindingService) {}
 
   ngOnInit(): void {
-    const mapViews = maps.map(map => {
-      const countPerHour = (map.count * 60 * 60) / 7.5;
+    const mapViews = maps.map(mapData => {
+      const countPerHour = (mapData.count * 60 * 60) / 7.5;
       const expPerHour =
-        (countPerHour * map.mobs.reduce((acc, mob) => acc + mob.exp, 0)) /
-        map.mobs.length;
+        (countPerHour * mapData.mobs.reduce((acc, mob) => acc + mob.exp, 0)) /
+        mapData.mobs.length;
       const mesoPerHour =
-        ((countPerHour * map.mobs.reduce((acc, mob) => acc + mob.level, 0)) /
-          map.mobs.length) *
+        ((countPerHour *
+          mapData.mobs.reduce((acc, mob) => acc + mob.level, 0)) /
+          mapData.mobs.length) *
         7.5;
-      const backgroundColor = backgroundColors[map.group];
-      const fieldAvailableLevel = fieldAvailableLevels[map.group];
+      const backgroundColor = backgroundColors[mapData.group];
 
       return {
-        ...map,
+        ...mapData,
         countPerHour,
         expPerHour,
         mesoPerHour,
         backgroundColor,
         burning: 0,
-        fieldAvailableLevel,
       };
     });
 
     this.list = new MatTableDataSource(mapViews);
     this.list.sort = this.sort;
 
-    this.subscription = this.formGroup.valueChanges.subscribe(value => {
-      this.list.data = mapViews
-        .filter(x => value.filter[x.group])
-        .map(x => ({
-          ...x,
-          expPerHour: this.grindingService.getExpPerHour(
-            x,
-            value.expBuff,
-            value.playerLevel,
-          ),
-          mesoPerHour: this.grindingService.getMesoPerHour(
-            x,
-            value.playerLevel,
-          ),
-        }));
-      this.list.filter = value.filterModel;
-    });
-
-    
-    this.list.filterPredicate = (data: MapView, filterModel: string) => {
-      const playerLevel = this.formGroup.value.playerLevel;
-      if(filterModel === 'showAvailableFieldsOnly'){
-        return playerLevel ? playerLevel >= data.fieldAvailableLevel : true;
-      } else {
-        return true;
-      }
-    }
+    this.formGroup
+      .get('playerLevel')
+      .valueChanges.pipe(
+        takeUntil(this.subscription$),
+        filter(playerLevel => playerLevel >= 200),
+        map(playerLevel =>
+          Object.entries(fieldAvailableLevels).reduce((obj, [field, lv]) => {
+            obj[field] = playerLevel >= lv;
+            return obj;
+          }, {}),
+        ),
+      )
+      .subscribe(patchFilter =>
+        this.formGroup.get('filter').patchValue(patchFilter),
+      );
+    this.formGroup.valueChanges
+      .pipe(takeUntil(this.subscription$))
+      .subscribe(value => {
+        this.list.data = mapViews
+          .filter(x => value.filter[x.group])
+          .map(x => ({
+            ...x,
+            expPerHour: this.grindingService.getExpPerHour(
+              x,
+              value.expBuff,
+              value.playerLevel,
+            ),
+            mesoPerHour: this.grindingService.getMesoPerHour(
+              x,
+              value.playerLevel,
+            ),
+          }));
+      });
   }
 
   trackByName(index: number, data: MapView) {
@@ -145,15 +155,12 @@ export class GrindingComponent implements OnInit, OnDestroy {
     );
   }
 
-  applyFilter(data:MapView, filterModel: string) {
-    this.list.filter = filterModel ? filterModel.trim() : null;
-  }
-
   onBlur() {
     this.list.data = this.list.data.slice();
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscription$.next();
+    this.subscription$.complete();
   }
 }
