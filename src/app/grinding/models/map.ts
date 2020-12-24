@@ -933,6 +933,42 @@ export const maps: Map[] = [
     mobs: [{ exp: 553217, level: 249 }],
   },
   {
+    group: '셀라스',
+    name: '별이 삼켜진 심해 1',
+    count: 24,
+    mobs: [{ exp: 584807, level: 250 }],
+  },
+  {
+    group: '셀라스',
+    name: '별이 삼켜진 심해 2',
+    count: 32,
+    mobs: [{ exp: 584807, level: 250 }],
+  },
+  {
+    group: '셀라스',
+    name: '별이 삼켜진 심해 3',
+    count: 38,
+    mobs: [{ exp: 584807, level: 250 }],
+  },
+  {
+    group: '셀라스',
+    name: '별이 삼켜진 심해 4',
+    count: 24,
+    mobs: [{ exp: 594040, level: 251 }],
+  },
+  {
+    group: '셀라스',
+    name: '별이 삼켜진 심해 4',
+    count: 31,
+    mobs: [{ exp: 594040, level: 251 }],
+  },
+  {
+    group: '셀라스',
+    name: '별이 삼켜진 심해 4',
+    count: 39,
+    mobs: [{ exp: 594040, level: 251 }],
+  },
+  {
     group: '문브릿지',
     name: '사상의 경계 1',
     count: 38,
