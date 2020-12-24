@@ -973,13 +973,13 @@ export const maps: Map[] = [
   },
   {
     group: '셀라스',
-    name: '별이 삼켜진 심해 4',
+    name: '별이 삼켜진 심해 5',
     count: 31,
     mobs: [{ exp: 594040, level: 251 }],
   },
   {
     group: '셀라스',
-    name: '별이 삼켜진 심해 4',
+    name: '별이 삼켜진 심해 6',
     count: 39,
     mobs: [{ exp: 594040, level: 251 }],
   },
