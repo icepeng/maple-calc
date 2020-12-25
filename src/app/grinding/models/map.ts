@@ -1051,6 +1051,15 @@ export const maps: Map[] = [
   },
   {
     group: '문브릿지',
+    name: '미지의 안개 3',
+    count: 37,
+    mobs: [
+      { exp: 603318, level: 252 },
+      { exp: 612643, level: 253 },
+    ],
+  },
+  {
+    group: '문브릿지',
     name: '미지의 안개 4',
     count: 36,
     mobs: [{ exp: 603318, level: 252 }],
