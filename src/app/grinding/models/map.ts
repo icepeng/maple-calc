@@ -234,7 +234,10 @@ export const maps: Map[] = [
     group: '츄츄',
     name: '몽땅 동굴숲 1',
     count: 22,
-    mobs: [{ exp: 260047, level: 212 }],
+    mobs: [
+      { exp: 260047, level: 212 },
+      { exp: 265808, level: 213 },
+    ],
   },
   {
     group: '츄츄',
@@ -246,7 +249,10 @@ export const maps: Map[] = [
     group: '츄츄',
     name: '격류지대 1',
     count: 28,
-    mobs: [{ exp: 277832, level: 215 }],
+    mobs: [
+      { exp: 271621, level: 214 },
+      { exp: 284043, level: 216 },
+    ],
   },
   {
     group: '츄츄',
@@ -267,7 +273,10 @@ export const maps: Map[] = [
     group: '츄츄',
     name: '폭포아래',
     count: 24,
-    mobs: [{ exp: 284043, level: 216 }],
+    mobs: [
+      { exp: 278138, level: 215 },
+      { exp: 284043, level: 216 },
+    ],
   },
   {
     group: '츄츄',
@@ -279,13 +288,16 @@ export const maps: Map[] = [
     group: '츄츄',
     name: '고래산 중턱 1',
     count: 19,
-    mobs: [{ exp: 297037, level: 218 }],
+    mobs: [
+      { exp: 290679, level: 217 },
+      { exp: 303394, level: 219 },
+    ],
   },
   {
     group: '츄츄',
     name: '고래산 중턱 2',
     count: 19,
-    mobs: [{ exp: 296653, level: 219 }],
+    mobs: [{ exp: 296653, level: 218 }],
   },
   {
     group: '츄츄',
