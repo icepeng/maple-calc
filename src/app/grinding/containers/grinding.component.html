@@ -1,16 +1,124 @@
 <div class="grid-container">
   <h1 class="mat-h1">사냥터</h1>
-  <div class="mat-caption">셀라스, 문브, 리멘, 세르니움 출처: https://gall.dcinside.com/board/view/?id=maplestory&no=13081693</div>
+  <div class="mat-caption">
+    셀라스, 문브, 리멘, 세르니움 출처:
+    https://gall.dcinside.com/board/view/?id=maplestory&no=13081693
+  </div>
   <form [formGroup]="formGroup">
-    <mat-form-field appearance="fill">
+    <mat-form-field>
       <mat-label>플레이어 레벨</mat-label>
       <input matInput type="number" formControlName="playerLevel" />
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>추가 경험치 배율</mat-label>
-      <input matInput type="number" formControlName="expBuff" />
-      <span matSuffix>%</span>
-    </mat-form-field>
+    <div class="expbuff" formGroupName="expBuff">
+      <mat-form-field>
+        <mat-label>경험치 쿠폰</mat-label>
+        <mat-select formControlName="coupon">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="50">50%</mat-option>
+          <mat-option [value]="100">100%</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>경뿌 / MVP쿠폰</mat-label>
+        <mat-select formControlName="mvp">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="50">사용</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>경험 축적의 비약</mat-label>
+        <mat-select formControlName="elixir">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="10">사용</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>익스트림 골드</mat-label>
+        <mat-select formControlName="gold">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="10">사용</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>메르링크</mat-label>
+        <mat-select formControlName="mercedes">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="10">1레벨</mat-option>
+          <mat-option [value]="15">2레벨</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>홀리심볼 (쓸심 30레벨 35%)</mat-label>
+        <input matInput type="number" formControlName="holySymbol" />
+        <span matSuffix>%</span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>혈맹의 반지</mat-label>
+        <mat-select formControlName="ring">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="10">사용</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>제로공격대원</mat-label>
+        <mat-select formControlName="zero">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="4">B</mat-option>
+          <mat-option [value]="6">A</mat-option>
+          <mat-option [value]="8">S</mat-option>
+          <mat-option [value]="10">SS</mat-option>
+          <mat-option [value]="12">SSS</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>유니온배치 (0~10%)</mat-label>
+        <input matInput type="number" formControlName="union" />
+        <span matSuffix>%</span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>하이퍼스탯 (0~10%)</mat-label>
+        <input matInput type="number" formControlName="hyperstat" />
+        <span matSuffix>%</span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>정령의 펜던트</mat-label>
+        <mat-select formControlName="pendant">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="10">10%</mat-option>
+          <mat-option [value]="20">20%</mat-option>
+          <mat-option [value]="30">30%</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>로디드 다이스</mat-label>
+        <mat-select formControlName="dice">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="30">6번</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>PC방</mat-label>
+        <mat-select formControlName="pcroom">
+          <mat-option [value]="0">없음</mat-option>
+          <mat-option [value]="30">프리미엄 PC방</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>기타</mat-label>
+        <input matInput type="number" formControlName="others" />
+        <span matSuffix>%</span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>총합</mat-label>
+        <input
+          matInput
+          disabled
+          type="number"
+          [value]="calculateExpBuff(formGroup.value.expBuff)"
+        />
+        <span matSuffix>%</span>
+      </mat-form-field>
+    </div>
     <div formGroupName="filter">
       <mat-checkbox formControlName="여로">여로</mat-checkbox>
       <mat-checkbox formControlName="리버스">리버스</mat-checkbox>
@@ -47,7 +155,9 @@
       </ng-container>
 
       <ng-container matColumnDef="count">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header start="desc">몹젠수</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header start="desc">
+          몹젠수
+        </th>
         <td mat-cell *matCellDef="let row">{{ row.count | number }}</td>
       </ng-container>
 
@@ -62,14 +172,18 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header start="desc">
           시간당 최대 순경험치
         </th>
-        <td mat-cell *matCellDef="let row">{{ row.expPerHour | number:'.0-0' }}</td>
+        <td mat-cell *matCellDef="let row">
+          {{ row.expPerHour | number: '.0-0' }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="mesoPerHour">
         <th mat-header-cell *matHeaderCellDef mat-sort-header start="desc">
           시간당 최대 순메소
         </th>
-        <td mat-cell *matCellDef="let row">{{ row.mesoPerHour | number:'.0-0' }}</td>
+        <td mat-cell *matCellDef="let row">
+          {{ row.mesoPerHour | number: '.0-0' }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="burning">

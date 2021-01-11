@@ -10,6 +10,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
+import { CoreService } from '../../core/services/core.service';
 import {
   backgroundColors,
   fieldAvailableLevels,
@@ -18,6 +19,7 @@ import {
 } from '../models/map';
 import { GrindingService } from '../services/grinding.service';
 
+const localStorageAccessKey = 'grinding';
 @Component({
   selector: 'app-grinding',
   templateUrl: './grinding.component.html',
@@ -33,6 +35,19 @@ import { GrindingService } from '../services/grinding.service';
 
       .margin-top {
         margin-top: 12px;
+      }
+
+      .expbuff {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: 1200px;
+        gap: 0px 20px;
+      }
+
+      mat-form-field {
+        width: 240px;
       }
 
       mat-checkbox ~ mat-checkbox {
@@ -58,7 +73,22 @@ export class GrindingComponent implements OnInit, OnDestroy {
   ];
 
   formGroup = new FormGroup({
-    expBuff: new FormControl(0),
+    expBuff: new FormGroup({
+      coupon: new FormControl(0),
+      mvp: new FormControl(0),
+      elixir: new FormControl(0),
+      gold: new FormControl(0),
+      mercedes: new FormControl(0),
+      holySymbol: new FormControl(0),
+      ring: new FormControl(0),
+      zero: new FormControl(0),
+      union: new FormControl(0),
+      hyperstat: new FormControl(0),
+      pendant: new FormControl(0),
+      dice: new FormControl(0),
+      pcroom: new FormControl(0),
+      others: new FormControl(0),
+    }),
     playerLevel: new FormControl(null),
     filter: new FormGroup({
       여로: new FormControl(true),
@@ -79,7 +109,10 @@ export class GrindingComponent implements OnInit, OnDestroy {
 
   subscription$ = new Subject();
 
-  constructor(private grindingService: GrindingService) {}
+  constructor(
+    private grindingService: GrindingService,
+    private coreService: CoreService,
+  ) {}
 
   ngOnInit(): void {
     const mapViews = maps.map(mapData => {
@@ -122,16 +155,18 @@ export class GrindingComponent implements OnInit, OnDestroy {
       .subscribe(patchFilter =>
         this.formGroup.get('filter').patchValue(patchFilter),
       );
+
     this.formGroup.valueChanges
       .pipe(takeUntil(this.subscription$))
       .subscribe(value => {
+        this.coreService.setLocalStorage(localStorageAccessKey, value);
         this.list.data = mapViews
           .filter(x => value.filter[x.group])
           .map(x => ({
             ...x,
             expPerHour: this.grindingService.getExpPerHour(
               x,
-              value.expBuff,
+              this.calculateExpBuff(value.expBuff),
               value.playerLevel,
             ),
             mesoPerHour: this.grindingService.getMesoPerHour(
@@ -140,6 +175,11 @@ export class GrindingComponent implements OnInit, OnDestroy {
             ),
           }));
       });
+
+    const storedForm = this.coreService.getLocalStorage(localStorageAccessKey);
+    if (storedForm) {
+      this.formGroup.patchValue(storedForm);
+    }
   }
 
   trackByName(index: number, data: MapView) {
@@ -150,9 +190,13 @@ export class GrindingComponent implements OnInit, OnDestroy {
     data.burning = value;
     data.expPerHour = this.grindingService.getExpPerHour(
       data,
-      this.formGroup.value.expBuff,
+      this.calculateExpBuff(this.formGroup.value.expBuff),
       this.formGroup.value.playerLevel,
     );
+  }
+
+  calculateExpBuff(expObj: Record<string, number>) {
+    return Object.values(expObj).reduce((sum, x) => sum + x, 0);
   }
 
   onBlur() {
