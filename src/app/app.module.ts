@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ArcaneForceModule } from './arcane-force/arcane-force.module';
 import { GrindingModule } from './grinding/grinding.module';
 import { MaterialModule } from './material/material.module';
+import { SkillModule } from './skill/skill.module';
 import { UpgradeModule } from './upgrade/upgrade.module';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { UpgradeModule } from './upgrade/upgrade.module';
     ArcaneForceModule,
     // DealModule,
     GrindingModule,
+    SkillModule,
     Angulartics2Module.forRoot(),
     AppRoutingModule,
   ],

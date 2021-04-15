@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <h1 class="mat-h1">스킬 범위(베타)</h1>
+  <form [formGroup]="formGroup">
+    <mat-checkbox *ngFor="let skill of data" [formControlName]="skill.name">{{
+      skill.name
+    }}</mat-checkbox>
+  </form>
+  <canvas #canvas width="1280" height="1280"></canvas>
+</div>
