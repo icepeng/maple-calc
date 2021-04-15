@@ -34,6 +34,7 @@ export const backgroundColors: Record<string, string> = {
   미궁: '#a9d08e',
   리멘: '#9bc2e6',
   '세르니움(전)': '#fff3b2',
+  '세르니움(후)': '#bb8877',
 };
 
 export const fieldAvailableLevels: Record<string, number> = {
@@ -50,6 +51,7 @@ export const fieldAvailableLevels: Record<string, number> = {
   미궁: 250,
   리멘: 255,
   '세르니움(전)': 260,
+  '세르니움(후)': 265,
 };
 
 export const maps: Map[] = [
@@ -1315,6 +1317,18 @@ export const maps: Map[] = [
   },
   {
     group: '세르니움(전)',
+    name: '해변 암석 지대 3',
+    count: 38,
+    mobs: [{ exp: 1725461, level: 260 }],
+  },
+  {
+    group: '세르니움(전)',
+    name: '해변 암석 지대 4',
+    count: 38,
+    mobs: [{ exp: 1725461, level: 260 }],
+  },
+  {
+    group: '세르니움(전)',
     name: '세르니움 서쪽 성벽 1',
     count: 21,
     mobs: [{ exp: 1750290, level: 261 }],
@@ -1323,6 +1337,12 @@ export const maps: Map[] = [
     group: '세르니움(전)',
     name: '세르니움 서쪽 성벽 2',
     count: 32,
+    mobs: [{ exp: 1750290, level: 261 }],
+  },
+  {
+    group: '세르니움(전)',
+    name: '세르니움 서쪽 성벽 3',
+    count: 38,
     mobs: [{ exp: 1750290, level: 261 }],
   },
   {
@@ -1339,6 +1359,12 @@ export const maps: Map[] = [
   },
   {
     group: '세르니움(전)',
+    name: '세르니움 동쪽 성벽 3',
+    count: 37,
+    mobs: [{ exp: 1775159, level: 262 }],
+  },
+  {
+    group: '세르니움(전)',
     name: '왕립 도서관 제1구역',
     count: 21,
     mobs: [{ exp: 1800203, level: 263 }],
@@ -1347,6 +1373,12 @@ export const maps: Map[] = [
     group: '세르니움(전)',
     name: '왕립 도서관 제2구역',
     count: 31,
+    mobs: [{ exp: 1800203, level: 263 }],
+  },
+  {
+    group: '세르니움(전)',
+    name: '왕립 도서관 제3구역',
+    count: 37,
     mobs: [{ exp: 1800203, level: 263 }],
   },
   {
@@ -1360,5 +1392,107 @@ export const maps: Map[] = [
     name: '왕립 도서관 제5구역',
     count: 32,
     mobs: [{ exp: 1828409, level: 264 }],
+  },
+  {
+    group: '세르니움(전)',
+    name: '왕립 도서관 제6구역',
+    count: 37,
+    mobs: [{ exp: 1828409, level: 264 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 서쪽 성벽 1',
+    count: 21,
+    mobs: [{ exp: 2056974, level: 265 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 서쪽 성벽 2',
+    count: 32,
+    mobs: [{ exp: 2056974, level: 265 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 서쪽 성벽 3',
+    count: 38,
+    mobs: [{ exp: 2056974, level: 265 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 서쪽 성벽 4',
+    count: 37,
+    mobs: [{ exp: 2056974, level: 265 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 동쪽 성벽 1',
+    count: 23,
+    mobs: [{ exp: 2085219, level: 266 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 동쪽 성벽 2',
+    count: 32,
+    mobs: [{ exp: 2085219, level: 266 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 동쪽 성벽 3',
+    count: 37,
+    mobs: [{ exp: 2085219, level: 266 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 동쪽 성벽 4',
+    count: 21,
+    mobs: [{ exp: 2113572, level: 267 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 동쪽 성벽 5',
+    count: 33,
+    mobs: [{ exp: 2113572, level: 267 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '격전의 동쪽 성벽 6',
+    count: 37,
+    mobs: [{ exp: 2113572, level: 267 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '불타는 왕립 도서관 제1구역',
+    count: 22,
+    mobs: [{ exp: 2145596, level: 268 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '불타는 왕립 도서관 제2구역',
+    count: 33,
+    mobs: [{ exp: 2145596, level: 268 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '불타는 왕립 도서관 제3구역',
+    count: 38,
+    mobs: [{ exp: 2145596, level: 268 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '불타는 왕립 도서관 제4구역',
+    count: 21,
+    mobs: [{ exp: 2174274, level: 269 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '불타는 왕립 도서관 제5구역',
+    count: 31,
+    mobs: [{ exp: 2174274, level: 269 }],
+  },
+  {
+    group: '세르니움(후)',
+    name: '불타는 왕립 도서관 제6구역',
+    count: 38,
+    mobs: [{ exp: 2174274, level: 269 }],
   },
 ];
