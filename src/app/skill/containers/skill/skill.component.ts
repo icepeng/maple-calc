@@ -6,9 +6,9 @@ import {
   ElementRef,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SkillData, skillData } from '../../skill-data';
+import { SkillData, skillData, skillEntries } from '../../skill-data';
 
-const originX = 640;
+const originX = 1020;
 const originY = 640;
 
 @Component({
@@ -25,8 +25,16 @@ const originY = 640;
       canvas {
         border: 1px solid black;
       }
-      mat-checkbox {
-        margin-left: 12px;
+      .container {
+        width: 1280px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 12px;
+        column-gap: 12px;
+      }
+      .half {
+        width: 50%;
+        display: inline-block;
       }
     `,
   ],
@@ -38,7 +46,7 @@ export class SkillComponent implements OnInit {
   private ctx: CanvasRenderingContext2D;
   private images: Record<string, HTMLImageElement> = {};
 
-  data = skillData;
+  data = skillEntries;
   formGroup = new FormGroup({});
 
   constructor() {}
@@ -96,6 +104,14 @@ export class SkillComponent implements OnInit {
       skill.rb.x - skill.lt.x,
       skill.rb.y - skill.lt.y,
     );
+    if (skill.lt2) {
+      this.ctx.strokeRect(
+        originX + skill.lt2.x,
+        originY + skill.lt2.y,
+        skill.rb2.x - skill.lt2.x,
+        skill.rb2.y - skill.lt2.y,
+      );
+    }
     this.ctx.fillText(
       skill.name,
       originX + skill.lt.x,
