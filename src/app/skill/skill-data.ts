@@ -1290,6 +1290,40 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '데몬 익스플로젼(1)',
+    location: 'assets/demonexplosion1.png',
+    job: '데몬슬레이어',
+    lt: {
+      x: -385,
+      y: -235,
+    },
+    rb: {
+      x: 385,
+      y: 0,
+    },
+    origin: {
+      x: 414,
+      y: 245,
+    },
+  },
+  {
+    name: '데몬 익스플로젼(2)',
+    location: 'assets/demonexplosion2.png',
+    job: '데몬슬레이어',
+    lt: {
+      x: -385,
+      y: -305,
+    },
+    rb: {
+      x: 385,
+      y: 0,
+    },
+    origin: {
+      x: 414,
+      y: 342,
+    },
+  },
+  {
     name: '데몬 임팩트',
     location: 'assets/demonimpact.png',
     job: '데몬슬레이어',
@@ -1375,6 +1409,91 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '데빌 크라이',
+    location: 'assets/devilcry.png',
+    job: '데몬슬레이어',
+    lt: {
+      x: -400,
+      y: -500,
+    },
+    rb: {
+      x: 400,
+      y: 180,
+    },
+    origin: {
+      x: 310,
+      y: 487,
+    },
+  },
+  // {
+  //   name: '메타모포시스',
+  //   location: 'assets/metamorphosis.png',
+  //   job: '데몬슬레이어',
+  //   lt: {
+  //     x: -150,
+  //     y: -80,
+  //   },
+  //   rb: {
+  //     x: 150,
+  //     y: 0,
+  //   },
+  //   origin: {
+  //     x: 115,
+  //     y: 4,
+  //   },
+  // },
+  {
+    name: '서버러스',
+    location: 'assets/cerberus.png',
+    job: '데몬슬레이어',
+    lt: {
+      x: -350,
+      y: -380,
+    },
+    rb: {
+      x: 60,
+      y: 50,
+    },
+    origin: {
+      x: 426,
+      y: 587,
+    },
+  },
+  {
+    name: '데몬 베인(1)',
+    location: 'assets/demonbane1.png',
+    job: '데몬슬레이어',
+    lt: {
+      x: -600,
+      y: -275,
+    },
+    rb: {
+      x: 100,
+      y: 10,
+    },
+    origin: {
+      x: 652,
+      y: 366,
+    },
+  },
+  {
+    name: '데몬 베인(2)',
+    location: 'assets/demonbane2.png',
+    job: '데몬슬레이어',
+    lt: {
+      x: -670,
+      y: -550,
+    },
+    rb: {
+      x: 120,
+      y: 10,
+    },
+    origin: {
+      x: 811,
+      y: 1098,
+    },
+  },
+  {
     name: '익시드 : 엑스큐션',
     location: 'assets/exceedexecution.png',
     job: '데몬어벤져',
@@ -1389,6 +1508,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 527,
       y: 222,
+    },
+  },
+  {
+    name: '사우전드 소드',
+    location: 'assets/thousandsword.png',
+    job: '데몬어벤져',
+    lt: {
+      x: -400,
+      y: -400,
+    },
+    rb: {
+      x: 400,
+      y: 200,
+    },
+    origin: {
+      x: 452,
+      y: 563,
     },
   },
   {
@@ -1423,6 +1559,74 @@ export const skillData: SkillData[] = [
     origin: {
       x: 472,
       y: 195,
+    },
+  },
+  {
+    name: '배틀킹 바(1)',
+    location: 'assets/battlekingbar1.png',
+    job: '배틀메이지',
+    lt: {
+      x: -380,
+      y: -200,
+    },
+    rb: {
+      x: 50,
+      y: 50,
+    },
+    origin: {
+      x: 378,
+      y: 197,
+    },
+  },
+  {
+    name: '배틀킹 바(2)',
+    location: 'assets/battlekingbar2.png',
+    job: '배틀메이지',
+    lt: {
+      x: -420,
+      y: -500,
+    },
+    rb: {
+      x: 100,
+      y: 10,
+    },
+    origin: {
+      x: 423,
+      y: 502,
+    },
+  },
+  {
+    name: '와일드 발칸 Type X',
+    location: 'assets/wildbalkantypex.png',
+    job: '와일드헌터',
+    lt: {
+      x: -550,
+      y: -200,
+    },
+    rb: {
+      x: 50,
+      y: 5,
+    },
+    origin: {
+      x: 596,
+      y: 243,
+    },
+  },
+  {
+    name: '디스토션 필드',
+    location: 'assets/distortionfield.png',
+    job: '메카닉',
+    lt: {
+      x: -500,
+      y: -250,
+    },
+    rb: {
+      x: -100,
+      y: 120,
+    },
+    origin: {
+      x: 457,
+      y: 213,
     },
   },
   {
