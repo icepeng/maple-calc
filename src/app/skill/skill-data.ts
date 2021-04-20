@@ -2603,7 +2603,7 @@ export const skillData: SkillData[] = [
     },
     rb: {
       x: 250,
-      y: 160,
+      y: 150,
     },
     origin: {
       x: 365,
