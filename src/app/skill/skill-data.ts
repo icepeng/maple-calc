@@ -70,6 +70,91 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '소드 오브 버닝 소울',
+    location: 'assets/swordofburningsoul.png',
+    job: '히어로',
+    lt: {
+      x: -355,
+      y: -195,
+    },
+    rb: {
+      x: 90,
+      y: 0,
+    },
+    origin: {
+      x: 379,
+      y: 210,
+    },
+  },
+  {
+    name: '소드 오브 버닝 소울(인레이지)',
+    location: 'assets/swordofburningsoul_enrage.png',
+    job: '히어로',
+    lt: {
+      x: -380,
+      y: -210,
+    },
+    rb: {
+      x: 90,
+      y: 0,
+    },
+    origin: {
+      x: 379,
+      y: 210,
+    },
+  },
+  {
+    name: '콤보 인스팅트(1)',
+    location: 'assets/comboinstinct1.png',
+    job: '히어로',
+    lt: {
+      x: -365,
+      y: -260,
+    },
+    rb: {
+      x: -35,
+      y: 65,
+    },
+    origin: {
+      x: 457,
+      y: 385,
+    },
+  },
+  {
+    name: '콤보 인스팅트(2)',
+    location: 'assets/comboinstinct2.png',
+    job: '히어로',
+    lt: {
+      x: -400,
+      y: -245,
+    },
+    rb: {
+      x: -50,
+      y: 90,
+    },
+    origin: {
+      x: 478,
+      y: 264,
+    },
+  },
+  {
+    name: '콤보 인스팅트(3)',
+    location: 'assets/comboinstinct3.png',
+    job: '히어로',
+    lt: {
+      x: -445,
+      y: -160,
+    },
+    rb: {
+      x: 130,
+      y: 130,
+    },
+    origin: {
+      x: 519,
+      y: 232,
+    },
+  },
+  {
     name: '소드 일루전',
     location: 'assets/swordillusion.png',
     job: '히어로',
