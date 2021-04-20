@@ -8,9 +8,6 @@ import {
 import { FormControl, FormGroup } from '@angular/forms';
 import { SkillData, skillData, skillEntries } from '../../skill-data';
 
-const originX = 1020;
-const originY = 640;
-
 @Component({
   selector: 'app-skill',
   templateUrl: './skill.component.html',
@@ -46,6 +43,12 @@ export class SkillComponent implements OnInit {
   private ctx: CanvasRenderingContext2D;
   private images: Record<string, HTMLImageElement> = {};
 
+  mouseX = 0;
+  mouseY = 0;
+  translateX = 0;
+  translateY = 0;
+  isDrag = false;
+
   data = skillEntries;
   formGroup = new FormGroup({});
 
@@ -61,22 +64,73 @@ export class SkillComponent implements OnInit {
     }
 
     this.formGroup.valueChanges.subscribe(form => {
-      this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-      const skills = skillData.filter(s => form[s.name]);
-      for (const skill of skills) {
-        this.drawSkill(skill);
-      }
-      for (const skill of skills) {
-        this.drawSkillRect(skill);
-      }
-      this.drawChtr();
+      this.draw();
     });
+
+    this.ctx.translate(640, 640);
+    this.translateX = 640;
+    this.translateY = 640;
+
+    this.canvas.nativeElement.onmousedown = e => {
+      this.mouseX = e.offsetX;
+      this.mouseY = e.offsetY;
+      this.isDrag = true;
+    };
+
+    this.canvas.nativeElement.onmousemove = e => {
+      if (!this.isDrag) {
+        return;
+      }
+      const dx = e.offsetX - this.mouseX;
+      const dy = e.offsetY - this.mouseY;
+      this.ctx.translate(dx, dy);
+      this.translateX += dx;
+      this.translateY += dy;
+      this.mouseX = e.offsetX;
+      this.mouseY = e.offsetY;
+
+      this.draw();
+    };
+
+    this.canvas.nativeElement.onmouseup = e => {
+      this.isDrag = false;
+    };
   }
 
-  drawImage(location: string, x: number, y: number, alpha: number = 1) {
+  draw() {
+    const skills = skillData.filter(s => this.formGroup.value[s.name]);
+    this.ctx.clearRect(
+      -this.translateX,
+      -this.translateY,
+      this.ctx.canvas.width,
+      this.ctx.canvas.height,
+    );
+    for (const skill of skills) {
+      this.drawSkill(skill);
+    }
+    for (const skill of skills) {
+      this.drawSkillRect(skill);
+    }
+    this.drawChtr();
+  }
+
+  drawImage(
+    location: string,
+    originX: number,
+    originY: number,
+    alpha: number = 1,
+    scale: number = 100,
+  ) {
     const draw = () => {
+      const img = this.images[location];
       this.ctx.globalAlpha = alpha;
-      this.ctx.drawImage(this.images[location], x, y);
+      this.ctx.drawImage(
+        img,
+        - (originX * scale) / 100,
+        - (originY * scale) / 100,
+        (img.width * scale) / 100,
+        (img.height * scale) / 100,
+      );
       this.ctx.globalAlpha = 1;
     };
     if (this.images[location] && this.images[location].complete) {
@@ -91,35 +145,44 @@ export class SkillComponent implements OnInit {
   drawSkill(skill: SkillData) {
     this.drawImage(
       skill.location,
-      originX - skill.origin.x,
-      originY - skill.origin.y,
+      skill.origin.x,
+      skill.origin.y,
       0.5,
+      skill.scale,
     );
   }
 
   drawSkillRect(skill: SkillData) {
     this.ctx.strokeRect(
-      originX + skill.lt.x,
-      originY + skill.lt.y,
+      skill.lt.x,
+      skill.lt.y,
       skill.rb.x - skill.lt.x,
       skill.rb.y - skill.lt.y,
     );
     if (skill.lt2) {
       this.ctx.strokeRect(
-        originX + skill.lt2.x,
-        originY + skill.lt2.y,
+        skill.lt2.x,
+        skill.lt2.y,
         skill.rb2.x - skill.lt2.x,
         skill.rb2.y - skill.lt2.y,
       );
     }
+    if (skill.lt3) {
+      this.ctx.strokeRect(
+        skill.lt3.x,
+        skill.lt3.y,
+        skill.rb3.x - skill.lt3.x,
+        skill.rb3.y - skill.lt3.y,
+      );
+    }
     this.ctx.fillText(
       skill.name,
-      originX + skill.lt.x,
-      originY + skill.lt.y - 5,
+      skill.lt.x,
+      skill.lt.y - 5,
     );
   }
 
   drawChtr() {
-    this.drawImage('assets/chtr.png', originX - 42, originY - 60);
+    this.drawImage('assets/chtr.png', 42, 60);
   }
 }
