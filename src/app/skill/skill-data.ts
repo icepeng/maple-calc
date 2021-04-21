@@ -290,6 +290,40 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '궁그닐 디센트',
+    location: 'assets/gungnirdescent.png',
+    job: '다크나이트',
+    lt: {
+      x: -400,
+      y: -150,
+    },
+    rb: {
+      x: 0,
+      y: 0,
+    },
+    origin: {
+      x: 127 + 400,
+      y: 434,
+    },
+  },
+  {
+    name: '다크 스피어',
+    location: 'assets/darkspear.png',
+    job: '다크나이트',
+    lt: {
+      x: -5 - 280 / 2 - 1000,
+      y: -63 - 220 / 2,
+    },
+    rb: {
+      x: -5 + 280 / 2,
+      y: -63 + 220 / 2,
+    },
+    origin: {
+      x: 140 + 5,
+      y: 52 + 63,
+    },
+  },
+  {
     name: '피어스 사이클론',
     location: 'assets/piercecyclone.png',
     job: '다크나이트',
@@ -423,6 +457,40 @@ export const skillData: SkillData[] = [
     origin: {
       x: 530,
       y: 267,
+    },
+  },
+  {
+    name: '카디널 디스차지',
+    location: 'assets/cardinaldischarge.png',
+    job: '패스파인더',
+    lt: {
+      x: -470,
+      y: -150,
+    },
+    rb: {
+      x: 30,
+      y: 80,
+    },
+    origin: {
+      x: 313,
+      y: 205,
+    },
+  },
+  {
+    name: '카디널 블래스트',
+    location: 'assets/cardinalblast.png',
+    job: '패스파인더',
+    lt: {
+      x: 50 - 140 - 400,
+      y: -30 - 215,
+    },
+    rb: {
+      x: 50 + 140 - 400,
+      y: -30 + 195,
+    },
+    origin: {
+      x: 233 - 50 + 400,
+      y: 358 + 30,
     },
   },
   {
@@ -749,6 +817,40 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '블레이드 토네이도',
+    location: 'assets/bladetornado.png',
+    job: '듀얼블레이드',
+    lt: {
+      x: -270,
+      y: -450,
+    },
+    rb: {
+      x: 270,
+      y: 5,
+    },
+    origin: {
+      x: 260,
+      y: 431,
+    },
+  },
+  {
+    name: '블레이드 토네이도(태풍)',
+    location: 'assets/bladetornado_shoot.png',
+    job: '듀얼블레이드',
+    lt: {
+      x: 0 - 200 / 2 - 550,
+      y: -185 - 370 / 2,
+    },
+    rb: {
+      x: 0 + 200 / 2,
+      y: -185 + 370 / 2,
+    },
+    origin: {
+      x: 150 + 0 + 550,
+      y: 258 + 185,
+    },
+  },
+  {
     name: '헌티드 엣지-나찰',
     location: 'assets/hauntededge_nachal.png',
     job: '듀얼블레이드',
@@ -950,6 +1052,40 @@ export const skillData: SkillData[] = [
     origin: {
       x: 717,
       y: 149,
+    },
+  },
+  {
+    name: '롤링 캐논 레인보우',
+    location: 'assets/rollingcannonrainbow.png',
+    job: '캐논슈터',
+    lt: {
+      x: -550,
+      y: -300,
+    },
+    rb: {
+      x: 50,
+      y: 20,
+    },
+    origin: {
+      x: 604,
+      y: 324,
+    },
+  },
+  {
+    name: '빅 휴즈 기간틱 캐논볼',
+    location: 'assets/bfgcannonball.png',
+    job: '캐논슈터',
+    lt: {
+      x: -180 - 300 / 2 - 1300,
+      y: -75 - 240 / 2,
+    },
+    rb: {
+      x: -180 + 300 / 2,
+      y: -75 + 240 / 2,
+    },
+    origin: {
+      x: 160 + 180,
+      y: 155 + 75,
     },
   },
   {
@@ -1208,6 +1344,23 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '블레이징 오비탈 플레임',
+    location: 'assets/blazingorbitalflame.png',
+    job: '플레임위자드',
+    lt: {
+      x: -150 - 100 / 2 - 670,
+      y: -25 - 100 / 2,
+    },
+    rb: {
+      x: -150 + 100 / 2,
+      y: -25 + 100 / 2,
+    },
+    origin: {
+      x: 168 + 150 + 670,
+      y: 159 + 25,
+    },
+  },
+  {
     name: '플레임 디스차지',
     location: 'assets/flamedischarge.png',
     job: '플레임위자드',
@@ -1256,6 +1409,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 359,
       y: 170,
+    },
+  },
+  {
+    name: '천공의 노래',
+    location: 'assets/songofsky.png',
+    job: '윈드브레이커',
+    lt: {
+      x: -450,
+      y: -150,
+    },
+    rb: {
+      x: 0,
+      y: 0,
+    },
+    origin: {
+      x: 185,
+      y: 193,
     },
   },
   {
@@ -1341,6 +1511,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 543,
       y: 296,
+    },
+  },
+  {
+    name: '교아탄',
+    location: 'assets/gioatan.png',
+    job: '스트라이커',
+    lt: {
+      x: -180 - 300 / 2 - 650,
+      y: -95 - 180 / 2,
+    },
+    rb: {
+      x: -180 + 300 / 2,
+      y: -95 + 180 / 2,
+    },
+    origin: {
+      x: 320 + 180,
+      y: 289 + 95,
     },
   },
   {
@@ -1871,6 +2058,74 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '퍼지롭 매스커레이드 : 저격',
+    location: 'assets/purgesnipe.png',
+    job: '제논',
+    lt: {
+      x: -459,
+      y: -220,
+    },
+    rb: {
+      x: 1,
+      y: 220,
+    },
+    origin: {
+      x: 166 + 450,
+      y: 163,
+    },
+  },
+  {
+    name: '퍼지롭 매스커레이드 : 포격',
+    location: 'assets/purgebombard.png',
+    job: '제논',
+    lt: {
+      x: -480,
+      y: -145,
+    },
+    rb: {
+      x: 100,
+      y: 5,
+    },
+    origin: {
+      x: 519,
+      y: 199,
+    },
+  },
+  {
+    name: '퍼지롭 매스커레이드 : 폭격',
+    location: 'assets/purgebombardment.png',
+    job: '제논',
+    lt: {
+      x: -275,
+      y: -235,
+    },
+    rb: {
+      x: 250,
+      y: 100,
+    },
+    origin: {
+      x: 356,
+      y: 272,
+    },
+  },
+  {
+    name: '블레이드 댄싱',
+    location: 'assets/bladedancing.png',
+    job: '제논',
+    lt: {
+      x: -225,
+      y: -140,
+    },
+    rb: {
+      x: 225,
+      y: 10,
+    },
+    origin: {
+      x: 250,
+      y: 183,
+    },
+  },
+  {
     name: '메가 스매셔',
     location: 'assets/megasmasher.png',
     job: '제논',
@@ -1885,6 +2140,40 @@ export const skillData: SkillData[] = [
     origin: {
       x: 879,
       y: 436,
+    },
+  },
+  {
+    name: '오버로드 모드',
+    location: 'assets/overloadmode.png',
+    job: '제논',
+    lt: {
+      x: -275,
+      y: -285,
+    },
+    rb: {
+      x: 275,
+      y: 175,
+    },
+    origin: {
+      x: 243,
+      y: 305,
+    },
+  },
+  {
+    name: '홀로그램 그래피티 : 융합',
+    location: 'assets/hologramfusion.png',
+    job: '제논',
+    lt: {
+      x: -320,
+      y: -490,
+    },
+    rb: {
+      x: 320,
+      y: 40,
+    },
+    origin: {
+      x: 437,
+      y: 559,
     },
   },
   {
@@ -2204,6 +2493,116 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '앱솔루트 킬',
+    location: 'assets/absolutekill.png',
+    job: '루미너스',
+    lt: {
+      x: -400,
+      y: -150,
+    },
+    rb: {
+      x: 0,
+      y: 0,
+    },
+    origin: {
+      x: 133 + 400,
+      y: 465,
+    },
+  },
+  {
+    name: '진리의 문',
+    location: 'assets/gateoflight.png',
+    job: '루미너스',
+    lt: {
+      x: -700,
+      y: -450,
+    },
+    rb: {
+      x: 700,
+      y: 450,
+    },
+    origin: {
+      x: 448,
+      y: 732,
+    },
+  },
+  {
+    name: '퍼니싱 리소네이터(빛)',
+    location: 'assets/punishingresonator_light.png',
+    job: '루미너스',
+    lt: {
+      x: -390,
+      y: -290,
+    },
+    rb: {
+      x: 390,
+      y: 50,
+    },
+    origin: {
+      x: 468,
+      y: 394,
+    },
+  },
+  {
+    name: '퍼니싱 리소네이터(어둠)',
+    location: 'assets/punishingresonator_dark.png',
+    job: '루미너스',
+    lt: {
+      x: -180,
+      y: -530,
+    },
+    rb: {
+      x: 180,
+      y: 290,
+    },
+    origin: {
+      x: 211,
+      y: 601,
+    },
+  },
+  {
+    name: '퍼니싱 리소네이터(이퀄)',
+    location: 'assets/punishingresonator_equalibrium.png',
+    job: '루미너스',
+    lt: {
+      x: -390,
+      y: -290,
+    },
+    rb: {
+      x: 390,
+      y: 50,
+    },
+    lt2: {
+      x: -180,
+      y: -530,
+    },
+    rb2: {
+      x: 180,
+      y: 290,
+    },
+    origin: {
+      x: 473,
+      y: 591,
+    },
+  },
+  {
+    name: '빛과 어둠의 세례',
+    location: 'assets/lightanddarkness.png',
+    job: '루미너스',
+    lt: {
+      x: -500,
+      y: -300,
+    },
+    rb: {
+      x: 500,
+      y: 300,
+    },
+    origin: {
+      x: 169,
+      y: 361,
+    },
+  },
+  {
     name: '얼티밋 드라이브',
     location: 'assets/ultimatedrive.png',
     job: '팬텀',
@@ -2439,6 +2838,74 @@ export const skillData: SkillData[] = [
     origin: {
       x: 446,
       y: 254,
+    },
+  },
+  {
+    name: '드라코 슬래셔(일반)',
+    location: 'assets/dracoslasher.png',
+    job: '카이저',
+    lt: {
+      x: -445,
+      y: -225,
+    },
+    rb: {
+      x: 20,
+      y: 50,
+    },
+    origin: {
+      x: 467,
+      y: 213,
+    },
+  },
+  {
+    name: '드라코 슬래셔(일반, 투사체)',
+    location: 'assets/dracoslasher_shoot.png',
+    job: '카이저',
+    lt: {
+      x: -60 - 400 / 2 - 400,
+      y: -68 - 150 / 2,
+    },
+    rb: {
+      x: -60 + 400 / 2,
+      y: -68 + 150 / 2,
+    },
+    origin: {
+      x: 222 + 60 + 400,
+      y: 134 + 68,
+    },
+  },
+  {
+    name: '드라코 슬래셔(변신)',
+    location: 'assets/dracoslasher_final.png',
+    job: '카이저',
+    lt: {
+      x: -600,
+      y: -340,
+    },
+    rb: {
+      x: 100,
+      y: 100,
+    },
+    origin: {
+      x: 567,
+      y: 350,
+    },
+  },
+  {
+    name: '드라코 슬래셔(변신, 투사체)',
+    location: 'assets/dracoslasher_final_shoot.png',
+    job: '카이저',
+    lt: {
+      x: -90 - 500 / 2 - 600,
+      y: -80 - 200 / 2,
+    },
+    rb: {
+      x: -90 + 500 / 2,
+      y: -80 + 200 / 2,
+    },
+    origin: {
+      x: 272 + 90 + 600,
+      y: 180 + 80,
     },
   },
   {
