@@ -2650,16 +2650,16 @@ export const skillData: SkillData[] = [
     location: 'assets/stroke2.png',
     job: '카데나',
     lt: {
-      x: -275,
-      y: -175,
+      x: -465,
+      y: -220,
     },
     rb: {
-      x: 80,
+      x: 20,
       y: 25,
     },
     origin: {
-      x: 301,
-      y: 175,
+      x: 462,
+      y: 212,
     },
   },
   {
