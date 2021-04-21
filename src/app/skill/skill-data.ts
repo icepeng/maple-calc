@@ -426,6 +426,142 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '카디널 트랜지션',
+    location: 'assets/cardinaltransition.png',
+    job: '패스파인더',
+    lt: {
+      x: -300,
+      y: -130,
+    },
+    rb: {
+      x: 300,
+      y: 50,
+    },
+    origin: {
+      x: 377,
+      y: 255,
+    },
+  },
+  {
+    name: '엣지 오브 레조넌스',
+    location: 'assets/edgeofresonance.png',
+    job: '패스파인더',
+    lt: {
+      x: -300,
+      y: -300,
+    },
+    rb: {
+      x: 300,
+      y: 250,
+    },
+    origin: {
+      x: 272,
+      y: 300,
+    },
+  },
+  {
+    name: '콤보 어썰트(활대)',
+    location: 'assets/comboassult_discharge_bow.png',
+    job: '패스파인더',
+    lt: {
+      x: -200,
+      y: -220,
+    },
+    rb: {
+      x: 200,
+      y: 100,
+    },
+    origin: {
+      x: 299,
+      y: 379,
+    },
+  },
+  {
+    name: '콤보 어썰트(디스차지, 화살)',
+    location: 'assets/comboassult_discharge_arrow.png',
+    job: '패스파인더',
+    lt: {
+      x: -450,
+      y: -450,
+    },
+    rb: {
+      x: 450,
+      y: 250,
+    },
+    origin: {
+      x: 665,
+      y: 642,
+    },
+  },
+  {
+    name: '콤보 어썰트(블래스트, 화살)',
+    location: 'assets/comboassult_blast_arrow.png',
+    job: '패스파인더',
+    lt: {
+      x: -400,
+      y: -400,
+    },
+    rb: {
+      x: 400,
+      y: 200,
+    },
+    origin: {
+      x: 499,
+      y: 557,
+    },
+  },
+  {
+    name: '콤보 어썰트(트랜지션, 화살)',
+    location: 'assets/comboassult_transition_arrow.png',
+    job: '패스파인더',
+    lt: {
+      x: -400,
+      y: -400,
+    },
+    rb: {
+      x: 400,
+      y: 200,
+    },
+    origin: {
+      x: 499,
+      y: 557,
+    },
+  },
+  {
+    name: '에인션트 아스트라(디스차지)',
+    location: 'assets/ancientastra_discharge.png',
+    job: '패스파인더',
+    lt: {
+      x: -650,
+      y: -160,
+    },
+    rb: {
+      x: 10,
+      y: 90,
+    },
+    origin: {
+      x: 658,
+      y: 236,
+    },
+  },
+  {
+    name: '에인션트 아스트라(트랜지션)',
+    location: 'assets/ancientastra_transition.png',
+    job: '패스파인더',
+    lt: {
+      x: -650,
+      y: -160,
+    },
+    rb: {
+      x: 10,
+      y: 90,
+    },
+    origin: {
+      x: 710,
+      y: 236,
+    },
+  },
+  {
     name: '쇼다운 챌린지',
     location: 'assets/showdown.png',
     job: '나이트로드',
