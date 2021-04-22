@@ -2654,6 +2654,48 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '템페스트 오브 카드(최소)',
+    location: 'assets/tempestofcard_small.png',
+    job: '팬텀',
+    lt: {
+      x: -150,
+      y: -150,
+    },
+    rb: {
+      x: 150,
+      y: 5,
+    },
+    origin: {
+      x: 160,
+      y: 167,
+    },
+  },
+  {
+    name: '템페스트 오브 카드(최대)',
+    location: 'assets/tempestofcard_large.png',
+    job: '팬텀',
+    lt: {
+      x: -250,
+      y: -250,
+    },
+    rb: {
+      x: 250,
+      y: 5,
+    },
+    lt2: {
+      x: -150,
+      y: -150,
+    },
+    rb2: {
+      x: 150,
+      y: 5,
+    },
+    origin: {
+      x: 263,
+      y: 254,
+    },
+  },
+  {
     name: '조커',
     location: 'assets/joker.png',
     job: '팬텀',
@@ -3449,6 +3491,40 @@ export const skillData: SkillData[] = [
     origin: {
       x: 514,
       y: 286,
+    },
+  },
+  {
+    name: '소울 레조넌스',
+    location: 'assets/soulresonance.png',
+    job: '엔젤릭버스터',
+    lt: {
+      x: -320,
+      y: -550,
+    },
+    rb: {
+      x: 320,
+      y: 30,
+    },
+    origin: {
+      x: 325,
+      y: 519,
+    },
+  },
+  {
+    name: '슈퍼 노바',
+    location: 'assets/supernova.png',
+    job: '엔젤릭버스터',
+    lt: {
+      x: -420,
+      y: -500,
+    },
+    rb: {
+      x: 420,
+      y: 100,
+    },
+    origin: {
+      x: 452,
+      y: 547,
     },
   },
   {
