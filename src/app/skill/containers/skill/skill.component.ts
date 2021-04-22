@@ -57,7 +57,7 @@ export class SkillComponent implements OnInit {
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctx.font = '24px 맑은 고딕';
-    this.drawChtr();
+    this.draw();
 
     for (const skill of skillData) {
       this.formGroup.addControl(skill.name, new FormControl(false));
@@ -126,8 +126,8 @@ export class SkillComponent implements OnInit {
       this.ctx.globalAlpha = alpha;
       this.ctx.drawImage(
         img,
-        - (originX * scale) / 100,
-        - (originY * scale) / 100,
+        -(originX * scale) / 100,
+        -(originY * scale) / 100,
         (img.width * scale) / 100,
         (img.height * scale) / 100,
       );
@@ -175,11 +175,7 @@ export class SkillComponent implements OnInit {
         skill.rb3.y - skill.lt3.y,
       );
     }
-    this.ctx.fillText(
-      skill.name,
-      skill.lt.x,
-      skill.lt.y - 5,
-    );
+    this.ctx.fillText(skill.name, skill.lt.x, skill.lt.y - 5);
   }
 
   drawChtr() {
