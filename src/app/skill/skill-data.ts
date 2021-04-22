@@ -460,6 +460,23 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '윈드 오브 프레이',
+    location: 'assets/windofpray.png',
+    job: '보우마스터',
+    lt: {
+      x: -400,
+      y: -435,
+    },
+    rb: {
+      x: 400,
+      y: 20,
+    },
+    origin: {
+      x: 311,
+      y: 389,
+    },
+  },
+  {
     name: '카디널 디스차지',
     location: 'assets/cardinaldischarge.png',
     job: '패스파인더',
@@ -1273,6 +1290,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 425,
       y: 278,
+    },
+  },
+  {
+    name: '클라우 솔라스(5)',
+    location: 'assets/swordoflight5.png',
+    job: '미하일',
+    lt: {
+      x: -400,
+      y: -500,
+    },
+    rb: {
+      x: 400,
+      y: 240,
+    },
+    origin: {
+      x: 670,
+      y: 795,
     },
   },
   {
