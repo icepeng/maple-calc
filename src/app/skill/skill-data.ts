@@ -528,6 +528,57 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '헤븐즈 도어',
+    location: 'assets/heavensdoor.png',
+    job: '비숍',
+    lt: {
+      x: -550,
+      y: -550,
+    },
+    rb: {
+      x: 550,
+      y: 130,
+    },
+    origin: {
+      x: 429,
+      y: 618,
+    },
+  },
+  {
+    name: '피스메이커(접촉)',
+    location: 'assets/peacemaker.png',
+    job: '비숍',
+    lt: {
+      x: -75 - 220 / 2 - 600,
+      y: -65 - 220 / 2,
+    },
+    rb: {
+      x: -75 + 220 / 2,
+      y: -65 + 220 / 2,
+    },
+    origin: {
+      x: 122 + 75,
+      y: 143 + 65,
+    },
+  },
+  {
+    name: '피스메이커(신성한 빛)',
+    location: 'assets/peacemaker_final.png',
+    job: '비숍',
+    lt: {
+      x: -350 - 75 - 600,
+      y: -350 - 65,
+    },
+    rb: {
+      x: 430 - 75 - 600,
+      y: 300 - 65,
+    },
+    origin: {
+      x: 590 + 75 + 600,
+      y: 590 + 65,
+    },
+  },
+  {
     name: '디바인 퍼니시먼트',
     location: 'assets/divinepunishment.png',
     job: '비숍',
@@ -3597,6 +3648,23 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '소울 시커',
+    location: 'assets/soulseeker.png',
+    job: '엔젤릭버스터',
+    lt: {
+      x: -500,
+      y: -400,
+    },
+    rb: {
+      x: 500,
+      y: 10,
+    },
+    origin: {
+      x: 185,
+      y: 223,
+    },
+  },
+  {
     name: '프라이멀 로어',
     location: 'assets/primalroar.png',
     job: '엔젤릭버스터',
@@ -3716,6 +3784,23 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '오더',
+    location: 'assets/order.png',
+    job: '아델',
+    lt: {
+      x: -515,
+      y: -265,
+    },
+    rb: {
+      x: 515,
+      y: 145,
+    },
+    origin: {
+      x: 36,
+      y: 72,
+    },
+  },
+  {
     name: '테리토리',
     location: 'assets/territory.png',
     job: '아델',
@@ -3747,6 +3832,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 366,
       y: 441,
+    },
+  },
+  {
+    name: '블로섬',
+    location: 'assets/blossom.png',
+    job: '아델',
+    lt: {
+      x: -185,
+      y: -185,
+    },
+    rb: {
+      x: 185,
+      y: 185,
+    },
+    origin: {
+      x: 249,
+      y: 210,
     },
   },
   {
@@ -3815,6 +3917,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 497,
       y: 903,
+    },
+  },
+  {
+    name: '인피니트',
+    location: 'assets/infinite.png',
+    job: '아델',
+    lt: {
+      x: -550,
+      y: -350,
+    },
+    rb: {
+      x: 550,
+      y: 225,
+    },
+    origin: {
+      x: 46,
+      y: 122,
     },
   },
   {
@@ -4873,6 +4992,23 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '싸이킥 스매싱2',
+    location: 'assets/psychicsmashing2.png',
+    job: '키네시스',
+    lt: {
+      x: -466,
+      y: -165,
+    },
+    rb: {
+      x: -65,
+      y: 35,
+    },
+    origin: {
+      x: 440,
+      y: 301,
+    },
+  },
+  {
     name: '싸이킥 그라운드2',
     location: 'assets/psychicground2.png',
     job: '키네시스',
@@ -4966,12 +5102,29 @@ export const skillData: SkillData[] = [
       y: -225,
     },
     rb: {
-      x: -100,
+      x: 100,
       y: 150,
     },
     origin: {
       x: 1119,
       y: 505,
+    },
+  },
+  {
+    name: '마이크로 블랙홀',
+    location: 'assets/microblackhole.png',
+    job: '키네시스',
+    lt: {
+      x: -900,
+      y: -160,
+    },
+    rb: {
+      x: -630,
+      y: 110,
+    },
+    origin: {
+      x: 1327,
+      y: 441,
     },
   },
 ];
