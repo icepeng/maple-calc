@@ -23,6 +23,23 @@ export const skillData: SkillData[] = [
     location: 'assets/ragingblow.png',
     job: '히어로',
     lt: {
+      x: -265,
+      y: -215,
+    },
+    rb: {
+      x: 10,
+      y: 20,
+    },
+    origin: {
+      x: 256,
+      y: 96,
+    },
+  },
+  {
+    name: '레이징 블로우(강화)',
+    location: 'assets/ragingblow_enrage.png',
+    job: '히어로',
+    lt: {
       x: -330,
       y: -240,
     },
@@ -33,6 +50,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 330,
       y: 166,
+    },
+  },
+  {
+    name: '패닉',
+    location: 'assets/panic.png',
+    job: '히어로',
+    lt: {
+      x: -265,
+      y: -200,
+    },
+    rb: {
+      x: 10,
+      y: 30,
+    },
+    origin: {
+      x: 247,
+      y: 151,
     },
   },
   {
@@ -101,6 +135,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 379,
       y: 210,
+    },
+  },
+  {
+    name: '콤보 데스폴트',
+    location: 'assets/combodesfort.png',
+    job: '히어로',
+    lt: {
+      x: -690,
+      y: -350,
+    },
+    rb: {
+      x: 520,
+      y: 190,
+    },
+    origin: {
+      x: 646,
+      y: 268,
     },
   },
   {
