@@ -392,6 +392,40 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '메테오',
+    location: 'assets/meteor.png',
+    job: '불독',
+    lt: {
+      x: -400,
+      y: -350,
+    },
+    rb: {
+      x: 400,
+      y: 250,
+    },
+    origin: {
+      x: 78,
+      y: 133,
+    },
+  },
+  {
+    name: '블리자드',
+    location: 'assets/blizzard.png',
+    job: '썬콜',
+    lt: {
+      x: -400,
+      y: -350,
+    },
+    rb: {
+      x: 400,
+      y: 250,
+    },
+    origin: {
+      x: 151,
+      y: 172,
+    },
+  },
+  {
     name: '라이트닝 스피어',
     location: 'assets/lightningsphere.png',
     job: '썬콜',
@@ -423,6 +457,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 741,
       y: 730,
+    },
+  },
+  {
+    name: '제네시스',
+    location: 'assets/genesis.png',
+    job: '비숍',
+    lt: {
+      x: -400,
+      y: -350,
+    },
+    rb: {
+      x: 400,
+      y: 250,
+    },
+    origin: {
+      x: 245,
+      y: 314,
     },
   },
   {
@@ -951,6 +1002,41 @@ export const skillData: SkillData[] = [
       x: 327,
       y: 136,
     },
+  },
+  {
+    name: '하울링 피스트(충전)',
+    location: 'assets/howlingfist.png',
+    job: '바이퍼',
+    lt: {
+      x: -420,
+      y: -330,
+    },
+    rb: {
+      x: 100,
+      y: 150,
+    },
+    origin: {
+      x: 390,
+      y: 398,
+    },
+  },
+  {
+    name: '하울링 피스트(발사)',
+    location: 'assets/howlingfist_final.png',
+    job: '바이퍼',
+    lt: {
+      x: -1000,
+      y: -450,
+    },
+    rb: {
+      x: 300,
+      y: 200,
+    },
+    origin: {
+      x: 277 + 250,
+      y: 244,
+    },
+    scale: 200,
   },
   {
     name: '퍼실레이드',
@@ -3389,6 +3475,40 @@ export const skillData: SkillData[] = [
     origin: {
       x: 529,
       y: 610,
+    },
+  },
+  {
+    name: 'A.D 오드넌스(응집)',
+    location: 'assets/adordnance.png',
+    job: '카데나',
+    lt: {
+      x: -335,
+      y: -250,
+    },
+    rb: {
+      x: -60,
+      y: 0,
+    },
+    origin: {
+      x: 331,
+      y: 226,
+    },
+  },
+  {
+    name: 'A.D 오드넌스(발사)',
+    location: 'assets/adordnance_shoot.png',
+    job: '카데나',
+    lt: {
+      x: -194 - 280 / 2 - 800,
+      y: -97 - 280 / 2,
+    },
+    rb: {
+      x: -194 + 280 / 2,
+      y: -97 + 280 / 2,
+    },
+    origin: {
+      x: 170 + 194 + 800,
+      y: 168 + 97,
     },
   },
   {
