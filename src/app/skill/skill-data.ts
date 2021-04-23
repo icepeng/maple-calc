@@ -511,6 +511,23 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '스피릿 오브 스노우',
+    location: 'assets/spiritofsnow.png',
+    job: '썬콜',
+    lt: {
+      x: -600,
+      y: -600,
+    },
+    rb: {
+      x: 600,
+      y: 100,
+    },
+    origin: {
+      x: 530,
+      y: 776,
+    },
+  },
+  {
     name: '제네시스',
     location: 'assets/genesis.png',
     job: '비숍',
@@ -2535,6 +2552,23 @@ export const skillData: SkillData[] = [
     },
   },
   {
+    name: '서클 오브 윈드',
+    location: 'assets/circleofwind.png',
+    job: '에반',
+    lt: {
+      x: -407,
+      y: -200,
+    },
+    rb: {
+      x: -10,
+      y: 25,
+    },
+    origin: {
+      x: 406,
+      y: 193,
+    },
+  },
+  {
     name: '서클 오브 어스',
     location: 'assets/circleofearth.png',
     job: '에반',
@@ -2549,6 +2583,23 @@ export const skillData: SkillData[] = [
     origin: {
       x: 411,
       y: 369,
+    },
+  },
+  {
+    name: '서클 오브 썬더',
+    location: 'assets/circleofthunder.png',
+    job: '에반',
+    lt: {
+      x: -275,
+      y: -300,
+    },
+    rb: {
+      x: 200,
+      y: 6,
+    },
+    origin: {
+      x: 241,
+      y: 351,
     },
   },
   {
