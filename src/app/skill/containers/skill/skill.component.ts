@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import {
   Component,
   OnInit,
@@ -6,35 +7,13 @@ import {
   ElementRef,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SkillData, skillData, skillEntries } from '../../skill-data';
+import { Layer, NamePosition } from '../../models/layer';
+import { SkillData, skillData, skillRecord } from '../../models/skill-data';
 
 @Component({
   selector: 'app-skill',
   templateUrl: './skill.component.html',
-  styles: [
-    `
-      .wrapper {
-        margin: 20px;
-      }
-      form {
-        width: 1280px;
-      }
-      canvas {
-        border: 1px solid black;
-      }
-      .container {
-        width: 1280px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        row-gap: 12px;
-        column-gap: 12px;
-      }
-      .half {
-        width: 50%;
-        display: inline-block;
-      }
-    `,
-  ],
+  styleUrls: ['./skill.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillComponent implements OnInit {
@@ -43,33 +22,44 @@ export class SkillComponent implements OnInit {
   private ctx: CanvasRenderingContext2D;
   private images: Record<string, HTMLImageElement> = {};
 
+  layers: Layer[] = [];
+
   mouseX = 0;
   mouseY = 0;
   translateX = 0;
   translateY = 0;
   isDrag = false;
 
-  data = skillEntries;
-  formGroup = new FormGroup({});
+  formGroup = new FormGroup({
+    job: new FormControl(''),
+    skill: new FormControl(''),
+  });
+  skillList = skillData;
+
+  palette = [
+    '#000000',
+    '#a6cee3',
+    '#1f78b4',
+    '#b2df8a',
+    '#33a02c',
+    '#fb9a99',
+    '#e31a1c',
+    '#fdbf6f',
+    '#ff7f00',
+    '#cab2d6',
+    '#6a3d9a',
+  ];
 
   constructor() {}
 
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
-    this.ctx.font = '24px 맑은 고딕';
-    this.draw();
-
-    for (const skill of skillData) {
-      this.formGroup.addControl(skill.name, new FormControl(false));
-    }
-
-    this.formGroup.valueChanges.subscribe(form => {
-      this.draw();
-    });
-
+    this.ctx.font = '500 22px Noto sans KR';
     this.ctx.translate(640, 640);
     this.translateX = 640;
     this.translateY = 640;
+
+    this.draw();
 
     this.canvas.nativeElement.onmousedown = e => {
       this.mouseX = e.offsetX;
@@ -95,21 +85,83 @@ export class SkillComponent implements OnInit {
     this.canvas.nativeElement.onmouseup = e => {
       this.isDrag = false;
     };
+
+    this.formGroup.valueChanges.subscribe(form => {
+      this.updateSkillList();
+    });
+  }
+
+  updateSkillList() {
+    this.skillList = skillData.filter(
+      s =>
+        s.job.includes(this.formGroup.value.job) &&
+        s.name.includes(this.formGroup.value.skill) &&
+        !this.layers.find(x => x.skill === s.name),
+    );
+  }
+
+  dropLayer(event: CdkDragDrop<SkillData[]>) {
+    moveItemInArray(this.layers, event.previousIndex, event.currentIndex);
+    this.draw();
+  }
+
+  addLayer(skill: SkillData) {
+    if (this.layers.find(layer => layer.skill === skill.name)) {
+      return;
+    }
+    this.layers.push({
+      skill: skill.name,
+      namePosition: '좌측 상단',
+      alpha: 0.5,
+      color: '#000000',
+      visible: true,
+    });
+    this.updateSkillList();
+    this.draw();
+  }
+
+  deleteLayer(layer: Layer) {
+    this.layers = this.layers.filter(x => x.skill !== layer.skill);
+    this.updateSkillList();
+    this.draw();
+  }
+
+  setLayerColor(layer: Layer, color: string) {
+    layer.color = color;
+    this.draw();
+  }
+
+  setLayerNamePosition(layer: Layer, pos: NamePosition) {
+    layer.namePosition = pos;
+    this.draw();
+  }
+
+  setLayerAlpha(layer: Layer, alpha: number) {
+    layer.alpha = alpha;
+    this.draw();
+  }
+
+  setLayerVisible(layer: Layer, visible: boolean) {
+    layer.visible = visible;
+    this.draw();
   }
 
   draw() {
-    const skills = skillData.filter(s => this.formGroup.value[s.name]);
+    const layers = this.layers
+      .filter(x => x.visible)
+      .slice()
+      .reverse();
     this.ctx.clearRect(
       -this.translateX,
       -this.translateY,
       this.ctx.canvas.width,
       this.ctx.canvas.height,
     );
-    for (const skill of skills) {
-      this.drawSkill(skill);
+    for (const layer of layers) {
+      this.drawSkill(layer);
     }
-    for (const skill of skills) {
-      this.drawSkillRect(skill);
+    for (const layer of layers) {
+      this.drawSkillRect(layer);
     }
     this.drawChtr();
   }
@@ -142,17 +194,22 @@ export class SkillComponent implements OnInit {
     }
   }
 
-  drawSkill(skill: SkillData) {
+  drawSkill(layer: Layer) {
+    const skill = skillRecord[layer.skill];
     this.drawImage(
       skill.location,
       skill.origin.x,
       skill.origin.y,
-      0.5,
+      layer.alpha,
       skill.scale,
     );
   }
 
-  drawSkillRect(skill: SkillData) {
+  drawSkillRect(layer: Layer) {
+    const skill = skillRecord[layer.skill];
+    this.ctx.strokeStyle = layer.color;
+    this.ctx.lineWidth = 2;
+    this.ctx.fillStyle = layer.color;
     this.ctx.strokeRect(
       skill.lt.x,
       skill.lt.y,
@@ -175,7 +232,25 @@ export class SkillComponent implements OnInit {
         skill.rb3.y - skill.lt3.y,
       );
     }
-    this.ctx.fillText(skill.name, skill.lt.x, skill.lt.y - 5);
+    if (layer.namePosition === '좌측 상단') {
+      this.ctx.textAlign = 'start';
+      this.ctx.textBaseline = 'bottom';
+      this.ctx.fillText(skill.name, skill.lt.x, skill.lt.y - 5);
+    } else if (layer.namePosition === '우측 상단') {
+      this.ctx.textAlign = 'end';
+      this.ctx.textBaseline = 'bottom';
+      this.ctx.fillText(skill.name, skill.rb.x, skill.lt.y - 5);
+    } else if (layer.namePosition === '좌측 하단') {
+      this.ctx.textAlign = 'start';
+      this.ctx.textBaseline = 'top';
+      this.ctx.fillText(skill.name, skill.lt.x, skill.rb.y + 5);
+    } else if (layer.namePosition === '우측 하단') {
+      this.ctx.textAlign = 'end';
+      this.ctx.textBaseline = 'top';
+      this.ctx.fillText(skill.name, skill.rb.x, skill.rb.y + 5);
+    }
+    this.ctx.strokeStyle = 'black';
+    this.ctx.fillStyle = 'black';
   }
 
   drawChtr() {

@@ -4,8 +4,7 @@ import { SkillComponent } from './containers/skill/skill.component';
 import { MaterialModule } from '../material/material.module';
 import { SkillRoutingModule } from './skill-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [SkillComponent],
@@ -15,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SkillRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-  ]
+    DragDropModule,
+  ],
 })
-export class SkillModule { }
+export class SkillModule {}

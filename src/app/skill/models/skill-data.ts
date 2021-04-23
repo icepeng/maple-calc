@@ -5622,6 +5622,14 @@ export const skillData: SkillData[] = [
   },
 ];
 
+export const skillRecord: Record<string, SkillData> = skillData.reduce(
+  (obj, x) => {
+    obj[x.name] = x;
+    return obj;
+  },
+  {},
+);
+
 export const skillEntries: [string, SkillData[]][] = Object.entries(
   skillData.reduce((obj, x) => {
     if (!obj[x.job]) {

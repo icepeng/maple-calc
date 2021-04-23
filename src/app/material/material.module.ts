@@ -17,6 +17,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   imports: [
@@ -38,6 +40,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTabsModule,
     MatStepperModule,
     MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
   ],
   exports: [
     LayoutModule,
@@ -58,6 +62,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTabsModule,
     MatStepperModule,
     MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
   ],
   declarations: [],
 })
