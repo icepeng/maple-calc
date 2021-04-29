@@ -237,6 +237,16 @@ export class SkillComponent implements OnInit {
         skill.rb3.y - skill.lt3.y,
       );
     }
+    if (skill.hit_lt) {
+      this.ctx.setLineDash([6]);
+      this.ctx.strokeRect(
+        skill.hit_lt.x,
+        skill.hit_lt.y,
+        skill.hit_rb.x - skill.hit_lt.x,
+        skill.hit_rb.y - skill.hit_lt.y,
+      );
+      this.ctx.setLineDash([]);
+    }
     if (layer.namePosition === '좌측 상단') {
       this.ctx.textAlign = 'start';
       this.ctx.textBaseline = 'bottom';

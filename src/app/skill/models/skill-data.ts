@@ -13,6 +13,9 @@ export interface SkillData {
   rb2?: Point;
   lt3?: Point;
   rb3?: Point;
+  hit_lt?: Point;
+  hit_rb?: Point;
+  offset?: Point;
   origin: Point;
   scale?: number;
 }
@@ -30,6 +33,14 @@ export const bossSkillData: SkillData[] = [
       x: 0,
       y: 0,
     },
+    hit_lt: {
+      x: -47 - 320,
+      y: -151,
+    },
+    hit_rb: {
+      x: 39 - 320,
+      y: -15,
+    },
     origin: {
       x: 732 - 465 + 320,
       y: 320,
@@ -45,6 +56,14 @@ export const bossSkillData: SkillData[] = [
     },
     rb: {
       x: 0,
+      y: 0,
+    },
+    hit_lt: {
+      x: -46 - 275,
+      y: -170,
+    },
+    hit_rb: {
+      x: 102 - 275,
       y: 0,
     },
     origin: {
@@ -64,6 +83,14 @@ export const bossSkillData: SkillData[] = [
       x: 0,
       y: 0,
     },
+    hit_lt: {
+      x: -46 - 390,
+      y: -170,
+    },
+    hit_rb: {
+      x: 102 - 390,
+      y: 0,
+    },
     origin: {
       x: 720 - 611 + 390,
       y: 256,
@@ -79,6 +106,14 @@ export const bossSkillData: SkillData[] = [
     },
     rb: {
       x: 0,
+      y: 0,
+    },
+    hit_lt: {
+      x: -46 - 275,
+      y: -170,
+    },
+    hit_rb: {
+      x: 102 - 275,
       y: 0,
     },
     origin: {
@@ -98,6 +133,14 @@ export const bossSkillData: SkillData[] = [
       x: 0,
       y: 0,
     },
+    hit_lt: {
+      x: -45 - 275,
+      y: -160,
+    },
+    hit_rb: {
+      x: 85 - 275,
+      y: -15,
+    },
     origin: {
       x: 590 - 364 + 275,
       y: 254,
@@ -114,6 +157,14 @@ export const bossSkillData: SkillData[] = [
     rb: {
       x: 0,
       y: 0,
+    },
+    hit_lt: {
+      x: -45 - 390,
+      y: -160,
+    },
+    hit_rb: {
+      x: 85 - 390,
+      y: -15,
     },
     origin: {
       x: 720 - 611 + 390,
@@ -132,6 +183,14 @@ export const bossSkillData: SkillData[] = [
       x: 0,
       y: 0,
     },
+    hit_lt: {
+      x: -45 - 550,
+      y: -160,
+    },
+    hit_rb: {
+      x: 85 - 550,
+      y: -15,
+    },
     origin: {
       x: 91 + 550,
       y: 170,
@@ -148,6 +207,14 @@ export const bossSkillData: SkillData[] = [
     rb: {
       x: 0,
       y: 0,
+    },
+    hit_lt: {
+      x: -45 - 500,
+      y: -160,
+    },
+    hit_rb: {
+      x: 85 - 500,
+      y: -15,
     },
     origin: {
       x: 658 - 532 + 500,
@@ -166,6 +233,14 @@ export const bossSkillData: SkillData[] = [
       x: 0,
       y: 0,
     },
+    hit_lt: {
+      x: -45 - 550,
+      y: -160,
+    },
+    hit_rb: {
+      x: 85 - 550,
+      y: -15,
+    },
     origin: {
       x: 124 + 550,
       y: 170,
@@ -181,6 +256,14 @@ export const bossSkillData: SkillData[] = [
     },
     rb: {
       x: 0,
+      y: 0,
+    },
+    hit_lt: {
+      x: 150 - 277,
+      y: -180,
+    },
+    hit_rb: {
+      x: -105 - 277,
       y: 0,
     },
     origin: {
@@ -200,6 +283,14 @@ export const bossSkillData: SkillData[] = [
       x: 0,
       y: 0,
     },
+    hit_lt: {
+      x: 250 - 440,
+      y: -175,
+    },
+    hit_rb: {
+      x: -100 - 440,
+      y: -5,
+    },
     origin: {
       x: 784 - 596 + 440,
       y: 261,
@@ -215,6 +306,14 @@ export const bossSkillData: SkillData[] = [
     },
     rb: {
       x: 0,
+      y: 0,
+    },
+    hit_lt: {
+      x: 180 - 277,
+      y: -180,
+    },
+    hit_rb: {
+      x: -90 - 277,
       y: 0,
     },
     origin: {
@@ -234,6 +333,14 @@ export const bossSkillData: SkillData[] = [
       x: 0,
       y: 0,
     },
+    hit_lt: {
+      x: -71 - 600,
+      y: -208,
+    },
+    hit_rb: {
+      x: 72 - 600,
+      y: 0,
+    },
     origin: {
       x: 901 - 783 + 600,
       y: 440,
@@ -249,6 +356,14 @@ export const bossSkillData: SkillData[] = [
     },
     rb: {
       x: 0,
+      y: 0,
+    },
+    hit_lt: {
+      x: -71 - 415,
+      y: -208,
+    },
+    hit_rb: {
+      x: 72 - 415,
       y: 0,
     },
     origin: {
@@ -268,6 +383,14 @@ export const bossSkillData: SkillData[] = [
       x: 0,
       y: 0,
     },
+    hit_lt: {
+      x: -71 - 450,
+      y: -208,
+    },
+    hit_rb: {
+      x: 72 - 450,
+      y: 0,
+    },
     origin: {
       x: 495 - 402 + 450,
       y: 303,
@@ -284,6 +407,14 @@ export const bossSkillData: SkillData[] = [
     rb: {
       x: 0,
       y: -40,
+    },
+    hit_lt: {
+      x: -75 - 240,
+      y: -408,
+    },
+    hit_rb: {
+      x: 80 - 240,
+      y: -15,
     },
     origin: {
       x: 516 - 237 + 240,
