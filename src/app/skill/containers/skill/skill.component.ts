@@ -52,13 +52,14 @@ export class SkillComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctx.font = '500 22px Noto sans KR';
     this.ctx.translate(640, 640);
     this.translateX = 640;
     this.translateY = 640;
 
+    await this.loadImage('assets/chtr.png');
     this.draw();
 
     this.canvas.nativeElement.onmousedown = e => {
@@ -91,7 +92,19 @@ export class SkillComponent implements OnInit {
     });
   }
 
-  updateSkillList() {
+  private loadImage(location: string) {
+    if (this.images[location] && this.images[location].complete) {
+      return;
+    }
+    return new Promise((resolve, reject) => {
+      this.images[location] = new Image();
+      this.images[location].onload = () => resolve(this.images[location]);
+      this.images[location].onerror = err => reject(err);
+      this.images[location].src = location;
+    });
+  }
+
+  private updateSkillList() {
     this.skillList = skillData.filter(
       s =>
         s.job.includes(this.formGroup.value.job) &&
@@ -105,7 +118,7 @@ export class SkillComponent implements OnInit {
     this.draw();
   }
 
-  addLayer(skill: SkillData) {
+  async addLayer(skill: SkillData) {
     if (this.layers.find(layer => layer.skill === skill.name)) {
       return;
     }
@@ -117,6 +130,7 @@ export class SkillComponent implements OnInit {
       visible: true,
     });
     this.updateSkillList();
+    await this.loadImage(skill.location);
     this.draw();
   }
 
@@ -173,25 +187,16 @@ export class SkillComponent implements OnInit {
     alpha: number = 1,
     scale: number = 100,
   ) {
-    const draw = () => {
-      const img = this.images[location];
-      this.ctx.globalAlpha = alpha;
-      this.ctx.drawImage(
-        img,
-        -(originX * scale) / 100,
-        -(originY * scale) / 100,
-        (img.width * scale) / 100,
-        (img.height * scale) / 100,
-      );
-      this.ctx.globalAlpha = 1;
-    };
-    if (this.images[location] && this.images[location].complete) {
-      draw();
-    } else {
-      this.images[location] = new Image();
-      this.images[location].src = location;
-      this.images[location].onload = draw;
-    }
+    const img = this.images[location];
+    this.ctx.globalAlpha = alpha;
+    this.ctx.drawImage(
+      img,
+      -(originX * scale) / 100,
+      -(originY * scale) / 100,
+      (img.width * scale) / 100,
+      (img.height * scale) / 100,
+    );
+    this.ctx.globalAlpha = 1;
   }
 
   drawSkill(layer: Layer) {
