@@ -1,0 +1,106 @@
+<div
+  class="layer-container"
+  cdkDropList
+  [cdkDropListData]="layers$ | async"
+  (cdkDropListDropped)="dropLayer($event)"
+>
+  <div *ngIf="isEmpty$ | async" class="empty">
+    추가된 스킬이 없습니다.
+  </div>
+  <div
+    class="layer"
+    *ngFor="let layer of layers$ | async; index as i; trackBy: trackByFn"
+    cdkDrag
+  >
+    <div class="content">
+      <div class="layer-title">
+        {{ layer.skill }}
+        <mat-icon class="delete" (click)="deleteLayer(i)">clear</mat-icon>
+      </div>
+      <div class="row">
+        <div class="column">
+          <span>범위색상</span>
+          <div>
+            <button
+              [style.color]="layer.color"
+              mat-stroked-button
+              [matMenuTriggerFor]="menu"
+            >
+              {{ layer.color }}
+            </button>
+            <mat-menu #menu="matMenu">
+              <button
+                *ngFor="let color of palette"
+                [style.color]="color"
+                (click)="setLayerColor(i, color)"
+                mat-menu-item
+              >
+                {{ color }}
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+        <div class="column">
+          <span>스킬명 위치</span>
+          <div>
+            <button mat-stroked-button [matMenuTriggerFor]="menu2">
+              {{ layer.namePosition }}
+            </button>
+            <mat-menu #menu2="matMenu">
+              <button
+                mat-menu-item
+                (click)="setLayerNamePosition(i, '좌측 상단')"
+              >
+                좌측 상단
+              </button>
+              <button
+                mat-menu-item
+                (click)="setLayerNamePosition(i, '우측 상단')"
+              >
+                우측 상단
+              </button>
+              <button
+                mat-menu-item
+                (click)="setLayerNamePosition(i, '좌측 하단')"
+              >
+                좌측 하단
+              </button>
+              <button
+                mat-menu-item
+                (click)="setLayerNamePosition(i, '우측 하단')"
+              >
+                우측 하단
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <span>불투명도</span>
+          <mat-slider
+            min="0"
+            max="1"
+            step="0.1"
+            [value]="layer.alpha"
+            (change)="setLayerAlpha(i, $event.value)"
+          ></mat-slider>
+        </div>
+        <div class="column">
+          <span>스킬 보이기</span>
+          <mat-slide-toggle
+            [checked]="layer.visible"
+            (change)="setLayerVisible(i, $event.checked)"
+          ></mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+    <div class="handle" cdkDragHandle>
+      <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+        <rect width="24" height="2"></rect>
+        <rect y="8" width="24" height="2"></rect>
+        <rect y="16" width="24" height="2"></rect>
+      </svg>
+    </div>
+  </div>
+</div>

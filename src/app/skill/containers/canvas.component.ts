@@ -1,70 +1,70 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import {
-  Component,
-  OnInit,
   ChangeDetectionStrategy,
-  ViewChild,
+  Component,
   ElementRef,
+  OnInit,
+  ViewChild,
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Layer, NamePosition } from '../../models/layer';
-import { SkillData, skillData, skillRecord } from '../../models/skill-data';
+import { combineLatest, forkJoin, Subject } from 'rxjs';
+import { delayWhen } from 'rxjs/operators';
+import { CanvasService } from '../canvas.service';
+import { LayerService } from '../layer.service';
+import { CanvasSetting } from '../models/canvas-setting';
+import { Layer } from '../models/layer';
+import { skillRecord } from '../models/skill-data';
 
 @Component({
-  selector: 'app-skill',
-  templateUrl: './skill.component.html',
-  styleUrls: ['./skill.component.scss'],
+  selector: 'app-canvas',
+  templateUrl: './canvas.component.html',
+  styles: [
+    `
+      canvas {
+        border: 1px solid black;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SkillComponent implements OnInit {
+export class CanvasComponent implements OnInit {
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
   private images: Record<string, HTMLImageElement> = {};
 
-  layers: Layer[] = [];
-
-  mouseX = 0;
-  mouseY = 0;
-  translateX = 0;
-  translateY = 0;
   isDrag = false;
+  redraw$ = new Subject<string>();
+  zoom = 1;
 
-  formGroup = new FormGroup({
-    job: new FormControl(''),
-    skill: new FormControl(''),
-  });
-  skillList = skillData;
-
-  palette = [
-    '#000000',
-    '#a6cee3',
-    '#1f78b4',
-    '#b2df8a',
-    '#33a02c',
-    '#fb9a99',
-    '#e31a1c',
-    '#fdbf6f',
-    '#ff7f00',
-    '#cab2d6',
-    '#6a3d9a',
-  ];
-
-  constructor() {}
+  constructor(
+    private canvasService: CanvasService,
+    private layerService: LayerService,
+  ) {}
 
   async ngOnInit() {
+    combineLatest([
+      this.layerService.layers$,
+      this.canvasService.setting$,
+      this.redraw$,
+    ])
+      .pipe(
+        delayWhen(([layers]) =>
+          forkJoin(
+            layers.map(layer =>
+              this.loadImage(skillRecord[layer.skill].location),
+            ),
+          ),
+        ),
+      )
+      .subscribe(([layers, setting]) => this.draw(layers, setting));
+
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctx.font = '500 22px Noto sans KR';
-    this.ctx.translate(640, 640);
-    this.translateX = 640;
-    this.translateY = 640;
+    this.ctx.translate(683, 600);
 
     await this.loadImage('assets/chtr.png');
-    this.draw();
+    this.redraw$.next('init');
 
     this.canvas.nativeElement.onmousedown = e => {
-      this.mouseX = e.offsetX;
-      this.mouseY = e.offsetY;
       this.isDrag = true;
     };
 
@@ -72,29 +72,30 @@ export class SkillComponent implements OnInit {
       if (!this.isDrag) {
         return;
       }
-      const dx = e.offsetX - this.mouseX;
-      const dy = e.offsetY - this.mouseY;
-      this.ctx.translate(dx, dy);
-      this.translateX += dx;
-      this.translateY += dy;
-      this.mouseX = e.offsetX;
-      this.mouseY = e.offsetY;
-
-      this.draw();
+      this.ctx.translate(e.movementX, e.movementY);
+      this.redraw$.next('pan');
     };
 
     this.canvas.nativeElement.onmouseup = e => {
       this.isDrag = false;
     };
 
-    this.formGroup.valueChanges.subscribe(form => {
-      this.updateSkillList();
-    });
+    this.canvas.nativeElement.onwheel = e => {
+      e.preventDefault();
+      const zoom =
+        e.deltaY > 0
+          ? Math.max(this.zoom - 0.05, 0.5)
+          : Math.min(this.zoom + 0.05, 1);
+      this.ctx.scale(zoom / this.zoom, zoom / this.zoom);
+      this.zoom = zoom;
+
+      this.redraw$.next('zoom');
+    };
   }
 
   private loadImage(location: string) {
     if (this.images[location] && this.images[location].complete) {
-      return;
+      return Promise.resolve();
     }
     return new Promise((resolve, reject) => {
       this.images[location] = new Image();
@@ -104,80 +105,74 @@ export class SkillComponent implements OnInit {
     });
   }
 
-  private updateSkillList() {
-    this.skillList = skillData.filter(
-      s =>
-        s.job.includes(this.formGroup.value.job) &&
-        s.name.includes(this.formGroup.value.skill) &&
-        !this.layers.find(x => x.skill === s.name),
-    );
-  }
-
-  dropLayer(event: CdkDragDrop<SkillData[]>) {
-    moveItemInArray(this.layers, event.previousIndex, event.currentIndex);
-    this.draw();
-  }
-
-  async addLayer(skill: SkillData) {
-    if (this.layers.find(layer => layer.skill === skill.name)) {
-      return;
+  draw(layers: Layer[], setting: CanvasSetting) {
+    const transform = this.ctx.getTransform();
+    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+    this.drawInit(setting);
+    if (setting.showGrid) {
+      this.drawGrid(transform);
     }
-    this.layers.push({
-      skill: skill.name,
-      namePosition: '좌측 상단',
-      alpha: 0.5,
-      color: '#000000',
-      visible: true,
-    });
-    this.updateSkillList();
-    await this.loadImage(skill.location);
-    this.draw();
-  }
+    this.ctx.setTransform(transform);
 
-  deleteLayer(layer: Layer) {
-    this.layers = this.layers.filter(x => x.skill !== layer.skill);
-    this.updateSkillList();
-    this.draw();
-  }
-
-  setLayerColor(layer: Layer, color: string) {
-    layer.color = color;
-    this.draw();
-  }
-
-  setLayerNamePosition(layer: Layer, pos: NamePosition) {
-    layer.namePosition = pos;
-    this.draw();
-  }
-
-  setLayerAlpha(layer: Layer, alpha: number) {
-    layer.alpha = alpha;
-    this.draw();
-  }
-
-  setLayerVisible(layer: Layer, visible: boolean) {
-    layer.visible = visible;
-    this.draw();
-  }
-
-  draw() {
-    const layers = this.layers
+    const toDraw = layers
       .filter(x => x.visible)
       .slice()
       .reverse();
-    this.ctx.clearRect(
-      -this.translateX,
-      -this.translateY,
-      this.ctx.canvas.width,
-      this.ctx.canvas.height,
-    );
-    for (const layer of layers) {
+    for (const layer of toDraw) {
       this.drawSkill(layer);
     }
-    for (const layer of layers) {
+    for (const layer of toDraw) {
       this.drawSkillRect(layer);
     }
     this.drawChtr();
+  }
+
+  drawInit(setting: CanvasSetting) {
+    if (setting.background === '투명') {
+      this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    } else {
+      this.ctx.fillStyle = setting.background;
+      this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+      this.ctx.fillStyle = 'black';
+    }
+    this.ctx.textAlign = 'end';
+    this.ctx.textBaseline = 'bottom';
+    this.ctx.fillText(
+      `${this.zoom.toFixed(2)}x`,
+      this.ctx.canvas.width,
+      this.ctx.canvas.height,
+    );
+  }
+
+  drawGrid(transform: DOMMatrix) {
+    const { a: zoom, e: translateX, f: translateY } = transform;
+    this.ctx.save();
+    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+    this.ctx.strokeStyle = '#ccc';
+    this.ctx.lineWidth = 1;
+    this.ctx.setLineDash([2]);
+    this.ctx.beginPath();
+    for (
+      let x = translateX % (100 * zoom);
+      x <= this.ctx.canvas.width;
+      x += 100 * zoom
+    ) {
+      this.ctx.moveTo(x, 0);
+      this.ctx.lineTo(x, this.ctx.canvas.height);
+    }
+    for (
+      let y = translateY % (100 * zoom);
+      y <= this.ctx.canvas.height;
+      y += 100 * zoom
+    ) {
+      this.ctx.moveTo(0, y);
+      this.ctx.lineTo(this.ctx.canvas.width, y);
+    }
+    this.ctx.stroke();
+    this.ctx.closePath();
+    this.ctx.setLineDash([]);
+    this.ctx.translate(translateX, translateY);
+    this.ctx.restore();
   }
 
   drawImage(

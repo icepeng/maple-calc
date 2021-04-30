@@ -1,0 +1,16 @@
+<div class="search-container">
+  <form [formGroup]="formGroup">
+    <span>직업</span>
+    <input formControlName="job" class="job-input" />
+    <span>스킬명</span>
+    <input formControlName="skill" class="skill-input" />
+  </form>
+  <mat-list class="skill-list">
+    <mat-list-item
+      class="clickable"
+      (click)="addLayer(skill)"
+      *ngFor="let skill of skillList$ | async"
+      >{{ skill.job }} | {{ skill.name }}</mat-list-item
+    >
+  </mat-list>
+</div>

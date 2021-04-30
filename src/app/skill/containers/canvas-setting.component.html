@@ -1,0 +1,26 @@
+<div class="canvas-container" [formGroup]="formGroup">
+  <div class="control vcenter">
+    <span class="label">배경색</span>
+    <mat-select formControlName="background">
+      <mat-select-trigger>
+        <div class="vcenter">
+          <span>{{ formGroup.value.background }}</span>
+          <div
+            class="color-box"
+            [style.background]="formGroup.value.background"
+          ></div>
+        </div>
+      </mat-select-trigger>
+      <mat-option *ngFor="let color of backgrounds" [value]="color">
+        <div class="vcenter">
+          <span>{{ color }}</span>
+          <div class="color-box" [style.background]="color"></div>
+        </div>
+      </mat-option>
+    </mat-select>
+  </div>
+  <div class="control vcenter">
+    <span class="label">눈금선 표시</span>
+    <mat-checkbox formControlName="showGrid"></mat-checkbox>
+  </div>
+</div>

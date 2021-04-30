@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SkillComponent } from './containers/skill/skill.component';
+import { SkillComponent } from './containers/skill.component';
 
 const routes: Routes = [
   {
