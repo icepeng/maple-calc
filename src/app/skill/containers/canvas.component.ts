@@ -58,7 +58,7 @@ export class CanvasComponent implements OnInit {
       .subscribe(([layers, setting]) => this.draw(layers, setting));
 
     this.ctx = this.canvas.nativeElement.getContext('2d');
-    this.ctx.font = '500 22px Noto sans KR';
+    this.ctx.font = '500 22px Noto Sans KR, sans-serif';
     this.ctx.translate(683, 600);
 
     await this.loadImage('assets/chtr.png');
@@ -146,8 +146,6 @@ export class CanvasComponent implements OnInit {
 
   drawGrid(transform: DOMMatrix) {
     const { a: zoom, e: translateX, f: translateY } = transform;
-    this.ctx.save();
-    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
     this.ctx.strokeStyle = '#ccc';
     this.ctx.lineWidth = 1;
     this.ctx.setLineDash([2]);
@@ -171,8 +169,6 @@ export class CanvasComponent implements OnInit {
     this.ctx.stroke();
     this.ctx.closePath();
     this.ctx.setLineDash([]);
-    this.ctx.translate(translateX, translateY);
-    this.ctx.restore();
   }
 
   drawImage(
