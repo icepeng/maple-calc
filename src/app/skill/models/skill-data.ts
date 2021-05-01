@@ -968,6 +968,23 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '프레이',
+    location: 'assets/pray.png',
+    job: '비숍',
+    lt: {
+      x: -320,
+      y: -300,
+    },
+    rb: {
+      x: 320,
+      y: 30,
+    },
+    origin: {
+      x: 453,
+      y: 288,
+    },
+  },
+  {
     name: '피스메이커(접촉)',
     location: 'assets/peacemaker.png',
     job: '비숍',
@@ -1305,6 +1322,23 @@ export const chtrSkillData: SkillData[] = [
     origin: {
       x: 447,
       y: 145,
+    },
+  },
+  {
+    name: '연막탄',
+    location: 'assets/smoke.png',
+    job: '섀도어',
+    lt: {
+      x: -250,
+      y: -150 - 150,
+    },
+    rb: {
+      x: 250,
+      y: 150 - 150,
+    },
+    origin: {
+      x: 268,
+      y: 302,
     },
   },
   {
@@ -1904,6 +1938,23 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '로 아이아스',
+    location: 'assets/rhoaias.png',
+    job: '미하일',
+    lt: {
+      x: -330,
+      y: -300,
+    },
+    rb: {
+      x: 330,
+      y: 10,
+    },
+    origin: {
+      x: 247,
+      y: 326,
+    },
+  },
+  {
     name: '클라우 솔라스(5)',
     location: 'assets/swordoflight5.png',
     job: '미하일',
@@ -1952,6 +2003,23 @@ export const chtrSkillData: SkillData[] = [
     origin: {
       x: 687,
       y: 215,
+    },
+  },
+  {
+    name: '버닝 리전',
+    location: 'assets/burningregion.png',
+    job: '플레임위자드',
+    lt: {
+      x: -300,
+      y: -150,
+    },
+    rb: {
+      x: 300,
+      y: 150,
+    },
+    origin: {
+      x: 273,
+      y: 111,
     },
   },
   {
@@ -2618,6 +2686,159 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '데몬 프렌지',
+    location: 'assets/demonfrenzy.png',
+    job: '데몬어벤져',
+    lt: {
+      x: -65,
+      y: -80,
+    },
+    rb: {
+      x: 65,
+      y: 15,
+    },
+    origin: {
+      x: 61,
+      y: 121,
+    },
+  },
+  {
+    name: '블러드 피스트',
+    location: 'assets/bloodfist.png',
+    job: '데몬어벤져',
+    lt: {
+      x: -235,
+      y: -270,
+    },
+    rb: {
+      x: 235,
+      y: 200,
+    },
+    origin: {
+      x: 254,
+      y: 293,
+    },
+  },
+  {
+    name: '디멘션 소드(1)',
+    location: 'assets/dimensionsword1.png',
+    job: '데몬어벤져',
+    lt: {
+      x: -520,
+      y: -360,
+    },
+    rb: {
+      x: 30,
+      y: 20,
+    },
+    origin: {
+      x: 183,
+      y: 407,
+    },
+  },
+  {
+    name: '디멘션 소드(2)',
+    location: 'assets/dimensionsword2.png',
+    job: '데몬어벤져',
+    lt: {
+      x: -295,
+      y: -235,
+    },
+    rb: {
+      x: 295,
+      y: 80,
+    },
+    origin: {
+      x: 291,
+      y: 227,
+    },
+  },
+  {
+    name: '레버넌트',
+    location: 'assets/revenant.png',
+    job: '데몬어벤져',
+    lt: {
+      x: -470,
+      y: -300,
+    },
+    rb: {
+      x: 200,
+      y: 10,
+    },
+    origin: {
+      x: 494,
+      y: 321,
+    },
+  },
+  {
+    name: '다크 오라',
+    location: 'assets/darkaura.png',
+    job: '배틀메이지',
+    lt: {
+      x: -450,
+      y: -250,
+    },
+    rb: {
+      x: 450,
+      y: 250,
+    },
+    origin: {
+      x: 53,
+      y: 57,
+    },
+  },
+  {
+    name: '디버프 오라',
+    location: 'assets/debuffaura.png',
+    job: '배틀메이지',
+    lt: {
+      x: -450,
+      y: -330,
+    },
+    rb: {
+      x: 450,
+      y: 300,
+    },
+    origin: {
+      x: 51,
+      y: 88,
+    },
+  },
+  {
+    name: '유니온 오라',
+    location: 'assets/unionaura.png',
+    job: '배틀메이지',
+    lt: {
+      x: -500,
+      y: -330,
+    },
+    rb: {
+      x: 500,
+      y: 300,
+    },
+    origin: {
+      x: 76,
+      y: 84,
+    },
+  },
+  {
+    name: '쉘터',
+    location: 'assets/shelter.png',
+    job: '배틀메이지',
+    lt: {
+      x: -200,
+      y: -150,
+    },
+    rb: {
+      x: 200,
+      y: 30,
+    },
+    origin: {
+      x: 194,
+      y: 171,
+    },
+  },
+  {
     name: '피니쉬 블로우',
     location: 'assets/finishblow.png',
     job: '배틀메이지',
@@ -2717,6 +2938,23 @@ export const chtrSkillData: SkillData[] = [
     origin: {
       x: 14,
       y: 112,
+    },
+  },
+  {
+    name: '서포트 웨이버 : H-EX',
+    location: 'assets/supportwaver.png',
+    job: '메카닉',
+    lt: {
+      x: -200,
+      y: -200,
+    },
+    rb: {
+      x: 200,
+      y: 200,
+    },
+    origin: {
+      x: 121,
+      y: 161,
     },
   },
   {
@@ -4734,6 +4972,23 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '노빌리티',
+    location: 'assets/nobility.png',
+    job: '아델',
+    lt: {
+      x: -320,
+      y: -320,
+    },
+    rb: {
+      x: 320,
+      y: 30,
+    },
+    origin: {
+      x: 295,
+      y: 354,
+    },
+  },
+  {
     name: '오더',
     location: 'assets/order.png',
     job: '아델',
@@ -4748,6 +5003,23 @@ export const chtrSkillData: SkillData[] = [
     origin: {
       x: 36,
       y: 72,
+    },
+  },
+  {
+    name: '크리에이션',
+    location: 'assets/creation.png',
+    job: '아델',
+    lt: {
+      x: -510,
+      y: -215,
+    },
+    rb: {
+      x: 30,
+      y: 115,
+    },
+    origin: {
+      x: 672,
+      y: 198,
     },
   },
   {
