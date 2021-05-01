@@ -2550,6 +2550,23 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '익시드 : 문라이트 슬래시',
+    location: 'assets/exceedmoonlightslash.png',
+    job: '데몬어벤져',
+    lt: {
+      x: -300,
+      y: -140,
+    },
+    rb: {
+      x: 300,
+      y: 70,
+    },
+    origin: {
+      x: 361,
+      y: 143,
+    },
+  },
+  {
     name: '익시드 : 엑스큐션',
     location: 'assets/exceedexecution.png',
     job: '데몬어벤져',
@@ -2564,6 +2581,23 @@ export const chtrSkillData: SkillData[] = [
     origin: {
       x: 527,
       y: 222,
+    },
+  },
+  {
+    name: '아머 브레이크',
+    location: 'assets/armorbreak.png',
+    job: '데몬어벤져',
+    lt: {
+      x: -450,
+      y: -200,
+    },
+    rb: {
+      x: 0,
+      y: 0,
+    },
+    origin: {
+      x: 585,
+      y: 182,
     },
   },
   {
