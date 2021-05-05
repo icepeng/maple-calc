@@ -425,6 +425,74 @@ export const bossSkillData: SkillData[] = [
 
 export const chtrSkillData: SkillData[] = [
   {
+    name: '파이렛 플래그',
+    location: 'assets/pirateflag.png',
+    job: '공용',
+    lt: {
+      x: -295,
+      y: -415,
+    },
+    rb: {
+      x: 295,
+      y: 1,
+    },
+    origin: {
+      x: 310,
+      y: 432,
+    },
+  },
+  {
+    name: '레지스탕스 라인 인팬트리',
+    location: 'assets/infantry.png',
+    job: '공용',
+    lt: {
+      x: -450,
+      y: -200,
+    },
+    rb: {
+      x: 10,
+      y: 100,
+    },
+    origin: {
+      x: 212,
+      y: 137,
+    },
+  },
+  {
+    name: '판테온',
+    location: 'assets/pantheon.png',
+    job: '공용',
+    lt: {
+      x: -550,
+      y: -550,
+    },
+    rb: {
+      x: 550,
+      y: 50,
+    },
+    origin: {
+      x: 367,
+      y: 765,
+    },
+  },
+  {
+    name: '매직 서킷 풀드라이브',
+    location: 'assets/fulldrive.png',
+    job: '공용',
+    lt: {
+      x: -700,
+      y: -500,
+    },
+    rb: {
+      x: 400,
+      y: 400,
+    },
+    origin: {
+      x: 405,
+      y: 248,
+    },
+  },
+  {
     name: '레이징 블로우',
     location: 'assets/ragingblow.png',
     job: '히어로',
@@ -2945,16 +3013,16 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/supportwaver.png',
     job: '메카닉',
     lt: {
-      x: -200,
-      y: -200,
+      x: -400,
+      y: -400,
     },
     rb: {
-      x: 200,
-      y: 200,
+      x: 400,
+      y: 400,
     },
     origin: {
-      x: 121,
-      y: 161,
+      x: 124,
+      y: 166,
     },
   },
   {
@@ -2972,6 +3040,23 @@ export const chtrSkillData: SkillData[] = [
     origin: {
       x: 457,
       y: 213,
+    },
+  },
+  {
+    name: '멀티플 옵션 : M-FL',
+    location: 'assets/multipleoption.png',
+    job: '메카닉',
+    lt: {
+      x: -300,
+      y: -180,
+    },
+    rb: {
+      x: 121,
+      y: 10,
+    },
+    origin: {
+      x: 416,
+      y: 172,
     },
   },
   {
