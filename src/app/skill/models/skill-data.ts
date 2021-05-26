@@ -1342,6 +1342,23 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '포 시즌',
+    location: 'assets/deathstar.png',
+    job: '나이트로드',
+    lt: {
+      x: -300,
+      y: -330,
+    },
+    rb: {
+      x: 300,
+      y: 50,
+    },
+    origin: {
+      x: 318,
+      y: 328,
+    },
+  },
+  {
     name: '암살(1타)',
     location: 'assets/amsal1.png',
     job: '섀도어',
