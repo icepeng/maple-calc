@@ -1989,6 +1989,23 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '로얄 가드(피격)',
+    location: 'assets/royalguard.png',
+    job: '미하일',
+    lt: {
+      x: -90,
+      y: -95,
+    },
+    rb: {
+      x: 40,
+      y: 10,
+    },
+    origin: {
+      x: 122,
+      y: 128,
+    },
+  },
+  {
     name: '로얄 가드(5)',
     location: 'assets/royalguard5.png',
     job: '미하일',
@@ -5037,6 +5054,23 @@ export const chtrSkillData: SkillData[] = [
     origin: {
       x: 325,
       y: 519,
+    },
+  },
+  {
+    name: '피니투라 페투치아',
+    location: 'assets/finaleribbon.png',
+    job: '엔젤릭버스터',
+    lt: {
+      x: -430,
+      y: -420,
+    },
+    rb: {
+      x: 430,
+      y: 40,
+    },
+    origin: {
+      x: 412,
+      y: 365,
     },
   },
   {
