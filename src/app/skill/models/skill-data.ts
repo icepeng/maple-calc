@@ -442,6 +442,77 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '스파이더 인 미러(붕괴)',
+    location: 'assets/spiderinmirror.png',
+    job: '공용',
+    lt: {
+      x: -490,
+      y: -740,
+    },
+    rb: {
+      x: 490,
+      y: 240,
+    },
+    origin: {
+      x: 428,
+      y: 601,
+    },
+    scale: 150,
+  },
+  {
+    name: '스파이더 인 미러(소환)',
+    location: 'assets/spiderinmirror_summon.png',
+    job: '공용',
+    lt: {
+      x: -500,
+      y: -500,
+    },
+    rb: {
+      x: 500,
+      y: 500,
+    },
+    origin: {
+      x: 136,
+      y: 295,
+    },
+  },
+  {
+    name: '크레스트 오브 더 솔라(방출)',
+    location: 'assets/crestofthesolar.png',
+    job: '공용',
+    lt: {
+      x: -700,
+      y: -500,
+    },
+    rb: {
+      x: 700,
+      y: 400,
+    },
+    origin: {
+      x: 342,
+      y: 342,
+    },
+    scale: 201,
+  },
+  {
+    name: '크레스트 오브 더 솔라(소환)',
+    location: 'assets/crestofthesolar_summon.png',
+    job: '공용',
+    lt: {
+      x: -675,
+      y: -400,
+    },
+    rb: {
+      x: 300,
+      y: 300,
+    },
+    origin: {
+      x: 236,
+      y: 414,
+    },
+    scale: 201,
+  },
+  {
     name: '파이렛 플래그',
     location: 'assets/pirateflag.png',
     job: '공용',
