@@ -1290,6 +1290,12 @@ export const maps: Map[] = [
   },
   {
     group: '리멘',
+    name: '세계가 끝나는 곳 1-7',
+    count: 33,
+    mobs: [{ exp: 852145, level: 263 }],
+  },
+  {
+    group: '리멘',
     name: '세계가 끝나는 곳 2-3',
     count: 31,
     mobs: [{ exp: 710121, level: 263 }],
@@ -1308,6 +1314,12 @@ export const maps: Map[] = [
     name: '세계가 끝나는 곳 2-5',
     count: 32,
     mobs: [{ exp: 721247, level: 264 }],
+  },
+  {
+    group: '리멘',
+    name: '세계가 끝나는 곳 2-6',
+    count: 32,
+    mobs: [{ exp: 865496, level: 264 }],
   },
   {
     group: '세르니움(전)',
