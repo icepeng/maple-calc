@@ -35,6 +35,7 @@ export const backgroundColors: Record<string, string> = {
   리멘: '#9bc2e6',
   '세르니움(전)': '#fff3b2',
   '세르니움(후)': '#bb8877',
+  '아르크스': '#e4a14b',
 };
 
 export const fieldAvailableLevels: Record<string, number> = {
@@ -52,6 +53,7 @@ export const fieldAvailableLevels: Record<string, number> = {
   리멘: 255,
   '세르니움(전)': 260,
   '세르니움(후)': 265,
+  '아르크스': 270,
 };
 
 export const maps: Map[] = [
@@ -1512,5 +1514,65 @@ export const maps: Map[] = [
     name: '불타는 왕립 도서관 제6구역',
     count: 38,
     mobs: [{ exp: 2174274, level: 269 }],
+  },
+  {
+    group: '아르크스',
+    name: '무법자들이 지배하는 황야 1',
+    count: 18,
+    mobs: [{ exp: 2274336, level: 270 }],
+  },
+  {
+    group: '아르크스',
+    name: '무법자들이 지배하는 황야 2',
+    count: 31,
+    mobs: [{ exp: 2274336, level: 270 }],
+  },
+  {
+    group: '아르크스',
+    name: '낭만이 머무는 자동차 극장 1',
+    count: 17,
+    mobs: [{ exp: 2382248, level: 271 }],
+  },
+  {
+    group: '아르크스',
+    name: '낭만이 머무는 자동차 극장 2',
+    count: 26,
+    mobs: [{ exp: 2382248, level: 271 }],
+  },
+  {
+    group: '아르크스',
+    name: '낭만이 머무는 자동차 극장 4',
+    count: 18,
+    mobs: [{ exp: 2413256, level: 272 }],
+  },
+  {
+    group: '아르크스',
+    name: '낭만이 머무는 자동차 극장 5',
+    count: 32,
+    mobs: [{ exp: 2413256, level: 272 }],
+  },
+  {
+    group: '아르크스',
+    name: '종착지 없는 횡단 열차 1',
+    count: 22,
+    mobs: [{ exp: 2546149, level: 273 }],
+  },
+  {
+    group: '아르크스',
+    name: '종착지 없는 횡단 열차 2',
+    count: 30,
+    mobs: [{ exp: 2546149, level: 273 }],
+  },
+  {
+    group: '아르크스',
+    name: '종착지 없는 횡단 열차 4',
+    count: 22,
+    mobs: [{ exp: 2582906, level: 274 }],
+  },
+  {
+    group: '아르크스',
+    name: '종착지 없는 횡단 열차 4',
+    count: 26,
+    mobs: [{ exp: 2582906, level: 274 }],
   },
 ];
