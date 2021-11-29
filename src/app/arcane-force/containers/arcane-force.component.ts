@@ -109,7 +109,7 @@ export class ArcaneForceComponent implements OnInit {
           Validators.max(20),
         ]),
         growth: new FormControl(0, Validators.required),
-        daily: new FormControl(8, Validators.required),
+        daily: new FormControl(14, Validators.required),
       }),
       esfera: new FormGroup({
         level: new FormControl(0, [
@@ -118,7 +118,7 @@ export class ArcaneForceComponent implements OnInit {
           Validators.max(20),
         ]),
         growth: new FormControl(0, Validators.required),
-        daily: new FormControl(8, Validators.required),
+        daily: new FormControl(14, Validators.required),
       }),
     });
   }
