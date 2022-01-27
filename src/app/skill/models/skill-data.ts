@@ -585,16 +585,16 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/ragingblow.png',
     job: '히어로',
     lt: {
-      x: -265,
-      y: -215,
+      x: -340,
+      y: -200,
     },
     rb: {
       x: 10,
-      y: 20,
+      y: 70,
     },
     origin: {
-      x: 256,
-      y: 96,
+      x: 373,
+      y: 281,
     },
   },
   {
@@ -602,33 +602,16 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/ragingblow_enrage.png',
     job: '히어로',
     lt: {
-      x: -330,
-      y: -240,
+      x: -340,
+      y: -250,
     },
     rb: {
       x: 70,
       y: 100,
     },
     origin: {
-      x: 330,
-      y: 166,
-    },
-  },
-  {
-    name: '패닉',
-    location: 'assets/panic.png',
-    job: '히어로',
-    lt: {
-      x: -265,
-      y: -200,
-    },
-    rb: {
-      x: 10,
-      y: 30,
-    },
-    origin: {
-      x: 247,
-      y: 151,
+      x: 340,
+      y: 313,
     },
   },
   {
@@ -644,8 +627,25 @@ export const chtrSkillData: SkillData[] = [
       y: 50,
     },
     origin: {
-      x: 314,
-      y: 240,
+      x: 744,
+      y: 608,
+    },
+  },
+  {
+    name: '오라 블레이드',
+    location: 'assets/aurablade.png',
+    job: '히어로',
+    lt: {
+      x: -80 - 300 / 2 - 560,
+      y: -60 - 300 / 2,
+    },
+    rb: {
+      x: -80 + 300 / 2,
+      y: -60 + 300 / 2,
+    },
+    origin: {
+      x: 188 + 80 + 560,
+      y: 182 + 60,
     },
   },
   {
@@ -661,8 +661,8 @@ export const chtrSkillData: SkillData[] = [
       y: 20,
     },
     origin: {
-      x: 389,
-      y: 625,
+      x: 772,
+      y: 685,
     },
   },
   {
@@ -790,15 +790,15 @@ export const chtrSkillData: SkillData[] = [
     job: '팔라딘',
     lt: {
       x: -320,
-      y: -100,
+      y: -160,
     },
     rb: {
       x: 90,
       y: 40,
     },
     origin: {
-      x: 282,
-      y: 142,
+      x: 457,
+      y: 398,
     },
   },
   {
@@ -806,16 +806,50 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/divinecharge.png',
     job: '팔라딘',
     lt: {
-      x: -400,
-      y: -165,
+      x: -420,
+      y: -215,
     },
     rb: {
-      x: 15,
-      y: 35,
+      x: 20,
+      y: 40,
     },
     origin: {
-      x: 384,
-      y: 263,
+      x: 474,
+      y: 302,
+    },
+  },
+  {
+    name: '디바인 스티그마',
+    location: 'assets/divinestigma.png',
+    job: '팔라딘',
+    lt: {
+      x: -445,
+      y: -255,
+    },
+    rb: {
+      x: 35,
+      y: 135,
+    },
+    origin: {
+      x: 622,
+      y: 412,
+    },
+  },
+  {
+    name: '디바인 스티그마(성흔 폭발)',
+    location: 'assets/divinestigma_explode.png',
+    job: '팔라딘',
+    lt: {
+      x: -150 - 200,
+      y: -550,
+    },
+    rb: {
+      x: 150 - 200,
+      y: 10,
+    },
+    origin: {
+      x: 262 + 200,
+      y: 548,
     },
   },
   {
@@ -831,8 +865,8 @@ export const chtrSkillData: SkillData[] = [
       y: 250,
     },
     origin: {
-      x: 453,
-      y: 403,
+      x: 597,
+      y: 716,
     },
   },
   {
@@ -890,33 +924,33 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/darkimpale.png',
     job: '다크나이트',
     lt: {
-      x: -310,
+      x: -410,
       y: -195,
     },
     rb: {
       x: 30,
-      y: 50,
+      y: 65,
     },
     origin: {
-      x: 285,
-      y: 182,
+      x: 434,
+      y: 248,
     },
   },
   {
-    name: '궁그닐 디센트',
+    name: '궁니르 디센트',
     location: 'assets/gungnirdescent.png',
     job: '다크나이트',
     lt: {
       x: -400,
-      y: -150,
+      y: -210,
     },
     rb: {
       x: 0,
       y: 0,
     },
     origin: {
-      x: 127 + 400,
-      y: 434,
+      x: 144 + 400,
+      y: 473,
     },
   },
   {
@@ -988,20 +1022,20 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
-    name: '페럴라이즈',
-    location: 'assets/paralyze.png',
+    name: '플레임 스윕',
+    location: 'assets/flamesweep.png',
     job: '불독',
     lt: {
-      x: -430,
-      y: -130,
+      x: -485,
+      y: -180,
     },
     rb: {
       x: 10,
       y: 20,
     },
     origin: {
-      x: 463,
-      y: 176,
+      x: 525,
+      y: 290,
     },
   },
   {
@@ -1017,8 +1051,25 @@ export const chtrSkillData: SkillData[] = [
       y: 250,
     },
     origin: {
-      x: 78,
-      y: 133,
+      x: 215,
+      y: 432,
+    },
+  },
+  {
+    name: '파이어 오라',
+    location: 'assets/fireaura.png',
+    job: '불독',
+    lt: {
+      x: -300,
+      y: -150,
+    },
+    rb: {
+      x: 300,
+      y: 150,
+    },
+    origin: {
+      x: 422,
+      y: 254,
     },
   },
   {
@@ -1034,8 +1085,8 @@ export const chtrSkillData: SkillData[] = [
       y: 250,
     },
     origin: {
-      x: 151,
-      y: 172,
+      x: 219,
+      y: 349,
     },
   },
   {
@@ -1051,8 +1102,8 @@ export const chtrSkillData: SkillData[] = [
       y: 50,
     },
     origin: {
-      x: 460,
-      y: 355,
+      x: 540,
+      y: 484,
     },
   },
   {
@@ -1090,6 +1141,23 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '빅뱅',
+    location: 'assets/bigbang.png',
+    job: '비숍',
+    lt: {
+      x: -300,
+      y: -230,
+    },
+    rb: {
+      x: 300,
+      y: 160,
+    },
+    origin: {
+      x: 194,
+      y: 194,
+    },
+  },
+  {
     name: '제네시스',
     location: 'assets/genesis.png',
     job: '비숍',
@@ -1102,8 +1170,8 @@ export const chtrSkillData: SkillData[] = [
       y: 250,
     },
     origin: {
-      x: 245,
-      y: 314,
+      x: 423,
+      y: 478,
     },
   },
   {
@@ -1119,8 +1187,8 @@ export const chtrSkillData: SkillData[] = [
       y: 130,
     },
     origin: {
-      x: 429,
-      y: 618,
+      x: 606,
+      y: 740,
     },
   },
   {
@@ -1197,15 +1265,15 @@ export const chtrSkillData: SkillData[] = [
     job: '보우마스터',
     lt: {
       x: -450,
-      y: -160,
+      y: -200,
     },
     rb: {
       x: 10,
-      y: 10,
+      y: 50,
     },
     origin: {
-      x: 530,
-      y: 267,
+      x: 583,
+      y: 242,
     },
   },
   {
@@ -1214,15 +1282,159 @@ export const chtrSkillData: SkillData[] = [
     job: '보우마스터',
     lt: {
       x: -400,
-      y: -435,
+      y: -455,
     },
     rb: {
       x: 400,
-      y: 20,
+      y: 45,
     },
     origin: {
-      x: 311,
-      y: 389,
+      x: 464,
+      y: 670,
+    },
+  },
+  {
+    name: '애로우 레인',
+    location: 'assets/arrowrain.png',
+    job: '보우마스터',
+    lt: {
+      x: -500,
+      y: -300,
+    },
+    rb: {
+      x: 30,
+      y: 30,
+    },
+    lt2: {
+      x: -500,
+      y: -300,
+    },
+    rb2: {
+      x: 150,
+      y: 10,
+    },
+    origin: {
+      x: 278,
+      y: 510,
+    },
+  },
+  {
+    name: '잔영의 시',
+    location: 'assets/illusionaryshot.png',
+    job: '보우마스터',
+    lt: {
+      x: -600,
+      y: -300,
+    },
+    rb: {
+      x: -10,
+      y: 300,
+    },
+    origin: {
+      x: 302,
+      y: 206,
+    },
+  },
+  {
+    name: '실루엣 미라주',
+    location: 'assets/silhouettemirage.png',
+    job: '보우마스터',
+    lt: {
+      x: -650,
+      y: -200,
+    },
+    rb: {
+      x: 50,
+      y: 200,
+    },
+    origin: {
+      x: 344,
+      y: 478,
+    },
+  },
+  {
+    name: '피어싱 II',
+    location: 'assets/piercing.png',
+    job: '신궁',
+    lt: {
+      x: -600,
+      y: -80,
+    },
+    rb: {
+      x: 0,
+      y: 0,
+    },
+    origin: {
+      x: 656,
+      y: 174,
+    },
+  },
+  {
+    name: '인핸스 피어싱 II',
+    location: 'assets/enhancepiercing.png',
+    job: '신궁',
+    lt: {
+      x: 0 - 250 / 2 - 600,
+      y: -39 - 175 / 2,
+    },
+    rb: {
+      x: 0 + 250 / 2,
+      y: -39 + 175 / 2,
+    },
+    origin: {
+      x: 718,
+      y: 205,
+    },
+  },
+  {
+    name: '롱 레인지 트루샷',
+    location: 'assets/longrangetrueshot.png',
+    job: '신궁',
+    lt: {
+      x: -960,
+      y: -210,
+    },
+    rb: {
+      x: 60,
+      y: 150,
+    },
+    origin: {
+      x: 954,
+      y: 247,
+    },
+  },
+  {
+    name: '차지드 애로우 (강화)',
+    location: 'assets/chargedarrow_full.png',
+    job: '신궁',
+    lt: {
+      x: -160 - 500 / 2 - 1050,
+      y: -45 - 260 / 2,
+    },
+    rb: {
+      x: -160 + 500 / 2,
+      y: -45 + 260 / 2,
+    },
+    origin: {
+      x: 741,
+      y: 311,
+    },
+  },
+  {
+    name: '풀버스트 샷',
+    location: 'assets/fullburstshot.png',
+    job: '신궁',
+    lt: {
+      x: -30 - 280 / 2 - 625,
+      y: -30 - 150 / 2,
+    },
+    rb: {
+      x: 280 / 2,
+      y: 280 / 2,
+    },
+    origin: {
+      x: 740,
+      y: 540,
     },
   },
   {
@@ -1401,15 +1613,32 @@ export const chtrSkillData: SkillData[] = [
     job: '나이트로드',
     lt: {
       x: -480,
-      y: -180,
+      y: -220,
     },
     rb: {
       x: 5,
-      y: 5,
+      y: 40,
     },
     origin: {
-      x: 487,
-      y: 265,
+      x: 616,
+      y: 300,
+    },
+  },
+  {
+    name: '다크 플레어',
+    location: 'assets/darkflare.png',
+    job: '나이트로드',
+    lt: {
+      x: -399,
+      y: -280,
+    },
+    rb: {
+      x: 401,
+      y: 140,
+    },
+    origin: {
+      x: 442,
+      y: 326,
     },
   },
   {
@@ -1425,8 +1654,8 @@ export const chtrSkillData: SkillData[] = [
       y: 250,
     },
     origin: {
-      x: 319,
-      y: 536,
+      x: 465,
+      y: 426,
     },
   },
   {
@@ -1442,8 +1671,8 @@ export const chtrSkillData: SkillData[] = [
       y: 50,
     },
     origin: {
-      x: 318,
-      y: 328,
+      x: 366,
+      y: 360,
     },
   },
   {
@@ -1456,11 +1685,11 @@ export const chtrSkillData: SkillData[] = [
     },
     rb: {
       x: -10,
-      y: 0,
+      y: 30,
     },
     origin: {
-      x: 262,
-      y: 123,
+      x: 331,
+      y: 184,
     },
   },
   {
@@ -1468,33 +1697,50 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/amsal2.png',
     job: '섀도어',
     lt: {
-      x: -275,
+      x: -335,
       y: -200,
     },
     rb: {
       x: -10,
-      y: 0,
+      y: 30,
     },
     origin: {
-      x: 377,
-      y: 279,
+      x: 453,
+      y: 402,
     },
   },
   {
-    name: '부메랑 스탭',
-    location: 'assets/boomerangstab.png',
+    name: '암살(2타, 살의)',
+    location: 'assets/amsal2_kill.png',
+    job: '섀도어',
+    lt: {
+      x: -375,
+      y: -250,
+    },
+    rb: {
+      x: -10,
+      y: 30,
+    },
+    origin: {
+      x: 494,
+      y: 428,
+    },
+  },
+  {
+    name: '크루얼 스탭',
+    location: 'assets/cruelstab.png',
     job: '섀도어',
     lt: {
       x: -440,
-      y: -130,
+      y: -175,
     },
     rb: {
       x: 40,
-      y: 20,
+      y: 55,
     },
     origin: {
-      x: 447,
-      y: 145,
+      x: 538,
+      y: 184,
     },
   },
   {
@@ -1502,16 +1748,33 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/smoke.png',
     job: '섀도어',
     lt: {
-      x: -250,
-      y: -150 - 150,
+      x: -365,
+      y: -320,
     },
     rb: {
-      x: 250,
-      y: 150 - 150,
+      x: 275,
+      y: 80,
     },
     origin: {
-      x: 268,
-      y: 302,
+      x: 386,
+      y: 357,
+    },
+  },
+  {
+    name: '베일 오브 섀도우',
+    location: 'assets/bailofshadow.png',
+    job: '섀도어',
+    lt: {
+      x: -420,
+      y: -620,
+    },
+    rb: {
+      x: 420,
+      y: 20,
+    },
+    origin: {
+      x: 531,
+      y: 756,
     },
   },
   {
@@ -1532,20 +1795,37 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
+    name: '블레이드 퓨리',
+    location: 'assets/bladefury.png',
+    job: '듀얼블레이드',
+    lt: {
+      x: -260,
+      y: -240,
+    },
+    rb: {
+      x: 260,
+      y: 10,
+    },
+    origin: {
+      x: 316,
+      y: 212,
+    },
+  },
+  {
     name: '팬텀 블로우',
     location: 'assets/phantomblow.png',
     job: '듀얼블레이드',
     lt: {
-      x: -250,
-      y: -140,
+      x: -350,
+      y: -200,
     },
     rb: {
-      x: 20,
-      y: 10,
+      x: 10,
+      y: 70,
     },
     origin: {
-      x: 225,
-      y: 135,
+      x: 421,
+      y: 175,
     },
   },
   {
@@ -1561,8 +1841,8 @@ export const chtrSkillData: SkillData[] = [
       y: 30,
     },
     origin: {
-      x: 153,
-      y: 151,
+      x: 299,
+      y: 285,
     },
   },
   {
@@ -1672,50 +1952,84 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/fistenrage.png',
     job: '바이퍼',
     lt: {
-      x: -270,
+      x: -280,
       y: -130,
     },
     rb: {
-      x: 0,
-      y: 0,
+      x: 20,
+      y: 40,
     },
     origin: {
-      x: 286,
-      y: 179,
+      x: 466,
+      y: 189,
     },
   },
   {
-    name: '드래곤 스트라이크',
-    location: 'assets/dragonstrike.png',
+    name: '훅 봄버',
+    location: 'assets/hookbomber.png',
     job: '바이퍼',
     lt: {
       x: -400,
-      y: -100,
+      y: -200,
     },
     rb: {
-      x: 25,
-      y: 20,
+      x: 20,
+      y: 80,
     },
     origin: {
-      x: 273,
-      y: 193,
+      x: 517,
+      y: 255,
     },
   },
   {
-    name: '유니티 오브 파워',
-    location: 'assets/unityofpower.png',
+    name: '씨 서펜트 버스트 II',
+    location: 'assets/seaserpentburst.png',
     job: '바이퍼',
     lt: {
-      x: -450,
-      y: -450,
+      x: -840,
+      y: -190,
     },
     rb: {
-      x: 100,
-      y: 100,
+      x: 10,
+      y: 50,
     },
     origin: {
-      x: 331,
-      y: 363,
+      x: 1024,
+      y: 309,
+    },
+  },
+  {
+    name: '씨 서펜트 인레이지',
+    location: 'assets/seaserpentenrage.png',
+    job: '바이퍼',
+    lt: {
+      x: -110,
+      y: -185,
+    },
+    rb: {
+      x: 110,
+      y: 75,
+    },
+    origin: {
+      x: 131,
+      y: 246,
+    },
+  },
+  {
+    name: '서펜트 어썰트 인레이지',
+    location: 'assets/serpentassultenrage.png',
+    job: '바이퍼',
+    lt: {
+      x: -175,
+      y: -220,
+    },
+    rb: {
+      x: 175,
+      y: 80,
+    },
+    origin: {
+      x: 399,
+      y: 248,
     },
   },
   {
@@ -1776,15 +2090,15 @@ export const chtrSkillData: SkillData[] = [
     job: '캡틴',
     lt: {
       x: -460,
-      y: -145,
+      y: -190,
     },
     rb: {
       x: 0,
-      y: 10,
+      y: 75,
     },
     origin: {
-      x: 463,
-      y: 135,
+      x: 610,
+      y: 266,
     },
   },
   {
@@ -1800,8 +2114,8 @@ export const chtrSkillData: SkillData[] = [
       y: 20,
     },
     origin: {
-      x: 464,
-      y: 502,
+      x: 667,
+      y: 619,
     },
   },
   {
@@ -1878,15 +2192,15 @@ export const chtrSkillData: SkillData[] = [
     job: '캐논슈터',
     lt: {
       x: -695,
-      y: -90,
+      y: -130,
     },
     rb: {
       x: 1,
-      y: 20,
+      y: 30,
     },
     origin: {
-      x: 717,
-      y: 149,
+      x: 800,
+      y: 222,
     },
   },
   {
@@ -1894,7 +2208,7 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/rollingcannonrainbow.png',
     job: '캐논슈터',
     lt: {
-      x: -550,
+      x: -650,
       y: -300,
     },
     rb: {
@@ -1902,8 +2216,8 @@ export const chtrSkillData: SkillData[] = [
       y: 20,
     },
     origin: {
-      x: 604,
-      y: 324,
+      x: 826,
+      y: 407,
     },
   },
   {
