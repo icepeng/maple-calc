@@ -3194,16 +3194,16 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/demonfrenzy.png',
     job: '데몬어벤져',
     lt: {
-      x: -65,
+      x: -210,
       y: -80,
     },
     rb: {
-      x: 65,
+      x: 210,
       y: 15,
     },
     origin: {
-      x: 61,
-      y: 121,
+      x: 260,
+      y: 108,
     },
   },
   {
