@@ -498,13 +498,13 @@ export const maps: Map[] = [
   {
     group: '레헬른',
     name: '우승 접시의 거리 1',
-    count: 23,
+    count: 30,
     mobs: [{ exp: 322473, level: 222 }],
   },
   {
     group: '레헬른',
     name: '우승 접시의 거리 2',
-    count: 22,
+    count: 30,
     mobs: [{ exp: 329417, level: 223 }],
   },
   {
@@ -537,7 +537,7 @@ export const maps: Map[] = [
   {
     group: '레헬른',
     name: '춤추는 구두 점령지 2',
-    count: 22,
+    count: 30,
     mobs: [{ exp: 342720, level: 225 }],
   },
   {
@@ -678,7 +678,7 @@ export const maps: Map[] = [
   {
     group: '아르카나',
     name: '동굴 아랫길 깊디 깊은곳',
-    count: 18,
+    count: 28,
     mobs: [
       { exp: 454588, level: 238 },
       { exp: 462670, level: 239 },
@@ -717,7 +717,7 @@ export const maps: Map[] = [
   {
     group: '아르카나',
     name: '다섯 갈래 동굴',
-    count: 21,
+    count: 29,
     mobs: [
       { exp: 454564, level: 238 },
       { exp: 462670, level: 239 },
@@ -726,7 +726,7 @@ export const maps: Map[] = [
   {
     group: '아르카나',
     name: '다섯 갈래 동굴 윗길',
-    count: 22,
+    count: 28,
     mobs: [
       { exp: 462670, level: 239 },
       { exp: 470825, level: 240 },
@@ -734,8 +734,23 @@ export const maps: Map[] = [
   },
   {
     group: '아르카나',
+    name: '다섯 갈래 동굴 사잇길',
+    count: 28,
+    mobs: [
+      { exp: 462670, level: 239 },
+      { exp: 470825, level: 240 },
+    ],
+  },
+  {
+    group: '아르카나',
+    name: '다섯 갈래 동굴 아랫길',
+    count: 28,
+    mobs: [{ exp: 470825, level: 240 }],
+  },
+  {
+    group: '아르카나',
     name: '정령의 나무 밑 동굴',
-    count: 24,
+    count: 29,
     mobs: [{ exp: 470825, level: 240 }],
   },
   {
@@ -1293,7 +1308,7 @@ export const maps: Map[] = [
   {
     group: '리멘',
     name: '세계가 끝나는 곳 1-7',
-    count: 33,
+    count: 34,
     mobs: [{ exp: 852145, level: 263 }],
   },
   {
