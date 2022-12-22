@@ -35,7 +35,7 @@ export const backgroundColors: Record<string, string> = {
   리멘: '#9bc2e6',
   '세르니움(전)': '#fff3b2',
   '세르니움(후)': '#bb8877',
-  '아르크스': '#e4a14b',
+  아르크스: '#e4a14b',
 };
 
 export const fieldAvailableLevels: Record<string, number> = {
@@ -53,7 +53,7 @@ export const fieldAvailableLevels: Record<string, number> = {
   리멘: 255,
   '세르니움(전)': 260,
   '세르니움(후)': 265,
-  '아르크스': 270,
+  아르크스: 270,
 };
 
 export const maps: Map[] = [
@@ -1341,7 +1341,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(전)',
     name: '해변 암석 지대 1',
-    count: 21,
+    count: 33,
     mobs: [{ exp: 1725461, level: 260 }],
   },
   {
@@ -1365,7 +1365,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(전)',
     name: '세르니움 서쪽 성벽 1',
-    count: 21,
+    count: 33,
     mobs: [{ exp: 1750290, level: 261 }],
   },
   {
@@ -1383,7 +1383,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(전)',
     name: '세르니움 동쪽 성벽 1',
-    count: 22,
+    count: 32,
     mobs: [{ exp: 1775159, level: 262 }],
   },
   {
@@ -1401,7 +1401,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(전)',
     name: '왕립 도서관 제1구역',
-    count: 21,
+    count: 33,
     mobs: [{ exp: 1800203, level: 263 }],
   },
   {
@@ -1419,7 +1419,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(전)',
     name: '왕립 도서관 제4구역',
-    count: 24,
+    count: 33,
     mobs: [{ exp: 1828409, level: 264 }],
   },
   {
@@ -1437,7 +1437,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(후)',
     name: '격전의 서쪽 성벽 1',
-    count: 21,
+    count: 32,
     mobs: [{ exp: 2056974, level: 265 }],
   },
   {
@@ -1461,7 +1461,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(후)',
     name: '격전의 동쪽 성벽 1',
-    count: 23,
+    count: 33,
     mobs: [{ exp: 2085219, level: 266 }],
   },
   {
@@ -1479,7 +1479,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(후)',
     name: '격전의 동쪽 성벽 4',
-    count: 21,
+    count: 33,
     mobs: [{ exp: 2113572, level: 267 }],
   },
   {
@@ -1497,7 +1497,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(후)',
     name: '불타는 왕립 도서관 제1구역',
-    count: 22,
+    count: 32,
     mobs: [{ exp: 2145596, level: 268 }],
   },
   {
@@ -1515,7 +1515,7 @@ export const maps: Map[] = [
   {
     group: '세르니움(후)',
     name: '불타는 왕립 도서관 제4구역',
-    count: 21,
+    count: 33,
     mobs: [{ exp: 2174274, level: 269 }],
   },
   {
@@ -1533,7 +1533,7 @@ export const maps: Map[] = [
   {
     group: '아르크스',
     name: '무법자들이 지배하는 황야 1',
-    count: 18,
+    count: 33,
     mobs: [{ exp: 2274336, level: 270 }],
   },
   {
@@ -1544,20 +1544,38 @@ export const maps: Map[] = [
   },
   {
     group: '아르크스',
+    name: '무법자들이 지배하는 황야 3',
+    count: 37,
+    mobs: [{ exp: 2274336, level: 270 }],
+  },
+  {
+    group: '아르크스',
+    name: '무법자들이 지배하는 황야 4',
+    count: 38,
+    mobs: [{ exp: 2274336, level: 270 }],
+  },
+  {
+    group: '아르크스',
     name: '낭만이 머무는 자동차 극장 1',
-    count: 17,
+    count: 33,
     mobs: [{ exp: 2382248, level: 271 }],
   },
   {
     group: '아르크스',
     name: '낭만이 머무는 자동차 극장 2',
-    count: 26,
+    count: 30,
+    mobs: [{ exp: 2382248, level: 271 }],
+  },
+  {
+    group: '아르크스',
+    name: '낭만이 머무는 자동차 극장 3',
+    count: 37,
     mobs: [{ exp: 2382248, level: 271 }],
   },
   {
     group: '아르크스',
     name: '낭만이 머무는 자동차 극장 4',
-    count: 18,
+    count: 33,
     mobs: [{ exp: 2413256, level: 272 }],
   },
   {
@@ -1568,8 +1586,14 @@ export const maps: Map[] = [
   },
   {
     group: '아르크스',
+    name: '낭만이 머무는 자동차 극장 6',
+    count: 38,
+    mobs: [{ exp: 2413256, level: 272 }],
+  },
+  {
+    group: '아르크스',
     name: '종착지 없는 횡단 열차 1',
-    count: 22,
+    count: 33,
     mobs: [{ exp: 2546149, level: 273 }],
   },
   {
@@ -1580,14 +1604,26 @@ export const maps: Map[] = [
   },
   {
     group: '아르크스',
-    name: '종착지 없는 횡단 열차 4',
-    count: 22,
-    mobs: [{ exp: 2582906, level: 274 }],
+    name: '종착지 없는 횡단 열차 3',
+    count: 35,
+    mobs: [{ exp: 2582906, level: 273 }],
   },
   {
     group: '아르크스',
     name: '종착지 없는 횡단 열차 4',
-    count: 26,
+    count: 33,
+    mobs: [{ exp: 2582906, level: 274 }],
+  },
+  {
+    group: '아르크스',
+    name: '종착지 없는 횡단 열차 5',
+    count: 27,
+    mobs: [{ exp: 2582906, level: 274 }],
+  },
+  {
+    group: '아르크스',
+    name: '종착지 없는 횡단 열차 6',
+    count: 32,
     mobs: [{ exp: 2582906, level: 274 }],
   },
 ];
