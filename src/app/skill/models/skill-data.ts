@@ -3878,7 +3878,7 @@ export const chtrSkillData: SkillData[] = [
       y: -90,
     },
     rb: {
-      x: -380,
+      x: -340,
       y: 110,
     },
     origin: {
@@ -3891,7 +3891,7 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/swiftofthunder2.png',
     job: '에반',
     lt: {
-      x: -270,
+      x: -310,
       y: -295,
     },
     rb: {
@@ -3912,7 +3912,7 @@ export const chtrSkillData: SkillData[] = [
       y: -295,
     },
     rb: {
-      x: -480,
+      x: -440,
       y: -95,
     },
     origin: {
@@ -3925,7 +3925,7 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/swiftofthunder4.png',
     job: '에반',
     lt: {
-      x: -370,
+      x: -410,
       y: -90,
     },
     rb: {
@@ -3942,12 +3942,12 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/swiftofthunder5.png',
     job: '에반',
     lt: {
-      x: -475,
-      y: -445,
+      x: -485,
+      y: -425,
     },
     rb: {
-      x: -275,
-      y: -245,
+      x: -265,
+      y: -205,
     },
     origin: {
       x: 610,
@@ -3993,11 +3993,11 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/diveofearth2.png',
     job: '에반',
     lt: {
-      x: -360,
-      y: -214,
+      x: -380,
+      y: -234,
     },
     rb: {
-      x: -54,
+      x: -50,
       y: 2,
     },
     origin: {
@@ -4010,11 +4010,11 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/diveofearth3.png',
     job: '에반',
     lt: {
-      x: -510,
-      y: -206,
+      x: -480,
+      y: -234,
     },
     rb: {
-      x: -222,
+      x: -150,
       y: 2,
     },
     origin: {
@@ -4027,11 +4027,11 @@ export const chtrSkillData: SkillData[] = [
     location: 'assets/diveofearth4.png',
     job: '에반',
     lt: {
-      x: -770,
-      y: -220,
+      x: -670,
+      y: -234,
     },
     rb: {
-      x: -408,
+      x: -340,
       y: 2,
     },
     origin: {
@@ -7177,7 +7177,7 @@ export const chtrSkillData: SkillData[] = [
     },
   },
   {
-    name: 'Ghost Yaksha: Great Oni Lord\'s Legion',
+    name: "Ghost Yaksha: Great Oni Lord's Legion",
     location: 'assets/ghost_yaksha_great_oni.png',
     job: '칸나',
     lt: {
